@@ -10,41 +10,36 @@
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar">
-        <div class="container">
-            <a href="index.html" class="logo">ChaosKingdom</a>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="features.html">Features</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="rules.html">Rules</a></li>
-            </ul>
-            <div class="hamburger" onclick="toggleNav()">☰</div>
-        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="rules.html">Rules</a></li>
+        </ul>
+        <div class="hamburger" onclick="toggleNav()">☰</div>
     </nav>
 
     <!-- Contact Section -->
-    <section>
-        <div class="text-box fade-in">
-            <h2>Contact Us</h2>
-            <p>If you have any questions or concerns, feel free to reach out to us!</p>
-            <form action="mailto:your-email@example.com" method="post" enctype="text/plain">
-                <label for="name">Name:</label><br>
-                <input type="text" id="name" name="name" required><br><br>
-                <label for="email">Email:</label><br>
-                <input type="email" id="email" name="email" required><br><br>
-                <label for="message">Message:</label><br>
-                <textarea id="message" name="message" rows="4" required></textarea><br><br>
-                <input type="submit" value="Send">
-            </form>
-        </div>
+    <section class="text-box fade-in">
+        <h1>Contact Us</h1>
+        <p>If you have any questions or need assistance, feel free to reach out to us:</p>
+        <ul>
+            <li>Email: support@chaoskingdom.com</li>
+            <li>Discord: Join our community on Discord</li>
+        </ul>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <p>© 2024 ChaosKingdom Minecraft Server | Created by MegaStudios</p>
-        </div>
+        <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="rules.html">Rules</a></li>
+        </ul>
+        <p>© 2024 ChaosKingdom Minecraft Server | Created by MegaStudios</p>
     </footer>
 
     <script src="script.js"></script>
