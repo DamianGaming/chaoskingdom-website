@@ -17,19 +17,15 @@ body {
     position: fixed;
     top: 0;
     z-index: 999;
+    display: flex;
+    justify-content: center; /* Center the navigation links */
+    padding: 1rem 0;
 }
 
-.navbar .container {
+.navbar .nav-links {
     display: flex;
-    justify-content: center; /* Center the navigation */
-    align-items: center;
-    padding: 1rem 2rem;
-}
-
-.nav-links {
-    display: flex;
+    gap: 2rem;
     list-style: none;
-    gap: 2rem; /* Spacing between nav items */
 }
 
 .nav-links li a {
@@ -71,14 +67,42 @@ body {
     max-width: 900px;
     margin: 100px auto 20px auto;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
-/* Footer */
+/* Footer Styling */
 footer {
-    text-align: center;
-    padding: 20px 0;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.9);
     color: white;
+    padding: 20px;
+    margin-top: auto;
+    width: 100%;
+    text-align: center;
+}
+
+footer .footer-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 10px;
+}
+
+footer .footer-links li a {
+    color: #f4c542;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+footer .footer-links li a:hover {
+    color: #ffbe42;
+}
+
+footer p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #f4f4f4;
 }
 
 /* Animations */
@@ -107,10 +131,6 @@ footer {
 
     .hamburger {
         display: block;
-    }
-
-    .navbar .container {
-        justify-content: space-between;
     }
 
     .text-box {
