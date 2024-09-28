@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
+    <title>ChaosKingdom - Contact</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -16,7 +16,6 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="features.html">Features</a></li>
-                <li><a href="join.html">Join Us</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="rules.html">Rules</a></li>
             </ul>
@@ -28,7 +27,16 @@
     <section>
         <div class="text-box fade-in">
             <h2>Contact Us</h2>
-            <p>If you have any questions or need help, reach out to us via email: <a href="mailto:support@chaoskingdom.com">support@chaoskingdom.com</a></p>
+            <p>If you have any questions or concerns, feel free to reach out to us!</p>
+            <form action="mailto:your-email@example.com" method="post" enctype="text/plain">
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name" required><br><br>
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required><br><br>
+                <label for="message">Message:</label><br>
+                <textarea id="message" name="message" rows="4" required></textarea><br><br>
+                <input type="submit" value="Send">
+            </form>
         </div>
     </section>
 
