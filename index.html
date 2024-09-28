@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChaosKingdom Minecraft Server</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -21,19 +21,6 @@
                 <li><a href="rules.html">Rules</a></li>
             </ul>
             <div class="hamburger" onclick="toggleNav()">☰</div>
-            <!-- Accessibility and Language Options -->
-            <div class="accessibility-options">
-                <button onclick="toggleDarkMode()">🌓</button>
-                <button onclick="increaseFontSize()">A+</button>
-                <button onclick="decreaseFontSize()">A-</button>
-            </div>
-            <div class="language-selector">
-                <select onchange="changeLanguage(this.value)">
-                    <option value="en">English</option>
-                    <option value="es">Español</option>
-                    <option value="fr">Français</option>
-                </select>
-            </div>
         </div>
     </nav>
 
@@ -53,6 +40,21 @@
             <p><a href="rules.html">Server Rules</a> | <a href="contact.html">Contact Us</a></p>
         </div>
     </footer>
+
+    <!-- Accessibility and Language Selector -->
+    <div class="accessibility-options">
+        <button onclick="toggleDarkMode()">🌓</button>
+        <button onclick="increaseFontSize()">A+</button>
+        <button onclick="decreaseFontSize()">A-</button>
+    </div>
+
+    <div class="language-selector">
+        <select onchange="changeLanguage(this.value)">
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="fr">Français</option>
+        </select>
+    </div>
 
     <script src="script.js"></script>
 </body>
