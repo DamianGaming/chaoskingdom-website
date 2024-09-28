@@ -8,18 +8,6 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Accessibility and Language Options -->
-    <div class="accessibility-options">
-        <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
-        <div class="language-selector">
-            <select onchange="changeLanguage(this.value)">
-                <option value="en">English</option>
-                <option value="es">Español</option>
-                <option value="fr">Français</option>
-            </select>
-        </div>
-    </div>
-
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="container">
@@ -35,13 +23,12 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content fade-in">
-            <h1>Welcome to ChaosKingdom</h1>
-            <button class="btn-primary" onclick="copyToClipboard()">Join Now!</button>
-            <p id="ip">Server IP: <strong>23.26.247.227:26246</strong></p>
-        </div>
+    <!-- Main Content -->
+    <section class="text-box fade-in">
+        <h1>Welcome to ChaosKingdom</h1>
+        <p>Join our epic Minecraft adventure! Explore, build, and create your own legacy on ChaosKingdom.</p>
+        <button class="button-join" onclick="copyToClipboard()">Join Now!</button>
+        <p id="ip">Server IP: 23.26.247.227:26246</p>
     </section>
 
     <!-- Footer -->
