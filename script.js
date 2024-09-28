@@ -4,11 +4,13 @@ function toggleNav() {
     navLinks.classList.toggle('active');
 }
 
-// Smooth scrolling (optional, if you want smooth page scrolling on the nav clicks)
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetSection = document.querySelector(this.getAttribute('href'));
-        targetSection.scrollIntoView({ behavior: 'smooth' });
-    });
-});
+// Copy IP Functionality
+function copyIP() {
+    const tempInput = document.createElement('input');
+    tempInput.value = "23.26.247.227:26246";
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempInput);
+    alert("IP Copied: 23.26.247.227:26246");
+}
