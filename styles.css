@@ -1,6 +1,8 @@
 /* General Styles */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Orbitron', sans-serif;
     margin: 0;
     padding: 0;
     background: linear-gradient(to right, #ff914d, #ff5e62);
@@ -9,6 +11,11 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    transition: background-color 0.5s ease; /* Smooth background transition */
+}
+
+a {
+    text-decoration: none; /* Remove underline for all links */
 }
 
 /* Navigation Bar */
@@ -24,9 +31,9 @@ body {
 }
 
 .navbar .logo {
-    font-size: 2rem;  /* Slightly larger logo text */
+    font-size: 2rem;
     font-weight: 700;
-    color: #ff914d;   /* Slight color contrast for the logo text */
+    color: #ff914d;
     text-transform: uppercase;
 }
 
@@ -43,7 +50,6 @@ body {
 
 .nav-links li a {
     color: #fff;
-    text-decoration: none;
     font-weight: 600;
     text-transform: uppercase;
     padding: 0.5rem 1rem;
@@ -51,7 +57,8 @@ body {
 }
 
 .nav-links li a:hover {
-    color: #ff914d;  /* Make hover effect match logo color */
+    color: #ff914d;
+    transition: color 0.3s ease-in-out;
 }
 
 .hamburger {
@@ -61,17 +68,40 @@ body {
     cursor: pointer;
 }
 
-/* Hero Section */
+/* Accessibility and Language Options */
+.navbar .accessibility-options, .language-selector {
+    font-size: 1rem;
+    color: #fff;
+    margin-left: 1rem;
+    cursor: pointer;
+}
+
+.language-selector select {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+}
+
+/* Animations */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
 .hero {
     height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-}
-
-.hero-content {
-    max-width: 800px;
+    animation: fadeIn 2s ease;
 }
 
 .hero h1 {
@@ -80,14 +110,40 @@ body {
     text-transform: uppercase;
     letter-spacing: 2px;
     color: #fff;
+    animation: bounceIn 1.2s ease;
 }
 
 .hero p {
     font-size: 1.5rem;
     margin-bottom: 2rem;
     color: #f0f0f0;
+    animation: fadeInUp 1.5s ease;
 }
 
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.9);
+    }
+    60% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Button Hover Effect */
 .btn-primary {
     background-color: #ff5e62;
     color: white;
@@ -97,42 +153,12 @@ body {
     cursor: pointer;
     text-transform: uppercase;
     font-weight: 600;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s;
 }
 
 .btn-primary:hover {
     background-color: #ff914d;
-}
-
-/* Section Styles */
-section {
-    padding: 3rem 0;
-    text-align: center;
-}
-
-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-}
-
-section ul,
-section p {
-    max-width: 800px;
-    margin: 0 auto;
-    font-size: 1.2rem;
-    line-height: 1.6;
-}
-
-section ul li {
-    margin: 1rem 0;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
+    transform: scale(1.05);
 }
 
 /* Footer */
@@ -145,12 +171,6 @@ footer {
 
 footer p {
     margin: 0.5rem 0;
-}
-
-footer a {
-    color: #fff;
-    text-decoration: none;
-    transition: color 0.3s ease;
 }
 
 footer a:hover {
@@ -181,16 +201,7 @@ footer a:hover {
         font-size: 1.2rem;
     }
 
-    .btn-primary {
-        padding: 0.8rem 1.2rem;
-    }
-
-    section h2 {
-        font-size: 2rem;
-    }
-
-    section ul,
-    section p {
+    section ul, section p {
         font-size: 1rem;
     }
 }
@@ -202,14 +213,5 @@ footer a:hover {
 
     .hero p {
         font-size: 1rem;
-    }
-
-    .btn-primary {
-        padding: 0.8rem 1rem;
-    }
-
-    section ul,
-    section p {
-        font-size: 0.9rem;
     }
 }
