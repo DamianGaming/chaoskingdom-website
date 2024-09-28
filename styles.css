@@ -4,7 +4,7 @@ body, html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background: linear-gradient(45deg, #FF7E5F, #FD3A69);
+    background: linear-gradient(135deg, #FF7E5F, #FD3A69);  /* Smooth orange gradient */
     color: white;
     text-align: center;
 }
@@ -31,7 +31,7 @@ a:hover {
 
 .navbar {
     display: flex;
-    justify-content: center;
+    justify-content: center;  /* Center the navbar */
     align-items: center;
     padding: 20px;
     background-color: rgba(0, 0, 0, 0.6);
@@ -49,7 +49,7 @@ a:hover {
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 15px;
+    gap: 30px;  /* Increased gap for more spacing */
 }
 
 .nav-links li {
@@ -96,7 +96,8 @@ footer {
 
 /* Text Box Styles */
 .text-box {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.85);  /* Semi-transparent white background */
+    color: #333;  /* Dark text inside text boxes */
     padding: 30px;
     margin: 50px auto;
     max-width: 800px;
