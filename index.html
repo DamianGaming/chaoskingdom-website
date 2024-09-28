@@ -8,6 +8,18 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Accessibility and Language Options -->
+    <div class="accessibility-options">
+        <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+        <div class="language-selector">
+            <select onchange="changeLanguage(this.value)">
+                <option value="en">English</option>
+                <option value="es">Español</option>
+                <option value="fr">Français</option>
+            </select>
+        </div>
+    </div>
+
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="container">
@@ -16,7 +28,6 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="features.html">Features</a></li>
-                <li><a href="join.html">Join Us</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="rules.html">Rules</a></li>
             </ul>
@@ -29,7 +40,7 @@
         <div class="hero-content fade-in">
             <h1>Welcome to ChaosKingdom</h1>
             <button class="btn-primary" onclick="copyToClipboard()">Join Now!</button>
-            <p id="ip">23.26.247.227:26246</p>
+            <p id="ip">Server IP: <strong>23.26.247.227:26246</strong></p>
         </div>
     </section>
 
