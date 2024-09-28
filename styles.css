@@ -4,7 +4,7 @@ body, html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background: linear-gradient(135deg, #FF7E5F, #FD3A69);  /* Smooth orange gradient */
+    background: linear-gradient(135deg, #FF7E5F, #FD3A69);  /* Orange gradient */
     color: white;
     text-align: center;
 }
@@ -29,9 +29,10 @@ a:hover {
     text-decoration: underline;
 }
 
+/* Navbar Styles */
 .navbar {
     display: flex;
-    justify-content: center;  /* Center the navbar */
+    justify-content: center; /* Center the navbar */
     align-items: center;
     padding: 20px;
     background-color: rgba(0, 0, 0, 0.6);
@@ -44,6 +45,7 @@ a:hover {
     font-size: 24px;
     font-weight: 700;
     letter-spacing: 2px;
+    margin-right: auto; /* Keeps the logo on the left */
 }
 
 .nav-links {
