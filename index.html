@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChaosKingdom Minecraft Server</title>
+    <title>ChaosKingdom - Home</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -25,11 +25,11 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero fade-in">
-        <div class="hero-content">
+    <section class="hero">
+        <div class="hero-content fade-in">
             <h1>Welcome to ChaosKingdom</h1>
-            <p>The Ultimate Minecraft Experience Awaits You</p>
-            <a href="join.html" class="btn-primary">Join Now</a>
+            <button class="btn-primary" onclick="copyToClipboard()">Join Now!</button>
+            <p id="ip">23.26.247.227:26246</p>
         </div>
     </section>
 
@@ -37,24 +37,8 @@
     <footer>
         <div class="container">
             <p>© 2024 ChaosKingdom Minecraft Server | Created by MegaStudios</p>
-            <p><a href="rules.html">Server Rules</a> | <a href="contact.html">Contact Us</a></p>
         </div>
     </footer>
-
-    <!-- Accessibility and Language Selector -->
-    <div class="accessibility-options">
-        <button onclick="toggleDarkMode()">🌓</button>
-        <button onclick="increaseFontSize()">A+</button>
-        <button onclick="decreaseFontSize()">A-</button>
-    </div>
-
-    <div class="language-selector">
-        <select onchange="changeLanguage(this.value)">
-            <option value="en">English</option>
-            <option value="es">Español</option>
-            <option value="fr">Français</option>
-        </select>
-    </div>
 
     <script src="script.js"></script>
 </body>
