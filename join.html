@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join ChaosKingdom</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="container">
             <a href="index.html" class="logo">ChaosKingdom</a>
             <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="features.html">Features</a></li>
                 <li><a href="join.html">Join Us</a></li>
@@ -22,11 +25,12 @@
     </nav>
 
     <!-- Join Us Section -->
-    <section class="join-section">
-        <div class="container">
+    <section>
+        <div class="text-box fade-in">
             <h2>Join ChaosKingdom</h2>
-            <p>Server IP: <strong>23.26.247.227:26246</strong></p>
-            <button class="btn-primary" onclick="copyIP()">Copy IP</button>
+            <p>To join the ChaosKingdom Minecraft server, use the following IP address:</p>
+            <p><strong>IP: 23.26.247.227:26246</strong></p>
+            <button class="btn-primary" onclick="copyToClipboard()">Copy IP</button>
         </div>
     </section>
 
@@ -34,6 +38,7 @@
     <footer>
         <div class="container">
             <p>© 2024 ChaosKingdom Minecraft Server | Created by MegaStudios</p>
+            <p><a href="rules.html">Server Rules</a> | <a href="contact.html">Contact Us</a></p>
         </div>
     </footer>
 
