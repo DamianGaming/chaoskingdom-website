@@ -6,6 +6,9 @@ body {
     background: linear-gradient(to right, #ff914d, #ff5e62);
     color: #fff;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* Navigation Bar */
@@ -13,16 +16,25 @@ body {
     background-color: #333;
     padding: 1rem;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
+.navbar .logo {
+    font-size: 2rem;  /* Slightly larger logo text */
+    font-weight: 700;
+    color: #ff914d;   /* Slight color contrast for the logo text */
+    text-transform: uppercase;
+}
+
 .nav-links {
     display: flex;
-    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
 }
 
 .nav-links li {
@@ -33,6 +45,13 @@ body {
     color: #fff;
     text-decoration: none;
     font-weight: 600;
+    text-transform: uppercase;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #ff914d;  /* Make hover effect match logo color */
 }
 
 .hamburger {
@@ -57,10 +76,16 @@ body {
 
 .hero h1 {
     font-size: 4rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #fff;
 }
 
 .hero p {
     font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: #f0f0f0;
 }
 
 .btn-primary {
@@ -72,11 +97,36 @@ body {
     cursor: pointer;
     text-transform: uppercase;
     font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #ff914d;
 }
 
 /* Section Styles */
 section {
     padding: 3rem 0;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+section ul,
+section p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+section ul li {
+    margin: 1rem 0;
 }
 
 .container {
@@ -90,10 +140,21 @@ footer {
     background-color: #333;
     padding: 1rem 0;
     color: #fff;
+    margin-top: auto;
 }
 
 footer p {
     margin: 0.5rem 0;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #ff914d;
 }
 
 /* Responsive Design */
@@ -101,6 +162,7 @@ footer p {
     .nav-links {
         display: none;
         flex-direction: column;
+        align-items: center;
     }
 
     .nav-links.active {
@@ -118,6 +180,19 @@ footer p {
     .hero p {
         font-size: 1.2rem;
     }
+
+    .btn-primary {
+        padding: 0.8rem 1.2rem;
+    }
+
+    section h2 {
+        font-size: 2rem;
+    }
+
+    section ul,
+    section p {
+        font-size: 1rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -130,6 +205,11 @@ footer p {
     }
 
     .btn-primary {
-        padding: 0.8rem 1.2rem;
+        padding: 0.8rem 1rem;
+    }
+
+    section ul,
+    section p {
+        font-size: 0.9rem;
     }
 }
