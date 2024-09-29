@@ -3,42 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChaosKingdom - Home</title>
+    <title>ChaosKingdom MC</title>
     <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
-    <!-- Unavailable Message -->
-    <div id="unavailableMessage" style="display: none;">
-        <h1>Website is Currently Unavailable</h1>
-        <p>Please check back later.</p>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+
+    <!-- Logo -->
+    <div class="logo-container">
+        <img src="logo.png" alt="ChaosKingdom Logo" class="logo">
     </div>
 
-    <!-- Main Section -->
-    <section class="main-content" id="mainContent">
-        <div class="text-box">
-            <div class="logo-container">
-                <img src="logo.png" alt="ChaosKingdom Logo" class="logo">
-            </div>
-            <h1>Welcome to ChaosKingdom</h1>
-            <p>IP Address: <strong>23.26.247.227:26246</strong></p>
-            <button class="join-btn">Join Now</button>
-        </div>
-    </section>
+    <!-- Main Content -->
+    <div class="text-box">
+        <h1>Welcome to ChaosKingdom MC</h1>
+        <p>Join the most thrilling Minecraft server out there!</p>
+        <button class="join-btn" id="copyIP">Copy IP: 23.26.247.227:26246</button>
+    </div>
 
-    <!-- Footer with Admin Button -->
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2024 ChaosKingdom</p>
+        <p>&copy; 2024 ChaosKingdom MC - Created by MegaStudios</p>
+        <div class="accessibility-options">
+            <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+            <button onclick="decreaseFontSize()">Decrease Font Size</button>
+            <select id="languageSelect" onchange="switchLanguage()">
+                <option value="en">English</option>
+                <option value="es">Spanish</option>
+            </select>
+        </div>
         <a href="admin.html" class="admin-btn">Admin Login</a>
     </footer>
 
-    <script>
-        // Check website availability
-        const websiteAvailability = localStorage.getItem('websiteAvailability') || 'available';
-
-        if (websiteAvailability === 'unavailable') {
-            document.getElementById('unavailableMessage').style.display = 'block';
-            document.getElementById('mainContent').style.display = 'none';
-        }
-    </script>
 </body>
 </html>
