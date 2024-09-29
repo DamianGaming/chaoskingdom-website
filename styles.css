@@ -1,229 +1,195 @@
-/* General Styles */
+/* Global Styles */
 body {
-    font-family: 'Roboto', sans-serif; /* Use a modern, clean font */
-    background: linear-gradient(45deg, #ff8800, #ff5500); /* Orange gradient background */
-    color: #fff;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    text-align: center;
-}
-
-/* Headings */
-h1, h2, h3 {
-    font-weight: 600;
+    background: linear-gradient(135deg, #FF7F50, #FF4500);
     color: #fff;
 }
 
-/* Main Content Box */
+/* Container Styles */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Navbar Styles */
+nav {
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    position: relative;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 15px 20px;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+nav .logo {
+    position: absolute;
+    left: 20px;
+}
+
+/* Main Content Styles */
+.main-content {
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* Text Box Styles */
 .text-box {
-    background-color: rgba(255, 255, 255, 0.15);
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
     padding: 20px;
     margin: 20px auto;
-    border-radius: 10px;
-    max-width: 800px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-}
-
-/* Buttons */
-button, .join-btn {
-    background-color: #ff5500;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 18px;
-    margin-top: 10px;
-    transition: background-color 0.3s ease;
-}
-
-button:hover, .join-btn:hover {
-    background-color: #ff8800;
-}
-
-/* Input and Select Boxes */
-input[type="password"], select {
-    padding: 10px;
     width: 80%;
-    margin: 10px 0;
+    max-width: 600px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Button Styles */
+button {
+    background-color: #FF6347;
     border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    background-color: rgba(255, 255, 255, 0.2);
-    color: #fff;
-}
-
-/* Navigation Bar */
-nav {
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 10px 0;
-    position: sticky;
-    top: 0;
-    width: 100%;
-}
-
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-nav ul li {
-    margin: 0 20px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    padding: 10px 20px;
-    transition: color 0.3s ease;
-}
-
-nav ul li a:hover {
-    color: #ff8800;
-}
-
-/* Admin Button in Footer */
-.admin-btn {
-    background-color: #ff5500;
     color: white;
     padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 16px;
-}
-
-.admin-btn:hover {
-    background-color: #ff8800;
-}
-
-/* Footer */
-footer {
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 20px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
     text-align: center;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-footer p {
-    margin: 0;
-}
-
-/* Footer Accessibility Options */
-footer .accessibility-options {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-}
-
-footer .accessibility-options button {
-    margin: 5px;
-    padding: 10px 15px;
-    font-size: 14px;
-    background-color: #ff5500;
-    border: none;
-    color: white;
-    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
+    margin: 10px 2px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-footer .accessibility-options button:hover {
-    background-color: #ff8800;
+button:hover {
+    background-color: #e55335;
 }
 
-/* Logo */
-.logo-container {
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.logo {
-    width: 150px;
-    height: auto;
-}
-
-/* Admin Login & Panel Styles */
-.admin-login-box, .admin-panel-box {
-    max-width: 400px;
-    margin: 100px auto;
+/* Admin Panel Styles */
+.admin-panel-box {
+    width: 50%;
+    margin: 50px auto;
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: #333;
     border-radius: 10px;
-    color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    text-align: center;
 }
 
-.admin-login-box input, .admin-panel-box select {
-    padding: 10px;
-    width: 100%;
-    margin: 10px 0;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    background-color: rgba(255, 255, 255, 0.2);
+.admin-panel-box h1, .admin-panel-box h2 {
     color: #fff;
 }
 
-.admin-login-box button, .admin-panel-box button {
-    background-color: #ff5500;
-    color: white;
-    padding: 10px 20px;
-    border: none;
+.admin-panel-box input, .admin-panel-box textarea, .admin-panel-box select {
+    width: 80%;
+    padding: 10px;
+    margin: 10px auto;
     border-radius: 5px;
+    border: none;
+    display: block;
+}
+
+.admin-panel-box button {
+    padding: 10px 20px;
+    background-color: #ff6347;
+    border: none;
+    color: #fff;
     cursor: pointer;
-    font-size: 16px;
+    border-radius: 5px;
     margin-top: 10px;
-    transition: background-color 0.3s ease;
 }
 
-.admin-login-box button:hover, .admin-panel-box button:hover {
-    background-color: #ff8800;
+.admin-panel-box button:hover {
+    background-color: #e55335;
 }
 
-/* Text Alignment */
-.text-box {
-    text-align: center;
+.admin-messages {
+    color: #ff6347;
+    margin-top: 15px;
 }
 
 .error-message {
-    color: red;
+    color: #ff6347;
+    margin-top: 10px;
 }
 
-/* Mobile Adjustments */
-@media only screen and (max-width: 768px) {
-    nav ul {
+/* Accessibility Settings */
+.accessibility-button {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background: #444;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.accessibility-button:hover {
+    background: #555;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #222;
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav {
         flex-direction: column;
     }
 
-    nav ul li {
-        margin: 10px 0;
+    nav a {
+        padding: 10px;
+        font-size: 16px;
     }
 
-    footer {
-        flex-direction: column;
+    .admin-panel-box {
+        width: 90%;
     }
 
-    footer .accessibility-options {
-        flex-direction: column;
+    .text-box {
+        width: 90%;
     }
 }
 
-/* Unavailable Message */
-#unavailableMessage {
-    margin-top: 100px;
-    color: #ff5500;
+/* Dark Mode Styles */
+.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.dark-mode .text-box {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.dark-mode footer {
+    background-color: #1f1f1f;
+}
+
+/* Accessibility: Large Text */
+.large-text {
+    font-size: 1.2em;
 }
