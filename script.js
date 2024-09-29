@@ -18,6 +18,15 @@ increaseFontButton.addEventListener("click", function () {
     localStorage.setItem("fontSize", `${newFontSize}px`);
 });
 
+// Decrease Font Size
+const decreaseFontButton = document.getElementById("decreaseFont");
+decreaseFontButton.addEventListener("click", function () {
+    let currentFontSize = window.getComputedStyle(document.body).fontSize;
+    let newFontSize = parseFloat(currentFontSize) - 2;
+    document.body.style.fontSize = `${newFontSize}px`;
+    localStorage.setItem("fontSize", `${newFontSize}px`);
+});
+
 // High Contrast Mode Toggle
 const highContrastToggle = document.getElementById("highContrastToggle");
 highContrastToggle.addEventListener("click", function () {
@@ -39,16 +48,14 @@ languageSelect.addEventListener("change", function () {
 
 // Apply Settings from Local Storage (Persist User Preferences)
 window.onload = function () {
+    // Reset to default font size on page load
+    document.body.style.fontSize = "16px";
+    localStorage.removeItem("fontSize");
+
     // Theme
     const theme = localStorage.getItem("theme");
     if (theme === "dark") {
         document.body.classList.add("dark-mode");
-    }
-
-    // Font Size
-    const fontSize = localStorage.getItem("fontSize");
-    if (fontSize) {
-        document.body.style.fontSize = fontSize;
     }
 
     // Contrast Mode
@@ -58,19 +65,20 @@ window.onload = function () {
     }
 
     // Language
-    const savedLanguage = localStorage.getItem("language");
-    if (savedLanguage) {
-        setLanguage(savedLanguage);
+    const language = localStorage.getItem("language");
+    if (language) {
+        languageSelect.value = language;
+        setLanguage(language);
     }
 };
 
-// Language Handling Function
+// Language switching logic
 function setLanguage(language) {
-    const allElements = document.querySelectorAll("[data-en], [data-es]");
-    allElements.forEach((element) => {
-        element.style.display = "none"; // Hide all language elements first
-        if (element.hasAttribute(`data-${language}`)) {
-            element.style.display = ""; // Show the selected language elements
-        }
-    });
+    if (language === "es") {
+        document.querySelector('h1').innerText = "Bienvenido a ChaosKingdom";
+        document.querySelector('.join-btn').innerText = "Únete ahora";
+    } else {
+        document.querySelector('h1').innerText = "Welcome to ChaosKingdom";
+        document.querySelector('.join-btn').innerText = "Join Now";
+    }
 }
