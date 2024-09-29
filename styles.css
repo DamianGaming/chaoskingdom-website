@@ -1,228 +1,229 @@
-/* General Styling */
+/* General Styles */
 body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #FF8C00, #FF4500); /* Orange gradient background */
-    color: #ffffff;
+    font-family: 'Roboto', sans-serif; /* Use a modern, clean font */
+    background: linear-gradient(45deg, #ff8800, #ff5500); /* Orange gradient background */
+    color: #fff;
     margin: 0;
     padding: 0;
     text-align: center;
-    font-size: 16px; /* Default font size */
-    transition: all 0.3s ease;
 }
 
-.dark-mode {
-    background: linear-gradient(135deg, #2e2e2e, #1a1a1a); /* Dark theme */
+/* Headings */
+h1, h2, h3 {
+    font-weight: 600;
+    color: #fff;
 }
 
-.high-contrast-mode {
-    background-color: #000000;
-    color: #ffff00; /* High contrast: yellow on black */
-}
-
-.navbar {
-    background-color: #333;
-    padding: 1rem;
-    text-align: center;
-}
-
-.navbar ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: inline-block;
-}
-
-.navbar li {
-    display: inline-block;
-    margin: 0 20px;
-}
-
-.navbar a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.navbar a:hover {
-    color: #FF4500;
-}
-
-/* Main Content */
-.main-content {
-    padding: 50px 20px;
-}
-
-.logo-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.logo {
-    width: 150px;
-}
-
-h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-}
-
-p {
-    font-size: 1.5rem;
-}
-
-.join-btn {
-    background-color: #FF4500;
-    border: none;
-    padding: 15px 30px;
-    font-size: 1.5rem;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.join-btn:hover {
-    background-color: #FF8C00;
-}
-
-/* Footer Styling */
-footer {
-    background-color: #333;
-    color: white;
-    padding: 20px 0;
-}
-
-.footer-links {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-.footer-links li {
-    display: inline-block;
-    margin: 0 10px;
-}
-
-.footer-links a {
-    color: white;
-    text-decoration: none;
-}
-
-.footer-links a:hover {
-    color: #FF4500;
-}
-
-/* Accessibility Options */
-.accessibility-options {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
-}
-
-.accessibility-button {
-    padding: 10px;
-    background-color: #555;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.accessibility-button:hover {
-    background-color: #FF4500;
-}
-
-/* Text Box Styles */
-input[type="text"], textarea {
-    background-color: white;
-    color: #333;
-    border: 2px solid #FF8C00;
-    padding: 10px;
-    border-radius: 5px;
-    width: 80%;
-    margin-bottom: 20px;
-    font-size: 1rem;
-}
-
-input[type="text"]::placeholder, textarea::placeholder {
-    color: #666;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .navbar ul {
-        display: block;
-    }
-    
-    .navbar li {
-        margin: 10px 0;
-    }
-
-    .main-content {
-        padding: 20px;
-    }
-
-    .join-btn {
-        width: 100%;
-        margin-top: 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    h1 {
-        font-size: 2.5rem;
-    }
-
-    p {
-        font-size: 1.2rem;
-    }
-
-    .join-btn {
-        font-size: 1.2rem;
-    }
-}
-
-/* Admin Login & Panel Styles */
-.admin-login-box, .admin-panel-box {
-    max-width: 400px;
-    margin: 50px auto;
+/* Main Content Box */
+.text-box {
+    background-color: rgba(255, 255, 255, 0.15);
     padding: 20px;
-    background-color: #222;
-    color: white;
+    margin: 20px auto;
     border-radius: 10px;
+    max-width: 800px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
 }
 
-.admin-login-box input, .admin-panel-box select {
-    padding: 10px;
-    width: 80%;
-    margin: 10px 0;
-    border: none;
-    border-radius: 5px;
-}
-
-.admin-login-box button, .admin-panel-box button {
-    background-color: #FF4500;
+/* Buttons */
+button, .join-btn {
+    background-color: #ff5500;
     color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 18px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover, .join-btn:hover {
+    background-color: #ff8800;
+}
+
+/* Input and Select Boxes */
+input[type="password"], select {
+    padding: 10px;
+    width: 80%;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    width: 100%;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ff8800;
+}
+
+/* Admin Button in Footer */
+.admin-btn {
+    background-color: #ff5500;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.admin-btn:hover {
+    background-color: #ff8800;
+}
+
+/* Footer */
+footer {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Footer Accessibility Options */
+footer .accessibility-options {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+footer .accessibility-options button {
+    margin: 5px;
+    padding: 10px 15px;
+    font-size: 14px;
+    background-color: #ff5500;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+footer .accessibility-options button:hover {
+    background-color: #ff8800;
+}
+
+/* Logo */
+.logo-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 150px;
+    height: auto;
+}
+
+/* Admin Login & Panel Styles */
+.admin-login-box, .admin-panel-box {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.admin-login-box input, .admin-panel-box select {
+    padding: 10px;
+    width: 100%;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+.admin-login-box button, .admin-panel-box button {
+    background-color: #ff5500;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
 }
 
 .admin-login-box button:hover, .admin-panel-box button:hover {
-    background-color: #FF8C00;
+    background-color: #ff8800;
+}
+
+/* Text Alignment */
+.text-box {
+    text-align: center;
 }
 
 .error-message {
     color: red;
 }
 
+/* Mobile Adjustments */
+@media only screen and (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    footer {
+        flex-direction: column;
+    }
+
+    footer .accessibility-options {
+        flex-direction: column;
+    }
+}
+
 /* Unavailable Message */
 #unavailableMessage {
     margin-top: 100px;
-    color: #FF4500;
+    color: #ff5500;
 }
