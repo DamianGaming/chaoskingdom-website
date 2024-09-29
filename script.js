@@ -1,92 +1,50 @@
-// Dark Mode Toggle
-const darkModeToggle = document.getElementById("darkModeToggle");
-darkModeToggle.addEventListener("click", function () {
-    document.body.classList.toggle("dark-mode");
-    if (document.body.classList.contains("dark-mode")) {
-        localStorage.setItem("theme", "dark");
-    } else {
-        localStorage.setItem("theme", "light");
-    }
+// Copy IP Address
+document.getElementById('copyIP').addEventListener('click', function() {
+    const ip = "23.26.247.227:26246";
+    navigator.clipboard.writeText(ip).then(function() {
+        alert("IP address copied: " + ip);
+    });
 });
 
-// Increase Font Size
-const increaseFontButton = document.getElementById("increaseFont");
-increaseFontButton.addEventListener("click", function () {
-    let currentFontSize = window.getComputedStyle(document.body).fontSize;
-    let newFontSize = parseFloat(currentFontSize) + 2;
-    document.body.style.fontSize = `${newFontSize}px`;
-    localStorage.setItem("fontSize", `${newFontSize}px`);
-});
+// Dark Mode Toggle
+function toggleDarkMode() {
+    document.body.classList.toggle("dark-mode");
+}
 
 // Decrease Font Size
-const decreaseFontButton = document.getElementById("decreaseFont");
-decreaseFontButton.addEventListener("click", function () {
-    let currentFontSize = window.getComputedStyle(document.body).fontSize;
-    let newFontSize = parseFloat(currentFontSize) - 2;
-    document.body.style.fontSize = `${newFontSize}px`;
-    localStorage.setItem("fontSize", `${newFontSize}px`);
-});
+function decreaseFontSize() {
+    document.body.style.fontSize = "14px";
+}
 
-// High Contrast Mode Toggle
-const highContrastToggle = document.getElementById("highContrastToggle");
-highContrastToggle.addEventListener("click", function () {
-    document.body.classList.toggle("high-contrast-mode");
-    if (document.body.classList.contains("high-contrast-mode")) {
-        localStorage.setItem("contrastMode", "high");
-    } else {
-        localStorage.setItem("contrastMode", "normal");
-    }
-});
-
-// Language Switching
-const languageSelect = document.getElementById("languageSelect");
-languageSelect.addEventListener("change", function () {
-    const selectedLanguage = languageSelect.value;
-    setLanguage(selectedLanguage);
-    localStorage.setItem("language", selectedLanguage);
-});
-
-// Apply Settings from Local Storage (Persist User Preferences)
-window.onload = function () {
-    // Reset to default font size on page load
-    document.body.style.fontSize = "16px";
-    localStorage.removeItem("fontSize");
-
-    // Theme
-    const theme = localStorage.getItem("theme");
-    if (theme === "dark") {
-        document.body.classList.add("dark-mode");
-    }
-
-    // Contrast Mode
-    const contrastMode = localStorage.getItem("contrastMode");
-    if (contrastMode === "high") {
-        document.body.classList.add("high-contrast-mode");
-    }
-
-    // Language
-    const language = localStorage.getItem("language");
-    if (language) {
-        languageSelect.value = language;
-        setLanguage(language);
-    }
-};
-
-// Language switching logic
-function setLanguage(language) {
+// Language Switcher
+function switchLanguage() {
+    const language = document.getElementById("languageSelect").value;
     if (language === "es") {
-        document.querySelector('h1').innerText = "Bienvenido a ChaosKingdom";
-        document.querySelector('.join-btn').innerText = "Únete ahora";
+        alert("Cambiando a Español (This would actually change the language in a full implementation)");
     } else {
-        document.querySelector('h1').innerText = "Welcome to ChaosKingdom";
-        document.querySelector('.join-btn').innerText = "Join Now";
+        alert("Switching to English");
     }
 }
 
-// Check website availability on every page load
-const websiteAvailability = localStorage.getItem('websiteAvailability') || 'available';
+// Admin Login Function
+function adminLogin() {
+    const password = document.getElementById("adminPassword").value;
+    if (password === "admin123") { // Replace with a more secure password system in production
+        window.location.href = "admin-panel.html";
+    } else {
+        document.getElementById("error-message").innerText = "Incorrect password.";
+    }
+}
 
-if (websiteAvailability === 'unavailable') {
-    document.getElementById('unavailableMessage').style.display = 'block';
-    document.getElementById('mainContent').style.display = 'none';
+// Update Website Status
+function updateSiteStatus() {
+    const status = document.getElementById("siteStatus").value;
+    if (status === "unavailable") {
+        alert("Website is now set to unavailable.");
+        // Show unavailable message or implement logic to set website as unavailable
+        document.body.innerHTML = "<h1 id='unavailableMessage'>The website is currently unavailable. Please check back later!</h1>";
+    } else {
+        alert("Website is now available.");
+        window.location.href = "index.html"; // Reload website as available
+    }
 }
