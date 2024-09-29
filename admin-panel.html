@@ -3,37 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel - ChaosKingdom</title>
+    <title>Admin Panel - ChaosKingdom MC</title>
     <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
+
+    <!-- Main Content -->
     <div class="admin-panel-box">
-        <h2>Admin Panel</h2>
-        <label for="toggleAvailability">Website Availability</label>
-        <select id="toggleAvailability">
+        <h1>Admin Panel</h1>
+        <p>Control website availability from here.</p>
+        <select id="siteStatus">
             <option value="available">Available</option>
             <option value="unavailable">Unavailable</option>
         </select>
-        <button id="saveSettings">Save Settings</button>
-        <p id="message" style="display: none;">Settings saved!</p>
+        <button onclick="updateSiteStatus()">Update Status</button>
     </div>
 
-    <script>
-        // Check if admin is logged in, if not redirect to login page
-        if (localStorage.getItem('adminLoggedIn') !== 'true') {
-            window.location.href = 'admin.html'; // Redirect to login page if not logged in
-        }
-
-        // Set availability state from localStorage
-        const savedState = localStorage.getItem('websiteAvailability') || 'available';
-        document.getElementById('toggleAvailability').value = savedState;
-
-        // Save availability state
-        document.getElementById('saveSettings').addEventListener('click', function() {
-            const availability = document.getElementById('toggleAvailability').value;
-            localStorage.setItem('websiteAvailability', availability);
-            document.getElementById('message').style.display = 'block';
-        });
-    </script>
 </body>
 </html>
