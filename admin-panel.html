@@ -12,12 +12,38 @@
     <!-- Main Content -->
     <div class="admin-panel-box">
         <h1>Admin Panel</h1>
+
+        <!-- Site Availability -->
+        <h2>Website Availability</h2>
         <p>Control website availability from here.</p>
         <select id="siteStatus">
             <option value="available">Available</option>
-            <option value="unavailable">Unavailable</option>
+            <option value="unavailable">Maintenance Mode</option>
         </select>
         <button onclick="updateSiteStatus()">Update Status</button>
+
+        <!-- Maintenance Mode Message -->
+        <h2>Maintenance Mode Message</h2>
+        <textarea id="maintenanceMessage" placeholder="Enter your custom message for maintenance mode here"></textarea>
+        <button onclick="updateMaintenanceMessage()">Update Message</button>
+
+        <!-- Admin Password Change -->
+        <h2>Change Admin Password</h2>
+        <input type="password" id="newAdminPassword" placeholder="Enter new password">
+        <button onclick="changeAdminPassword()">Change Password</button>
+        
+        <!-- Accessibility Management -->
+        <h2>Manage Accessibility Options</h2>
+        <label>
+            <input type="checkbox" id="toggleDarkModeAccess" onchange="toggleDarkModeAccessibility()">
+            Enable Dark Mode Option for Users
+        </label><br>
+        <label>
+            <input type="checkbox" id="toggleFontSizeAccess" onchange="toggleFontSizeAccessibility()">
+            Enable Font Size Adjustment for Users
+        </label>
+
+        <div id="admin-panel-messages" class="admin-messages"></div>
     </div>
 
 </body>
