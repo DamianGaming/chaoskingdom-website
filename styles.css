@@ -1,250 +1,163 @@
-/* General Styles */
+/* General Styling */
 body {
     font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #FF8C00, #FF4500); /* Orange gradient background */
+    color: #ffffff;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #FF7E5F, #FD3A69); /* Vibrant Orange Gradient */
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    scroll-behavior: smooth;
-}
-
-h1, h2 {
-    font-weight: 700;
-    color: #fff;
-}
-
-p {
-    font-size: 18px;
-    color: #fff;
-}
-
-/* Navbar Styling */
-.navbar {
-    background-color: rgba(0, 0, 0, 0.8);
-    width: 100%;
-    position: fixed;
-    top: 0;
-    z-index: 999;
-    display: flex;
-    justify-content: center;
-    padding: 1rem 0;
-}
-
-.navbar .nav-links {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-    justify-content: center;
-}
-
-.nav-links li a {
-    text-decoration: none;
-    color: white;
-    font-weight: 600;
-    font-size: 18px;
-    transition: color 0.3s ease;
-}
-
-.nav-links li a:hover {
-    color: #f4c542;
-}
-
-/* Join Now Button */
-.button-join {
-    padding: 15px 30px;
-    background-color: #f4c542;
-    color: #333;
-    border: none;
-    border-radius: 50px;
-    font-size: 20px;
-    font-weight: bold;
-    cursor: pointer;
+    text-align: center;
     transition: all 0.3s ease;
-    margin-top: 20px;
 }
 
-.button-join:hover {
-    background-color: #f09e42;
-    transform: scale(1.05);
-}
-
-/* Home Page Sections */
-.home-section {
-    margin-top: 100px;
-    text-align: center;
-    padding: 50px 0;
-}
-
-.home-section h2 {
-    font-size: 36px;
-    color: #fff;
-    margin-bottom: 30px;
-}
-
-.home-section p {
-    color: #fff;
-    max-width: 800px;
-    margin: 0 auto 30px auto;
-    line-height: 1.6;
-    font-size: 18px;
-}
-
-.home-section .home-button {
-    padding: 12px 28px;
-    background-color: #f4c542;
-    color: #333;
-    font-weight: bold;
-    font-size: 18px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.home-section .home-button:hover {
-    background-color: #f09e42;
-}
-
-/* Text Box Styles */
-.text-box {
-    background-color: rgba(255, 255, 255, 0.8); /* Visually distinct from background */
-    padding: 40px;
-    border-radius: 10px;
-    max-width: 700px;
-    margin: 80px auto;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
-    color: #333;
-    text-align: center;
-}
-
-.text-box h1, .text-box h2 {
-    color: #333;
-}
-
-/* Cards for Features Section */
-.card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-}
-
-.card {
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 15px;
-    padding: 20px;
-    max-width: 300px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    color: #333;
-    text-align: center;
-}
-
-.card:hover {
-    transform: translateY(-10px);
-}
-
-/* Accessibility Buttons */
-.accessibility-options {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    display: flex;
-    gap: 10px;
-}
-
-.accessibility-button {
-    background-color: #ff7e5f;
-    color: white;
-    padding: 10px 15px;
-    border-radius: 50px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-weight: bold;
-}
-
-.accessibility-button:hover {
-    background-color: #fd3a69;
-}
-
-.dark-mode-button {
-    background-color: #333;
-    color: #f4c542;
-}
-
-/* New Accessibility Options */
-.font-size-button {
-    background-color: #ffbe42;
-}
-
-.high-contrast-button {
-    background-color: #000;
-    color: #fff;
+.dark-mode {
+    background: linear-gradient(135deg, #2e2e2e, #1a1a1a); /* Dark theme */
 }
 
 .high-contrast-mode {
-    background-color: #000;
-    color: #fff;
+    background-color: #000000;
+    color: #ffff00; /* High contrast: yellow on black */
+}
+
+.navbar {
+    background-color: #333;
+    padding: 1rem;
+    text-align: center;
+}
+
+.navbar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+}
+
+.navbar li {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    color: #FF4500;
+}
+
+/* Main Content */
+.main-content {
+    padding: 50px 20px;
+}
+
+.logo {
+    width: 200px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.5rem;
+}
+
+.join-btn {
+    background-color: #FF4500;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.join-btn:hover {
+    background-color: #FF8C00;
 }
 
 /* Footer Styling */
 footer {
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: #333;
     color: white;
-    padding: 20px;
-    margin-top: auto;
-    width: 100%;
-    text-align: center;
+    padding: 20px 0;
 }
 
-footer .footer-links {
-    list-style: none;
+.footer-links {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: #FF4500;
+}
+
+/* Accessibility Options */
+.accessibility-options {
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    gap: 10px;
+    margin-top: 20px;
 }
 
-footer .footer-links li a {
-    color: #f4c542;
-    text-decoration: none;
-    font-size: 16px;
-    transition: color 0.3s ease;
+.accessibility-button {
+    padding: 10px;
+    background-color: #555;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
-footer .footer-links li a:hover {
-    color: #ffbe42;
+.accessibility-button:hover {
+    background-color: #FF4500;
 }
 
-footer p {
-    margin-top: 10px;
-    font-size: 14px;
-    color: #f4f4f4;
-}
-
-/* Media Queries for Responsive Design */
+/* Responsive Design */
 @media (max-width: 768px) {
-    .nav-links {
-        flex-direction: column;
-        gap: 1.5rem;
+    .navbar ul {
+        display: block;
+    }
+    
+    .navbar li {
+        margin: 10px 0;
     }
 
-    .text-box {
+    .main-content {
         padding: 20px;
-        margin: 80px auto;
-        text-align: center;
     }
 
-    .button-join,
-    .home-button {
+    .join-btn {
         width: 100%;
-        padding: 15px;
-        font-size: 18px;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2.5rem;
     }
 
-    .card-container {
-        flex-direction: column;
+    p {
+        font-size: 1.2rem;
+    }
+
+    .join-btn {
+        font-size: 1.2rem;
     }
 }
