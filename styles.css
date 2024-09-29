@@ -184,3 +184,45 @@ input[type="text"]::placeholder, textarea::placeholder {
         font-size: 1.2rem;
     }
 }
+
+/* Admin Login & Panel Styles */
+.admin-login-box, .admin-panel-box {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #222;
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.admin-login-box input, .admin-panel-box select {
+    padding: 10px;
+    width: 80%;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+}
+
+.admin-login-box button, .admin-panel-box button {
+    background-color: #FF4500;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.admin-login-box button:hover, .admin-panel-box button:hover {
+    background-color: #FF8C00;
+}
+
+.error-message {
+    color: red;
+}
+
+/* Unavailable Message */
+#unavailableMessage {
+    margin-top: 100px;
+    color: #FF4500;
+}
