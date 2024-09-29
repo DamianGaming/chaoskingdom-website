@@ -3,28 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Login - ChaosKingdom</title>
+    <title>Admin Login - ChaosKingdom MC</title>
     <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
+
+    <!-- Main Content -->
     <div class="admin-login-box">
-        <h2>Admin Login</h2>
+        <h1>Admin Login</h1>
+        <p>Enter your admin password to access the control panel.</p>
         <input type="password" id="adminPassword" placeholder="Enter Password">
-        <button id="loginButton">Login</button>
-        <p id="errorMessage" class="error-message" style="display: none;">Incorrect Password!</p>
+        <button onclick="adminLogin()">Login</button>
+        <p id="error-message" class="error-message"></p>
     </div>
 
-    <script>
-        document.getElementById('loginButton').addEventListener('click', function() {
-            const password = document.getElementById('adminPassword').value;
-            const correctPassword = 'FuckMeBitch12!'; // Set your admin password here
-            if (password === correctPassword) {
-                localStorage.setItem('adminLoggedIn', 'true');
-                window.location.href = 'admin-panel.html'; // Redirect to the admin panel
-            } else {
-                document.getElementById('errorMessage').style.display = 'block';
-            }
-        });
-    </script>
 </body>
 </html>
