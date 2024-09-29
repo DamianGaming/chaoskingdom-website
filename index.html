@@ -10,7 +10,7 @@
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar">
-        <ul class="nav-links" id="navLinks">
+        <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="features.html">Features</a></li>
@@ -19,29 +19,11 @@
     </nav>
 
     <!-- Main Section -->
-    <section class="text-box fade-in">
+    <section class="main-content">
+        <img src="logo.png" alt="ChaosKingdom Logo" class="logo">
         <h1>Welcome to ChaosKingdom</h1>
-        <p>IP Address: 23.26.247.227:26246</p>
-        <button class="button-join">Join Now</button>
-    </section>
-
-    <!-- Features Section -->
-    <section class="home-section">
-        <h2>What Makes ChaosKingdom Special</h2>
-        <div class="card-container">
-            <div class="card">
-                <h3>Massive World</h3>
-                <p>Explore an expansive world with unlimited possibilities. Find unique biomes, resources, and challenges.</p>
-            </div>
-            <div class="card">
-                <h3>Intense PvP Battles</h3>
-                <p>Engage in high-stakes PvP action with special events, arenas, and rewards.</p>
-            </div>
-            <div class="card">
-                <h3>Active Community</h3>
-                <p>Join a friendly and dedicated community of players and staff members. Enjoy a supportive environment.</p>
-            </div>
-        </div>
+        <p>IP Address: <strong>23.26.247.227:26246</strong></p>
+        <button class="join-btn">Join Now</button>
     </section>
 
     <!-- Footer -->
@@ -53,14 +35,18 @@
             <li><a href="rules.html">Rules</a></li>
         </ul>
         <p>© 2024 ChaosKingdom Minecraft Server | Created by MegaStudios</p>
-    </footer>
 
-    <!-- Accessibility Features -->
-    <div class="accessibility-options">
-        <button class="accessibility-button dark-mode-button" id="darkModeToggle">Dark Mode</button>
-        <button class="accessibility-button font-size-button" id="increaseFont">Increase Font Size</button>
-        <button class="accessibility-button high-contrast-button" id="highContrastToggle">High Contrast</button>
-    </div>
+        <!-- Accessibility Options -->
+        <div class="accessibility-options">
+            <button class="accessibility-button dark-mode-button" id="darkModeToggle">Dark Mode</button>
+            <button class="accessibility-button font-size-button" id="increaseFont">Increase Font Size</button>
+            <button class="accessibility-button high-contrast-button" id="highContrastToggle">High Contrast</button>
+            <select id="languageSelect">
+                <option value="en">English</option>
+                <option value="es">Español</option>
+            </select>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
