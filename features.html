@@ -3,51 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChaosKingdom - Features</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <title>Features - ChaosKingdom MC</title>
     <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <ul class="nav-links">
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
             <li><a href="features.html">Features</a></li>
-            <li><a href="rules.html">Rules</a></li>
+            <li><a href="about.html">About</a></li>
         </ul>
     </nav>
 
-    <!-- Features Section -->
-    <section class="text-box">
-        <h2>ChaosKingdom Features</h2>
-        <p>We offer the best Minecraft experience with tons of features:</p>
+    <!-- Main Content -->
+    <div class="text-box">
+        <h1>Features</h1>
+        <p>Explore the amazing features that make ChaosKingdom MC unique:</p>
         <ul>
-            <li>Custom Biomes and Exploration</li>
-            <li>Fierce PvP Arenas</li>
-            <li>Special Seasonal Events</li>
-            <li>Friendly Community with Active Moderators</li>
+            <li>Custom Biomes</li>
+            <li>Exciting Minigames</li>
+            <li>Competitive PvP Arenas</li>
+            <li>Community Events</li>
         </ul>
-    </section>
+    </div>
 
     <!-- Footer -->
     <footer>
-        <ul class="footer-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="features.html">Features</a></li>
-            <li><a href="rules.html">Rules</a></li>
-        </ul>
-        <p>© 2024 ChaosKingdom Minecraft Server | Created by MegaStudios</p>
+        <p>&copy; 2024 ChaosKingdom MC - Created by MegaStudios</p>
+        <div class="accessibility-options">
+            <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+            <button onclick="decreaseFontSize()">Decrease Font Size</button>
+            <select id="languageSelect" onchange="switchLanguage()">
+                <option value="en">English</option>
+                <option value="es">Spanish</option>
+            </select>
+        </div>
+        <a href="admin.html" class="admin-btn">Admin Login</a>
     </footer>
 
-    <!-- Accessibility Features -->
-    <div class="accessibility-options">
-        <button class="accessibility-button dark-mode-button" id="darkModeToggle">Dark Mode</button>
-        <button class="accessibility-button font-size-button" id="increaseFont">Increase Font Size</button>
-        <button class="accessibility-button high-contrast-button" id="highContrastToggle">High Contrast</button>
-    </div>
-
-    <script src="script.js"></script>
 </body>
 </html>
