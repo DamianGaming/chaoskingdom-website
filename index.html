@@ -4,53 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChaosKingdom - Home</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="features.html">Features</a></li>
-            <li><a href="rules.html">Rules</a></li>
-        </ul>
-    </nav>
+    <div id="unavailableMessage" style="display: none;">
+        <h1>Website is Currently Unavailable</h1>
+        <p>Please check back later.</p>
+    </div>
+
+    <!-- The rest of your website content goes here -->
 
     <!-- Main Section -->
-    <section class="main-content">
-        <div class="logo-container">
-            <img src="logo.png" alt="ChaosKingdom Logo" class="logo">
+    <section class="main-content" id="mainContent">
+        <div class="text-box">
+            <div class="logo-container">
+                <img src="logo.png" alt="ChaosKingdom Logo" class="logo">
+            </div>
+            <h1>Welcome to ChaosKingdom</h1>
+            <p>IP Address: <strong>23.26.247.227:26246</strong></p>
+            <button class="join-btn">Join Now</button>
         </div>
-        <h1>Welcome to ChaosKingdom</h1>
-        <p>IP Address: <strong>23.26.247.227:26246</strong></p>
-        <button class="join-btn">Join Now</button>
     </section>
 
-    <!-- Footer -->
     <footer>
-        <ul class="footer-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="features.html">Features</a></li>
-            <li><a href="rules.html">Rules</a></li>
-        </ul>
-        <p>© 2024 ChaosKingdom Minecraft Server | Created by MegaStudios</p>
-
-        <!-- Accessibility Options -->
-        <div class="accessibility-options">
-            <button class="accessibility-button dark-mode-button" id="darkModeToggle">Dark Mode</button>
-            <button class="accessibility-button font-size-button" id="increaseFont">Increase Font Size</button>
-            <button class="accessibility-button font-size-button" id="decreaseFont">Decrease Font Size</button>
-            <button class="accessibility-button high-contrast-button" id="highContrastToggle">High Contrast</button>
-            <select id="languageSelect">
-                <option value="en">English</option>
-                <option value="es">Español</option>
-            </select>
-        </div>
+        <!-- Footer Content -->
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Check website availability
+        const websiteAvailability = localStorage.getItem('websiteAvailability') || 'available';
+
+        if (websiteAvailability === 'unavailable') {
+            document.getElementById('unavailableMessage').style.display = 'block';
+            document.getElementById('mainContent').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
