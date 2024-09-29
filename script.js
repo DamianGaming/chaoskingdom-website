@@ -1,42 +1,76 @@
 // Dark Mode Toggle
-function toggleDarkMode() {
-    const body = document.body;
-    body.classList.toggle("dark-mode");
-    if (body.classList.contains("dark-mode")) {
-        body.style.background = "linear-gradient(135deg, #2c3e50, #4ca1af)";
-        body.style.color = "white";
+const darkModeToggle = document.getElementById("darkModeToggle");
+darkModeToggle.addEventListener("click", function () {
+    document.body.classList.toggle("dark-mode");
+    if (document.body.classList.contains("dark-mode")) {
+        localStorage.setItem("theme", "dark");
     } else {
-        body.style.background = "linear-gradient(135deg, #FF7E5F, #FD3A69)";
-        body.style.color = "black";
+        localStorage.setItem("theme", "light");
     }
-}
+});
 
-// Language Change Function
-function changeLanguage(language) {
-    if (language === 'es') {
-        document.querySelector('h1').innerText = 'Bienvenido a ChaosKingdom';
-        document.querySelector('button').innerText = 'Únete Ahora';
-        document.getElementById('ip').innerText = 'Dirección IP: 23.26.247.227:26246';
-    } else if (language === 'fr') {
-        document.querySelector('h1').innerText = 'Bienvenue à ChaosKingdom';
-        document.querySelector('button').innerText = 'Rejoignez Maintenant';
-        document.getElementById('ip').innerText = 'Adresse IP: 23.26.247.227:26246';
+// Increase Font Size
+const increaseFontButton = document.getElementById("increaseFont");
+increaseFontButton.addEventListener("click", function () {
+    let currentFontSize = window.getComputedStyle(document.body).fontSize;
+    let newFontSize = parseFloat(currentFontSize) + 2;
+    document.body.style.fontSize = `${newFontSize}px`;
+    localStorage.setItem("fontSize", `${newFontSize}px`);
+});
+
+// High Contrast Mode Toggle
+const highContrastToggle = document.getElementById("highContrastToggle");
+highContrastToggle.addEventListener("click", function () {
+    document.body.classList.toggle("high-contrast-mode");
+    if (document.body.classList.contains("high-contrast-mode")) {
+        localStorage.setItem("contrastMode", "high");
     } else {
-        document.querySelector('h1').innerText = 'Welcome to ChaosKingdom';
-        document.querySelector('button').innerText = 'Join Now!';
-        document.getElementById('ip').innerText = 'Server IP: 23.26.247.227:26246';
+        localStorage.setItem("contrastMode", "normal");
     }
-}
+});
 
-// Copy IP Address to Clipboard
-function copyToClipboard() {
-    const ip = '23.26.247.227:26246';
-    navigator.clipboard.writeText(ip);
-    alert('IP copied to clipboard!');
-}
+// Language Switching
+const languageSelect = document.getElementById("languageSelect");
+languageSelect.addEventListener("change", function () {
+    const selectedLanguage = languageSelect.value;
+    setLanguage(selectedLanguage);
+    localStorage.setItem("language", selectedLanguage);
+});
 
-// Toggle Mobile Nav
-function toggleNav() {
-    const navLinks = document.getElementById('navLinks');
-    navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+// Apply Settings from Local Storage (Persist User Preferences)
+window.onload = function () {
+    // Theme
+    const theme = localStorage.getItem("theme");
+    if (theme === "dark") {
+        document.body.classList.add("dark-mode");
+    }
+
+    // Font Size
+    const fontSize = localStorage.getItem("fontSize");
+    if (fontSize) {
+        document.body.style.fontSize = fontSize;
+    }
+
+    // Contrast Mode
+    const contrastMode = localStorage.getItem("contrastMode");
+    if (contrastMode === "high") {
+        document.body.classList.add("high-contrast-mode");
+    }
+
+    // Language
+    const savedLanguage = localStorage.getItem("language");
+    if (savedLanguage) {
+        setLanguage(savedLanguage);
+    }
+};
+
+// Language Handling Function
+function setLanguage(language) {
+    const allElements = document.querySelectorAll("[data-en], [data-es]");
+    allElements.forEach((element) => {
+        element.style.display = "none"; // Hide all language elements first
+        if (element.hasAttribute(`data-${language}`)) {
+            element.style.display = ""; // Show the selected language elements
+        }
+    });
 }
