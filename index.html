@@ -27,23 +27,24 @@
         <button class="button-join">Join Now</button>
     </section>
 
-    <!-- Additional Sections -->
+    <!-- Features Section -->
     <section class="home-section">
         <h2>What Makes ChaosKingdom Special</h2>
-        <p>Our Minecraft server offers a truly chaotic yet engaging experience. Whether you're looking for intense PvP battles, intricate building projects, or a thriving community, ChaosKingdom has it all!</p>
-        <button class="home-button">Explore Features</button>
+        <div class="card-container">
+            <div class="card">
+                <h3>Massive World</h3>
+                <p>Explore an expansive world with unlimited possibilities. Find unique biomes, resources, and challenges.</p>
+            </div>
+            <div class="card">
+                <h3>Intense PvP Battles</h3>
+                <p>Engage in high-stakes PvP action with special events, arenas, and rewards.</p>
+            </div>
+            <div class="card">
+                <h3>Active Community</h3>
+                <p>Join a friendly and dedicated community of players and staff members. Enjoy a supportive environment.</p>
+            </div>
+        </div>
     </section>
-
-    <section class="home-section">
-        <h2>Player Testimonials</h2>
-        <p>"ChaosKingdom is the best server I've ever played on. The community is amazing, and the experience is second to none!" - Player123</p>
-    </section>
-
-    <!-- Accessibility Options -->
-    <div class="accessibility-options">
-        <button class="accessibility-button dark-mode-button" onclick="toggleDarkMode()">Dark Mode</button>
-        <button class="accessibility-button" onclick="changeLanguage()">Change Language</button>
-    </div>
 
     <!-- Footer -->
     <footer>
@@ -56,6 +57,13 @@
         </ul>
         <p>© 2024 ChaosKingdom Minecraft Server | Created by MegaStudios</p>
     </footer>
+
+    <!-- Accessibility Features -->
+    <div class="accessibility-options">
+        <button class="accessibility-button dark-mode-button" id="darkModeToggle">Dark Mode</button>
+        <button class="accessibility-button font-size-button" id="increaseFont">Increase Font Size</button>
+        <button class="accessibility-button high-contrast-button" id="highContrastToggle">High Contrast</button>
+    </div>
 
     <script src="script.js"></script>
 </body>
