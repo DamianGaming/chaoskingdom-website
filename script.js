@@ -82,3 +82,11 @@ function setLanguage(language) {
         document.querySelector('.join-btn').innerText = "Join Now";
     }
 }
+
+// Check website availability on every page load
+const websiteAvailability = localStorage.getItem('websiteAvailability') || 'available';
+
+if (websiteAvailability === 'unavailable') {
+    document.getElementById('unavailableMessage').style.display = 'block';
+    document.getElementById('mainContent').style.display = 'none';
+}
