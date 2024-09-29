@@ -3,52 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChaosKingdom - About</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <title>About - ChaosKingdom MC</title>
     <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <ul class="nav-links">
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
             <li><a href="features.html">Features</a></li>
-            <li><a href="rules.html">Rules</a></li>
+            <li><a href="about.html">About</a></li>
         </ul>
     </nav>
 
-    <!-- About Section -->
-    <section class="text-box">
-        <h2>About ChaosKingdom</h2>
-        <p>ChaosKingdom is a Minecraft server that offers a unique experience with vast worlds, custom PvP battles, and an active community. The server is a place for Minecraft enthusiasts who love building, exploring, and competing.</p>
-        <h3>Server Staff</h3>
+    <!-- Main Content -->
+    <div class="text-box">
+        <h1>About ChaosKingdom MC</h1>
+        <p>We are a Minecraft community dedicated to providing the best gaming experience!</p>
+
+        <!-- Server Team -->
+        <h2>Our Team</h2>
         <ul>
-            <li>Owner: MegaStudios</li>
-            <li>Co-owner: PlayerX</li>
-            <li>Admin: PlayerY</li>
-            <li>Moderator: PlayerZ</li>
+            <li>Owner: JohnDoe</li>
+            <li>Co-Owner: MegaStudios</li>
+            <li>Moderator: PlayerOne</li>
+            <li>Support: PlayerTwo</li>
         </ul>
-    </section>
+    </div>
 
     <!-- Footer -->
     <footer>
-        <ul class="footer-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="features.html">Features</a></li>
-            <li><a href="rules.html">Rules</a></li>
-        </ul>
-        <p>© 2024 ChaosKingdom Minecraft Server | Created by MegaStudios</p>
+        <p>&copy; 2024 ChaosKingdom MC - Created by MegaStudios</p>
+        <div class="accessibility-options">
+            <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+            <button onclick="decreaseFontSize()">Decrease Font Size</button>
+            <select id="languageSelect" onchange="switchLanguage()">
+                <option value="en">English</option>
+                <option value="es">Spanish</option>
+            </select>
+        </div>
+        <a href="admin.html" class="admin-btn">Admin Login</a>
     </footer>
 
-    <!-- Accessibility Features -->
-    <div class="accessibility-options">
-        <button class="accessibility-button dark-mode-button" id="darkModeToggle">Dark Mode</button>
-        <button class="accessibility-button font-size-button" id="increaseFont">Increase Font Size</button>
-        <button class="accessibility-button high-contrast-button" id="highContrastToggle">High Contrast</button>
-    </div>
-
-    <script src="script.js"></script>
 </body>
 </html>
