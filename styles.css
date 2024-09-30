@@ -1,7 +1,7 @@
 /* Global Styles */
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(to bottom, #FF7F50, #FF4500); /* Orange Gradient */
+    background: linear-gradient(to bottom, #FFA500, #FF4500); /* Orange Gradient */
     margin: 0;
     padding: 0;
     color: #fff;
@@ -25,18 +25,19 @@ nav a {
 footer {
     background-color: rgba(0, 0, 0, 0.7);
     padding: 20px;
-    position: fixed;
     width: 100%;
+    position: fixed;
     bottom: 0;
 }
 
-.accessibility-button {
+.accessibility-button, .admin-button {
     margin: 5px;
     padding: 10px;
     border: none;
     background-color: #ff6347;
     color: white;
     cursor: pointer;
+    border-radius: 5px;
 }
 
 .dark-mode {
@@ -46,19 +47,21 @@ footer {
 
 .text-box {
     background-color: rgba(0, 0, 0, 0.5);
-    padding: 15px;
-    margin: 10px auto;
+    padding: 20px;
+    margin: 20px auto;
     max-width: 600px;
     border-radius: 8px;
+    font-size: 1.2em;
 }
 
 .join-now-btn {
-    padding: 10px 20px;
+    padding: 15px 25px;
     font-size: 1.5em;
     background-color: #ff6347;
     border: none;
     color: white;
     cursor: pointer;
+    border-radius: 5px;
 }
 
 .admin-panel-box {
