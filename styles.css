@@ -1,24 +1,25 @@
+/* General Styles */
 body {
-    font-family: 'Arial', sans-serif; /* Change to a better, modern font */
-    background: linear-gradient(45deg, orange, darkorange); /* Orange gradient */
+    font-family: 'Poppins', sans-serif; /* Modern font */
+    background: linear-gradient(45deg, #FF8008, #FFC837); /* Orange gradient */
+    color: white;
     margin: 0;
     padding: 0;
-    font-size: 16px; /* Default font size */
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Make sure footer is at the bottom */
+    min-height: 100vh;
 }
 
 header {
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 10px 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px;
 }
 
 nav ul {
     list-style: none;
     padding: 0;
     display: flex;
-    justify-content: center; /* Center nav links */
+    justify-content: center;
 }
 
 nav ul li {
@@ -33,51 +34,66 @@ nav a {
 }
 
 nav a:hover {
-    color: #FFD700; /* Gold on hover */
+    color: #FFD700;
+}
+
+.logo-container {
+    text-align: center;
+    margin-top: 30px;
 }
 
 .logo-img {
-    width: 200px; /* Larger logo size */
-    margin: 20px auto;
+    width: 250px;
+    margin: auto;
 }
 
 .text-box {
-    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
-    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.1); /* Make text boxes distinct */
+    border-radius: 10px;
     padding: 20px;
+    max-width: 600px;
     margin: 20px auto;
-    max-width: 500px;
     color: #fff;
     text-align: center;
 }
 
+.login-box {
+    max-width: 400px;
+}
+
 button {
-    background-color: #FFD700; /* Gold */
+    background-color: #FFD700;
     border: none;
     border-radius: 5px;
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s;
-    font-family: 'Arial', sans-serif; /* Ensure button uses same font */
 }
 
 button:hover {
-    background-color: #FFC107; /* Lighter gold on hover */
+    background-color: #FFC107;
 }
 
 footer {
-    margin-top: auto; /* Push footer to the bottom */
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
     text-align: center;
+    color: #FFD700;
+    font-size: 14px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
 
-.accessibility-button,
-.admin-button {
+.accessibility-button, .admin-button {
     margin: 5px;
-    font-size: 12px;
-    padding: 5px 10px; /* Smaller footer buttons */
+    font-size: 14px;
+    padding: 5px 10px;
+}
+
+.animated {
+    animation: fadeIn 0.5s ease-in-out;
 }
 
 @keyframes fadeIn {
@@ -87,8 +103,4 @@ footer {
     to {
         opacity: 1;
     }
-}
-
-.animated {
-    animation: fadeIn 0.5s ease-in-out;
 }
