@@ -1,4 +1,4 @@
-let adminPassword = "FuckMeBitch12!"; // Default admin password
+let adminPassword = "yourpassword"; // Default admin password
 
 // Admin Login
 function loginAdmin() {
@@ -8,9 +8,9 @@ function loginAdmin() {
 
     if (enteredPassword === adminPassword) {
         messageBox.textContent = "Login successful!";
-        adminTools.style.display = "block";
+        adminTools.style.display = "block"; // Show admin tools on successful login
     } else {
-        messageBox.textContent = "Incorrect password.";
+        messageBox.textContent = "Incorrect password."; // Show error message for incorrect password
     }
 }
 
@@ -18,13 +18,13 @@ function loginAdmin() {
 function updateWebsiteStatus() {
     const status = document.getElementById('website-status').value;
     const statusMessage = document.getElementById('status-message');
-    
+
     if (status === 'available') {
         statusMessage.textContent = "Website is now available.";
-        document.body.style.filter = "none";
+        // You may want to add logic here to actually set the website status
     } else {
         statusMessage.textContent = "Website is now unavailable.";
-        document.body.style.filter = "blur(5px)";
+        // You may want to add logic here to actually set the website status
     }
 }
 
@@ -32,7 +32,6 @@ function updateWebsiteStatus() {
 function updateMaintenanceMessage() {
     const maintenanceMessage = document.getElementById('maintenance-message').value;
     const maintenanceOutput = document.getElementById('maintenance-message-output');
-
     maintenanceOutput.textContent = maintenanceMessage || "No maintenance message set.";
 }
 
@@ -42,7 +41,7 @@ function changeAdminPassword() {
     const passwordMessage = document.getElementById('password-message');
 
     if (newPassword) {
-        adminPassword = newPassword;
+        adminPassword = newPassword; // Set the new admin password
         passwordMessage.textContent = "Password changed successfully!";
     } else {
         passwordMessage.textContent = "Please enter a new password.";
@@ -51,13 +50,20 @@ function changeAdminPassword() {
 
 // Accessibility Features
 function toggleDarkMode() {
-    document.body.classList.toggle("dark-mode");
+    document.body.classList.toggle("dark-mode"); // Toggle dark mode class for the body
 }
 
 function decreaseFontSize() {
-    document.body.style.fontSize = "smaller";
+    let currentSize = window.getComputedStyle(document.body).fontSize; // Get the current font size
+    let newSize = parseFloat(currentSize) - 2; // Decrease the font size by 2px
+    document.body.style.fontSize = newSize + "px"; // Apply the new font size
 }
 
 function changeLanguage() {
-    alert("Language changed.");
+    alert("Language changed."); // Placeholder for language change functionality
+}
+
+// Open Admin Page function
+function openAdminPage() {
+    window.location.href = "admin.html"; // Redirect to the admin page
 }
