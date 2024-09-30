@@ -1,107 +1,67 @@
-// Copy IP Address
-document.getElementById('copyIP').addEventListener('click', function() {
-    const ip = "23.26.247.227:26246";
-    navigator.clipboard.writeText(ip).then(function() {
-        alert("IP address copied: " + ip);
-    });
-});
+let adminPassword = "yourpassword"; // Default admin password
 
-// Dark Mode Toggle
-function toggleDarkMode() {
-    document.body.classList.toggle("dark-mode");
-}
+// Admin Login
+function loginAdmin() {
+    const enteredPassword = document.getElementById('admin-password').value;
+    const messageBox = document.getElementById('admin-login-message');
+    const adminTools = document.getElementById('admin-tools');
 
-// Decrease Font Size
-function decreaseFontSize() {
-    document.body.style.fontSize = "14px";
-}
-
-// Language Switcher
-function switchLanguage() {
-    const language = document.getElementById("languageSelect").value;
-    if (language === "es") {
-        alert("Cambiando a Español (This would actually change the language in a full implementation)");
+    if (enteredPassword === adminPassword) {
+        messageBox.textContent = "Login successful!";
+        adminTools.style.display = "block";
     } else {
-        alert("Switching to English");
+        messageBox.textContent = "Incorrect password.";
     }
 }
 
-// Store Admin Password Securely
-let adminPassword = localStorage.getItem('adminPassword') || 'admin123'; // Default password
-
-// Admin Login Function
-function adminLogin() {
-    const password = document.getElementById("adminPassword").value;
-    if (password === adminPassword) {
-        window.location.href = "admin-panel.html";
+// Update Website Status
+function updateWebsiteStatus() {
+    const status = document.getElementById('website-status').value;
+    const statusMessage = document.getElementById('status-message');
+    
+    if (status === 'available') {
+        statusMessage.textContent = "Website is now available.";
+        document.body.style.filter = "none";
     } else {
-        document.getElementById("error-message").innerText = "Incorrect password.";
+        statusMessage.textContent = "Website is now unavailable.";
+        document.body.style.filter = "blur(5px)";
     }
+}
+
+// Update Maintenance Message
+function updateMaintenanceMessage() {
+    const maintenanceMessage = document.getElementById('maintenance-message').value;
+    const maintenanceOutput = document.getElementById('maintenance-message-output');
+
+    maintenanceOutput.textContent = maintenanceMessage || "No maintenance message set.";
 }
 
 // Change Admin Password
 function changeAdminPassword() {
-    const newPassword = document.getElementById("newAdminPassword").value;
-    if (newPassword.length >= 6) {
+    const newPassword = document.getElementById('new-admin-password').value;
+    const passwordMessage = document.getElementById('password-message');
+
+    if (newPassword) {
         adminPassword = newPassword;
-        localStorage.setItem('adminPassword', adminPassword);
-        alert("Password updated successfully!");
+        passwordMessage.textContent = "Password changed successfully!";
     } else {
-        alert("Password must be at least 6 characters long.");
+        passwordMessage.textContent = "Please enter a new password.";
     }
 }
 
-// Update Website Status (Maintenance or Available)
-function updateSiteStatus() {
-    const status = document.getElementById("siteStatus").value;
-    if (status === "unavailable") {
-        const maintenanceMessage = localStorage.getItem("maintenanceMessage") || "The website is currently under maintenance. Please check back later!";
-        document.body.innerHTML = `<h1>${maintenanceMessage}</h1>`;
-        alert("Website is now in maintenance mode.");
-    } else {
-        window.location.href = "index.html"; // Redirect to homepage
-        alert("Website is now available.");
-    }
+// Accessibility Features
+function toggleAccessibility() {
+    alert("Accessibility options toggled.");
 }
 
-// Update Maintenance Mode Message
-function updateMaintenanceMessage() {
-    const message = document.getElementById("maintenanceMessage").value;
-    if (message) {
-        localStorage.setItem("maintenanceMessage", message);
-        alert("Maintenance message updated.");
-    } else {
-        alert("Please enter a maintenance message.");
-    }
-}
-
-// Accessibility Toggle Functions for Admin Control
-function toggleDarkModeAccessibility() {
-    const darkModeAccess = document.getElementById('toggleDarkModeAccess').checked;
-    localStorage.setItem('darkModeAccess', darkModeAccess);
-    alert(darkModeAccess ? "Dark mode option enabled for users." : "Dark mode option disabled for users.");
-}
-
-function toggleFontSizeAccessibility() {
-    const fontSizeAccess = document.getElementById('toggleFontSizeAccess').checked;
-    localStorage.setItem('fontSizeAccess', fontSizeAccess);
-    alert(fontSizeAccess ? "Font size adjustment enabled for users." : "Font size adjustment disabled for users.");
-}
-
-// Font Size Decrease (updated for Admin Control)
-function decreaseFontSize() {
-    if (localStorage.getItem('fontSizeAccess') === 'true') {
-        document.body.style.fontSize = "14px";
-    } else {
-        alert("Font size adjustment is disabled.");
-    }
-}
-
-// Dark Mode Toggle (updated for Admin Control)
 function toggleDarkMode() {
-    if (localStorage.getItem('darkModeAccess') === 'true') {
-        document.body.classList.toggle("dark-mode");
-    } else {
-        alert("Dark mode is disabled by admin.");
-    }
+    document.body.classList.toggle("dark-mode");
+}
+
+function decreaseFontSize() {
+    document.body.style.fontSize = "smaller";
+}
+
+function changeLanguage() {
+    alert("Language changed.");
 }
