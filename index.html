@@ -3,42 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChaosKingdom</title>
+    <title>ChaosKingdom - Home</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"> <!-- Better font -->
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="features.html">Features</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <main>
-        <img src="New_Project_5.png" alt="ChaosKingdom Logo" class="logo-img">
-        <div class="text-box animated fadeIn">
-            <h1>Welcome to ChaosKingdom!</h1>
-            <p>Join our community and explore amazing features.</p>
-            <button class="join-now-btn" onclick="alert('Join Now button clicked!')">Join Now</button>
-        </div>
-        <div class="text-box animated fadeIn delay-1s">
-            <p>Your server IP: <strong>23.26.247.227:26246</strong></p>
-        </div>
-        <div class="text-box animated fadeIn delay-2s">
-            <p>Check out our features and get involved!</p>
-        </div>
-    </main>
+<header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="#" onclick="openAdminPage()">Admin</a></li>
+        </ul>
+    </nav>
+</header>
 
-    <footer>
-        <button class="accessibility-button" onclick="toggleDarkMode()">Toggle Dark Mode</button>
-        <button class="accessibility-button" onclick="decreaseFontSize()">Decrease Font Size</button>
-        <button class="admin-button" onclick="openAdminPage()">Admin Panel</button>
-    </footer>
+<main>
+    <img src="your-logo.png" alt="ChaosKingdom" class="logo-img">
+    <div class="text-box animated">
+        <h1>Welcome to ChaosKingdom!</h1>
+        <p>Join the ultimate Minecraft experience. IP: <strong>23.26.247.227:26246</strong></p>
+        <button class="join-now-btn" onclick="alert('IP copied to clipboard!')">Join Now</button>
+    </div>
+</main>
 
-    <script src="script.js"></script>
+<footer>
+    <p>Website by MegaStudios | <button class="accessibility-button" onclick="toggleDarkMode()">Toggle Dark Mode</button> | <button class="accessibility-button" onclick="decreaseFontSize()">Decrease Font Size</button></p>
+</footer>
+
 </body>
 </html>
