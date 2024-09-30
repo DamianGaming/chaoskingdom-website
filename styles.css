@@ -1,86 +1,108 @@
 /* Global Styles */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Roboto', sans-serif;
     background: linear-gradient(to bottom, #FFA500, #FF4500); /* Orange Gradient */
     margin: 0;
     padding: 0;
     color: #fff;
     text-align: center;
     font-size: 18px;
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 nav {
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 15px;
-    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+    padding: 10px 0;
 }
 
 nav ul {
-    list-style-type: none;
-    margin: 0;
+    list-style: none;
     padding: 0;
-    display: flex;
-    justify-content: center;
 }
 
 nav ul li {
     display: inline;
-    padding: 0 20px;
+    margin: 0 15px;
 }
 
 nav a {
-    color: #fff;
     text-decoration: none;
-    font-size: 1.2em;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s;
 }
 
-footer {
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 20px;
-    width: 100%;
-    position: relative;
-    bottom: 0;
-    text-align: center;
+nav a:hover {
+    color: #FFD700; /* Gold on hover */
 }
 
-.accessibility-button, .admin-button {
-    margin: 5px;
-    padding: 10px;
-    border: none;
-    background-color: #ff6347;
-    color: white;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.dark-mode {
-    background-color: #333;
-    color: white;
+.logo-img {
+    width: 150px;
+    margin: 20px auto;
 }
 
 .text-box {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent white */
+    border-radius: 8px;
     padding: 20px;
     margin: 20px auto;
-    max-width: 600px;
-    border-radius: 8px;
-    font-size: 1.2em;
-}
-
-.join-now-btn {
-    padding: 15px 25px;
-    font-size: 1.5em;
-    background-color: #ff6347;
-    border: none;
-    color: white;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.admin-panel-box {
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 20px;
-    margin: 10px auto;
     max-width: 500px;
-    border-radius: 8px;
+}
+
+button {
+    background-color: #FFD700; /* Gold */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #FFC107; /* Lighter gold on hover */
+}
+
+footer {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Accessibility Buttons */
+.accessibility-button,
+.admin-button {
+    margin: 10px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.animated {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.delay-1s {
+    animation-delay: 1s;
+}
+
+.delay-2s {
+    animation-delay: 2s;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background: linear-gradient(to bottom, #333, #444); /* Dark gradient */
+    color: #fff;
+}
+
+body.dark-mode .text-box {
+    background-color: rgba(255, 255, 255, 0.2); /* Dark mode text box */
 }
