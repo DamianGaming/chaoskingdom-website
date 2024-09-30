@@ -1,4 +1,6 @@
 let adminPassword = "FuckMeBitch12!"; // Default admin password
+let websiteStatus = "available"; // Default website status
+let maintenanceMessage = "";
 
 // Admin Login
 function loginAdmin() {
@@ -19,18 +21,19 @@ function updateWebsiteStatus() {
     const status = document.getElementById('website-status').value;
     const statusMessage = document.getElementById('status-message');
 
+    websiteStatus = status; // Update the website status
+
     if (status === 'available') {
         statusMessage.textContent = "Website is now available.";
-        // You may want to add logic here to actually set the website status
     } else {
         statusMessage.textContent = "Website is now unavailable.";
-        // You may want to add logic here to actually set the website status
     }
 }
 
 // Update Maintenance Message
 function updateMaintenanceMessage() {
-    const maintenanceMessage = document.getElementById('maintenance-message').value;
+    const maintenanceInput = document.getElementById('maintenance-message').value;
+    maintenanceMessage = maintenanceInput; // Update the maintenance message
     const maintenanceOutput = document.getElementById('maintenance-message-output');
     maintenanceOutput.textContent = maintenanceMessage || "No maintenance message set.";
 }
@@ -59,11 +62,15 @@ function decreaseFontSize() {
     document.body.style.fontSize = newSize + "px"; // Apply the new font size
 }
 
-function changeLanguage() {
-    alert("Language changed."); // Placeholder for language change functionality
-}
-
 // Open Admin Page function
 function openAdminPage() {
     window.location.href = "admin.html"; // Redirect to the admin page
 }
+
+// Save website status on page load
+window.onload = function() {
+    const statusMessage = document.getElementById('status-message');
+    if (websiteStatus === 'unavailable') {
+        statusMessage.textContent = "Website is currently unavailable.";
+    }
+};
