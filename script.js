@@ -11,6 +11,7 @@ function loginAdmin() {
     if (enteredPassword === adminPassword) {
         messageBox.textContent = "Login successful!";
         adminTools.style.display = "block"; // Show admin tools on successful login
+        localStorage.setItem('adminLoggedIn', true); // Save login state
     } else {
         messageBox.textContent = "Incorrect password."; // Show error message for incorrect password
     }
@@ -22,6 +23,7 @@ function updateWebsiteStatus() {
     const statusMessage = document.getElementById('status-message');
 
     websiteStatus = status; // Update the website status
+    localStorage.setItem('websiteStatus', websiteStatus); // Save status
 
     if (status === 'available') {
         statusMessage.textContent = "Website is now available.";
@@ -34,6 +36,8 @@ function updateWebsiteStatus() {
 function updateMaintenanceMessage() {
     const maintenanceInput = document.getElementById('maintenance-message').value;
     maintenanceMessage = maintenanceInput; // Update the maintenance message
+    localStorage.setItem('maintenanceMessage', maintenanceMessage); // Save message
+
     const maintenanceOutput = document.getElementById('maintenance-message-output');
     maintenanceOutput.textContent = maintenanceMessage || "No maintenance message set.";
 }
@@ -45,32 +49,37 @@ function changeAdminPassword() {
 
     if (newPassword) {
         adminPassword = newPassword; // Set the new admin password
+        localStorage.setItem('adminPassword', adminPassword); // Save new password
         passwordMessage.textContent = "Password changed successfully!";
     } else {
         passwordMessage.textContent = "Please enter a new password.";
     }
 }
 
-// Accessibility Features
-function toggleDarkMode() {
-    document.body.classList.toggle("dark-mode"); // Toggle dark mode class for the body
-}
-
-function decreaseFontSize() {
-    let currentSize = window.getComputedStyle(document.body).fontSize; // Get the current font size
-    let newSize = parseFloat(currentSize) - 2; // Decrease the font size by 2px
-    document.body.style.fontSize = newSize + "px"; // Apply the new font size
-}
-
-// Open Admin Page function
-function openAdminPage() {
-    window.location.href = "admin.html"; // Redirect to the admin page
-}
-
-// Save website status on page load
-window.onload = function() {
-    const statusMessage = document.getElementById('status-message');
-    if (websiteStatus === 'unavailable') {
-        statusMessage.textContent = "Website is currently unavailable.";
+// Restore saved settings from localStorage
+document.addEventListener('DOMContentLoaded', () => {
+    // Restore website status
+    const savedStatus = localStorage.getItem('websiteStatus');
+    if (savedStatus) {
+        websiteStatus = savedStatus;
+        document.getElementById('website-status').value = websiteStatus;
     }
-};
+
+    // Restore maintenance message
+    const savedMessage = localStorage.getItem('maintenanceMessage');
+    if (savedMessage) {
+        maintenanceMessage = savedMessage;
+        document.getElementById('maintenance-message-output').textContent = maintenanceMessage;
+    }
+
+    // Restore admin password
+    const savedAdminPassword = localStorage.getItem('adminPassword');
+    if (savedAdminPassword) {
+        adminPassword = savedAdminPassword;
+    }
+
+    // Restore login state
+    if (localStorage.getItem('adminLoggedIn')) {
+        document.getElementById('admin-tools').style.display = 'block';
+    }
+});
