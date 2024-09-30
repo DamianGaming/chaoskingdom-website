@@ -1,4 +1,4 @@
-let adminPassword = "yourpassword"; // Default admin password
+let adminPassword = "FuckMeBitch12!"; // Default admin password
 
 // Admin Login
 function loginAdmin() {
