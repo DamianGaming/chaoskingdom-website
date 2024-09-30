@@ -1,6 +1,6 @@
 /* Global Styles */
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Montserrat', sans-serif; /* Better font */
     background: linear-gradient(to bottom, #FFA500, #FF4500); /* Orange Gradient */
     margin: 0;
     padding: 0;
@@ -39,7 +39,7 @@ nav a:hover {
 }
 
 .logo-img {
-    width: 150px;
+    width: 200px; /* Increased logo size */
     margin: 20px auto;
 }
 
