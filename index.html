@@ -3,30 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Chaos Kingdom MC</title>
+    <title>ChaosKingdom</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="features.html">Features</a>
-        <a href="about.html">About</a>
-    </nav>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <section class="main-content">
-        <img src="New_Project_5.png" alt="Chaos Kingdom Logo" class="logo-img">
-        <h1>Welcome to Chaos Kingdom MC</h1>
-        <p class="text-box">Join our Minecraft server now with the IP: <strong>23.26.247.227:26246</strong></p>
-        <button class="join-now-btn">Join Now</button>
-    </section>
+    <main>
+        <img src="New_Project_5.png" alt="ChaosKingdom Logo" class="logo-img">
+        <div class="text-box">
+            <h1>Welcome to ChaosKingdom!</h1>
+            <p>Join our community and explore amazing features.</p>
+            <button class="join-now-btn">Join Now</button>
+            <p>Your server IP: <strong>23.26.247.227:26246</strong></p>
+        </div>
+    </main>
 
     <footer>
-        <p>&copy; 2024 Chaos Kingdom MC - Created by MegaStudios</p>
-        <button class="admin-button" onclick="openAdminPage()">Admin Panel</button>
-        <button class="accessibility-button" onclick="toggleDarkMode()">Dark Mode</button>
+        <button class="accessibility-button" onclick="toggleDarkMode()">Toggle Dark Mode</button>
         <button class="accessibility-button" onclick="decreaseFontSize()">Decrease Font Size</button>
-        <button class="accessibility-button" onclick="changeLanguage()">Change Language</button>
+        <button class="admin-button" onclick="openAdminPage()">Admin Panel</button>
     </footer>
 
     <script src="script.js"></script>
