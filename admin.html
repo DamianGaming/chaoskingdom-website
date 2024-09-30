@@ -3,57 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel - ChaosKingdom</title>
+    <title>ChaosKingdom - Admin</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"> <!-- Better font -->
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="features.html">Features</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <main>
-        <div class="text-box animated fadeIn">
-            <h1>Admin Panel</h1>
-            <input type="password" id="admin-password" placeholder="Enter Admin Password" />
-            <button onclick="loginAdmin()">Login</button>
-            <p id="admin-login-message"></p>
+<header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+</header>
 
-            <div id="admin-tools" style="display:none;">
-                <h2>Admin Tools</h2>
-                <h3>Website Status</h3>
-                <select id="website-status">
-                    <option value="available">Available</option>
-                    <option value="unavailable">Unavailable</option>
-                </select>
-                <button onclick="updateWebsiteStatus()">Update Status</button>
-                <p id="status-message"></p>
+<main>
+    <div class="text-box">
+        <h2>Admin Login</h2>
+        <input type="password" id="admin-password" placeholder="Enter Admin Password">
+        <button onclick="loginAdmin()">Login</button>
+        <p id="admin-login-message"></p>
+    </div>
 
-                <h3>Maintenance Message</h3>
-                <textarea id="maintenance-message" placeholder="Enter maintenance message"></textarea>
-                <button onclick="updateMaintenanceMessage()">Update Message</button>
-                <p id="maintenance-message-output"></p>
-
-                <h3>Change Admin Password</h3>
-                <input type="password" id="new-admin-password" placeholder="New Admin Password" />
-                <button onclick="changeAdminPassword()">Change Password</button>
-                <p id="password-message"></p>
-            </div>
+    <div id="admin-tools" style="display: none;">
+        <div class="text-box">
+            <h2>Website Status</h2>
+            <select id="website-status">
+                <option value="available">Available</option>
+                <option value="unavailable">Unavailable</option>
+            </select>
+            <button onclick="updateWebsiteStatus()">Update Status</button>
+            <p id="status-message"></p>
         </div>
-    </main>
 
-    <footer>
-        <button class="accessibility-button" onclick="toggleDarkMode()">Toggle Dark Mode</button>
-        <button class="accessibility-button" onclick="decreaseFontSize()">Decrease Font Size</button>
-        <button class="admin-button" onclick="openAdminPage()">Admin Panel</button>
-    </footer>
+        <div class="text-box">
+            <h2>Maintenance Message</h2>
+            <input type="text" id="maintenance-message" placeholder="Enter Maintenance Message">
+            <button onclick="updateMaintenanceMessage()">Update Message</button>
+            <p id="maintenance-message-output"></p>
+        </div>
 
-    <script src="script.js"></script>
+        <div class="text-box">
+            <h2>Change Admin Password</h2>
+            <input type="password" id="new-admin-password" placeholder="New Admin Password">
+            <button onclick="changeAdminPassword()">Change Password</button>
+            <p id="password-message"></p>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <p>Website by MegaStudios | <button class="accessibility-button" onclick="toggleDarkMode()">Toggle Dark Mode</button> | <button class="accessibility-button" onclick="decreaseFontSize()">Decrease Font Size</button></p>
+</footer>
+
 </body>
 </html>
