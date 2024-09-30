@@ -3,49 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - ChaosKingdom MC</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chaos Kingdom MC - About</title>
     <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
 </head>
 <body>
-
-    <!-- Navigation -->
     <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="features.html">Features</a></li>
-            <li><a href="about.html">About</a></li>
-        </ul>
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="about.html">About</a>
+        <a href="admin.html" id="adminButton">Admin</a>
     </nav>
 
-    <!-- Main Content -->
-    <div class="text-box">
-        <h1>About ChaosKingdom MC</h1>
-        <p>We are a Minecraft community dedicated to providing the best gaming experience!</p>
-
-        <!-- Server Team -->
-        <h2>Our Team</h2>
-        <ul>
-            <li>Owner: JohnDoe</li>
-            <li>Co-Owner: MegaStudios</li>
-            <li>Moderator: PlayerOne</li>
-            <li>Support: PlayerTwo</li>
-        </ul>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 ChaosKingdom MC - Created by MegaStudios</p>
-        <div class="accessibility-options">
-            <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
-            <button onclick="decreaseFontSize()">Decrease Font Size</button>
-            <select id="languageSelect" onchange="switchLanguage()">
-                <option value="en">English</option>
-                <option value="es">Spanish</option>
-            </select>
+    <section class="main-content">
+        <h1>About Chaos Kingdom MC</h1>
+        <div class="text-box">
+            <p>Chaos Kingdom MC is a unique Minecraft server that offers:</p>
+            <ul>
+                <li>Custom plugins</li>
+                <li>Friendly community</li>
+                <li>Active staff</li>
+            </ul>
         </div>
-        <a href="admin.html" class="admin-btn">Admin Login</a>
+
+        <div class="text-box">
+            <h2>Team Roles</h2>
+            <ul>
+                <li><strong>Owner:</strong> MegaStudios</li>
+                <li><strong>Co-Owner:</strong> CoOwnerName</li>
+                <li><strong>Admins:</strong> AdminName1, AdminName2</li>
+                <li><strong>Moderators:</strong> ModName1, ModName2</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Chaos Kingdom MC - Created by MegaStudios</p>
+        <button class="accessibility-button" onclick="toggleAccessibility()">Accessibility</button>
+        <button class="accessibility-button" onclick="toggleDarkMode()">Dark Mode</button>
+        <button class="accessibility-button" onclick="decreaseFontSize()">Decrease Font Size</button>
+        <button class="accessibility-button" onclick="changeLanguage()">Change Language</button>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
