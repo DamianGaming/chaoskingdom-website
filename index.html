@@ -3,46 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChaosKingdom MC</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chaos Kingdom MC</title>
     <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
 </head>
 <body>
-
-    <!-- Navigation -->
     <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="features.html">Features</a></li>
-            <li><a href="about.html">About</a></li>
-        </ul>
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="about.html">About</a>
+        <a href="admin.html" id="adminButton">Admin</a>
     </nav>
 
-    <!-- Logo -->
-    <div class="logo-container">
-        <img src="logo.png" alt="ChaosKingdom Logo" class="logo">
-    </div>
+    <section class="main-content">
+        <img src="New_Project_5.png" alt="Chaos Kingdom Logo" class="logo-img">
+        <h1>Welcome to Chaos Kingdom MC</h1>
+        <p class="text-box">Join our Minecraft server now with the IP: <strong>23.26.247.227:26246</strong></p>
+        <button class="join-now-btn">Join Now</button>
+    </section>
 
-    <!-- Main Content -->
-    <div class="text-box">
-        <h1>Welcome to ChaosKingdom MC</h1>
-        <p>Join the most thrilling Minecraft server out there!</p>
-        <button class="join-btn" id="copyIP">Copy IP: 23.26.247.227:26246</button>
-    </div>
-
-    <!-- Footer -->
     <footer>
-        <p>&copy; 2024 ChaosKingdom MC - Created by MegaStudios</p>
-        <div class="accessibility-options">
-            <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
-            <button onclick="decreaseFontSize()">Decrease Font Size</button>
-            <select id="languageSelect" onchange="switchLanguage()">
-                <option value="en">English</option>
-                <option value="es">Spanish</option>
-            </select>
-        </div>
-        <a href="admin.html" class="admin-btn">Admin Login</a>
+        <p>&copy; 2024 Chaos Kingdom MC - Created by MegaStudios</p>
+        <button class="accessibility-button" onclick="toggleAccessibility()">Accessibility</button>
+        <button class="accessibility-button" onclick="toggleDarkMode()">Dark Mode</button>
+        <button class="accessibility-button" onclick="decreaseFontSize()">Decrease Font Size</button>
+        <button class="accessibility-button" onclick="changeLanguage()">Change Language</button>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
