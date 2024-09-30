@@ -11,7 +11,10 @@
 
 <header>
     <nav>
-        <ul>
+        <div class="logo-container">
+            <img src="New_Project_5.png" alt="ChaosKingdom Logo" class="logo-img">
+        </div>
+        <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="features.html">Features</a></li>
             <li><a href="about.html">About</a></li>
@@ -20,21 +23,19 @@
 </header>
 
 <main>
-    <div class="logo-container">
-        <img src="your-logo.png" alt="ChaosKingdom" class="logo-img">
-    </div>
-    <div class="text-box animated">
+    <div class="hero-section">
         <h1>Welcome to ChaosKingdom!</h1>
-        <p>Join the ultimate Minecraft experience. IP: <strong>23.26.247.227:26246</strong></p>
-        <button class="join-now-btn" onclick="alert('IP copied to clipboard!')">Join Now</button>
+        <p>Join the ultimate Minecraft experience.</p>
+        <p class="ip-address"><strong>IP: 23.26.247.227:26246</strong></p>
+        <button class="join-now-btn" onclick="copyIP()">Join Now</button>
     </div>
 </main>
 
 <footer>
     <p>Website by MegaStudios</p>
+    <button class="admin-button" onclick="openAdminPage()">Admin</button>
     <button class="accessibility-button" onclick="toggleDarkMode()">Toggle Dark Mode</button>
     <button class="accessibility-button" onclick="decreaseFontSize()">Decrease Font Size</button>
-    <button class="admin-button" onclick="openAdminPage()">Admin</button>
 </footer>
 
 </body>
