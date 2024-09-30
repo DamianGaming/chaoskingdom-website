@@ -50,10 +50,6 @@ function changeAdminPassword() {
 }
 
 // Accessibility Features
-function toggleAccessibility() {
-    alert("Accessibility options toggled.");
-}
-
 function toggleDarkMode() {
     document.body.classList.toggle("dark-mode");
 }
