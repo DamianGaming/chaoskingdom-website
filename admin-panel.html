@@ -3,48 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel - ChaosKingdom MC</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chaos Kingdom MC - Admin Panel</title>
     <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
 </head>
 <body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="about.html">About</a>
+    </nav>
 
-    <!-- Main Content -->
-    <div class="admin-panel-box">
+    <section class="main-content">
         <h1>Admin Panel</h1>
+        <div class="admin-panel-box">
+            <h2>Login</h2>
+            <input type="password" id="admin-password" placeholder="Enter Admin Password">
+            <button onclick="loginAdmin()">Login</button>
+            <div id="admin-login-message" class="admin-messages"></div>
+        </div>
 
-        <!-- Site Availability -->
-        <h2>Website Availability</h2>
-        <p>Control website availability from here.</p>
-        <select id="siteStatus">
-            <option value="available">Available</option>
-            <option value="unavailable">Maintenance Mode</option>
-        </select>
-        <button onclick="updateSiteStatus()">Update Status</button>
+        <div id="admin-tools" class="admin-panel-box" style="display:none;">
+            <h2>Website Settings</h2>
 
-        <!-- Maintenance Mode Message -->
-        <h2>Maintenance Mode Message</h2>
-        <textarea id="maintenanceMessage" placeholder="Enter your custom message for maintenance mode here"></textarea>
-        <button onclick="updateMaintenanceMessage()">Update Message</button>
+            <!-- Toggle website availability -->
+            <p>Toggle website availability:</p>
+            <select id="website-status">
+                <option value="available">Available</option>
+                <option value="unavailable">Unavailable</option>
+            </select>
+            <button onclick="updateWebsiteStatus()">Update Status</button>
+            <div id="status-message" class="admin-messages"></div>
 
-        <!-- Admin Password Change -->
-        <h2>Change Admin Password</h2>
-        <input type="password" id="newAdminPassword" placeholder="Enter new password">
-        <button onclick="changeAdminPassword()">Change Password</button>
-        
-        <!-- Accessibility Management -->
-        <h2>Manage Accessibility Options</h2>
-        <label>
-            <input type="checkbox" id="toggleDarkModeAccess" onchange="toggleDarkModeAccessibility()">
-            Enable Dark Mode Option for Users
-        </label><br>
-        <label>
-            <input type="checkbox" id="toggleFontSizeAccess" onchange="toggleFontSizeAccessibility()">
-            Enable Font Size Adjustment for Users
-        </label>
+            <!-- Custom maintenance message -->
+            <h3>Custom Maintenance Message</h3>
+            <textarea id="maintenance-message" placeholder="Enter maintenance message here..."></textarea>
+            <button onclick="updateMaintenanceMessage()">Set Maintenance Message</button>
+            <div id="maintenance-message-output" class="admin-messages"></div>
 
-        <div id="admin-panel-messages" class="admin-messages"></div>
-    </div>
+            <!-- Change Admin Password -->
+            <h2>Change Admin Password</h2>
+            <input type="password" id="new-admin-password" placeholder="New Admin Password">
+            <button onclick="changeAdminPassword()">Change Password</button>
+            <div id="password-message" class="admin-messages"></div>
+        </div>
+    </section>
 
+    <footer>
+        <p>&copy; 2024 Chaos Kingdom MC - Created by MegaStudios</p>
+        <button class="accessibility-button" onclick="toggleAccessibility()">Accessibility</button>
+        <button class="accessibility-button" onclick="toggleDarkMode()">Dark Mode</button>
+        <button class="accessibility-button" onclick="decreaseFontSize()">Decrease Font Size</button>
+        <button class="accessibility-button" onclick="changeLanguage()">Change Language</button>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
