@@ -1,17 +1,15 @@
-let adminPassword = "FuckMeBitch12!";
-let websiteStatus = "available";
-let maintenanceMessage = "";
+// Admin password (default)
+let adminPassword = localStorage.getItem('adminPassword') || 'admin';
+let websiteStatus = 'available';
+let maintenanceMessage = '';
 
-// Admin Login
+// Admin login function
 function loginAdmin() {
-    const enteredPassword = document.getElementById('admin-password').value;
-    const messageBox = document.getElementById('admin-login-message');
-
-    if (enteredPassword === adminPassword) {
-        messageBox.textContent = "Login successful!";
-        window.location.href = "admin-panel.html";
+    const inputPassword = document.getElementById('admin-password').value;
+    if (inputPassword === adminPassword) {
+        window.location.href = 'admin-panel.html';
     } else {
-        messageBox.textContent = "Incorrect password.";
+        document.getElementById('admin-login-message').textContent = 'Incorrect password!';
     }
 }
 
@@ -64,3 +62,21 @@ document.addEventListener('DOMContentLoaded', () => {
         adminPassword = savedAdminPassword;
     }
 });
+
+// Dark mode toggle
+function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+}
+
+// Decrease Font Size
+function decreaseFontSize() {
+    document.body.style.fontSize = 'smaller';
+}
+
+// Copy IP address function for "Join Now" button
+function copyIP() {
+    const ip = '23.26.247.227:26246';
+    navigator.clipboard.writeText(ip).then(() => {
+        alert('IP Address copied to clipboard!');
+    });
+}
