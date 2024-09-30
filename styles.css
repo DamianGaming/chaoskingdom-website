@@ -1,11 +1,8 @@
-/* Global Styles */
 body {
-    font-family: 'Montserrat', sans-serif; /* Better font */
-    background: linear-gradient(to bottom, #FFA500, #FF4500); /* Orange Gradient */
+    font-family: 'Arial', sans-serif; /* Change to a better, modern font */
+    background: linear-gradient(45deg, orange, darkorange); /* Orange gradient */
     margin: 0;
     padding: 0;
-    color: #fff;
-    text-align: center;
     font-size: 16px; /* Default font size */
     display: flex;
     flex-direction: column;
@@ -20,10 +17,11 @@ header {
 nav ul {
     list-style: none;
     padding: 0;
+    display: flex;
+    justify-content: center; /* Center nav links */
 }
 
 nav ul li {
-    display: inline;
     margin: 0 15px;
 }
 
@@ -39,16 +37,18 @@ nav a:hover {
 }
 
 .logo-img {
-    width: 200px; /* Increased logo size */
+    width: 200px; /* Larger logo size */
     margin: 20px auto;
 }
 
 .text-box {
-    background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent white */
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
     border-radius: 8px;
     padding: 20px;
     margin: 20px auto;
     max-width: 500px;
+    color: #fff;
+    text-align: center;
 }
 
 button {
@@ -59,6 +59,7 @@ button {
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s;
+    font-family: 'Arial', sans-serif; /* Ensure button uses same font */
 }
 
 button:hover {
@@ -69,15 +70,16 @@ footer {
     margin-top: auto; /* Push footer to the bottom */
     padding: 20px;
     background-color: rgba(0, 0, 0, 0.7);
+    text-align: center;
 }
 
-/* Accessibility Buttons */
 .accessibility-button,
 .admin-button {
-    margin: 10px;
+    margin: 5px;
+    font-size: 12px;
+    padding: 5px 10px; /* Smaller footer buttons */
 }
 
-/* Animations */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -89,22 +91,4 @@ footer {
 
 .animated {
     animation: fadeIn 0.5s ease-in-out;
-}
-
-.delay-1s {
-    animation-delay: 1s;
-}
-
-.delay-2s {
-    animation-delay: 2s;
-}
-
-/* Dark Mode Styles */
-body.dark-mode {
-    background: linear-gradient(to bottom, #333, #444); /* Dark gradient */
-    color: #fff;
-}
-
-body.dark-mode .text-box {
-    background-color: rgba(255, 255, 255, 0.2); /* Dark mode text box */
 }
