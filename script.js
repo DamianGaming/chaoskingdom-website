@@ -1,19 +1,17 @@
-let adminPassword = "FuckMeBitch12!"; // Default admin password
-let websiteStatus = "available"; // Default website status
+let adminPassword = "FuckMeBitch12!";
+let websiteStatus = "available";
 let maintenanceMessage = "";
 
 // Admin Login
 function loginAdmin() {
     const enteredPassword = document.getElementById('admin-password').value;
     const messageBox = document.getElementById('admin-login-message');
-    const adminTools = document.getElementById('admin-tools');
 
     if (enteredPassword === adminPassword) {
         messageBox.textContent = "Login successful!";
-        adminTools.style.display = "block"; // Show admin tools on successful login
-        localStorage.setItem('adminLoggedIn', true); // Save login state
+        window.location.href = "admin-panel.html";
     } else {
-        messageBox.textContent = "Incorrect password."; // Show error message for incorrect password
+        messageBox.textContent = "Incorrect password.";
     }
 }
 
@@ -21,42 +19,30 @@ function loginAdmin() {
 function updateWebsiteStatus() {
     const status = document.getElementById('website-status').value;
     const statusMessage = document.getElementById('status-message');
-
-    websiteStatus = status; // Update the website status
-    localStorage.setItem('websiteStatus', websiteStatus); // Save status
-
-    if (status === 'available') {
-        statusMessage.textContent = "Website is now available.";
-    } else {
-        statusMessage.textContent = "Website is now unavailable.";
-    }
+    websiteStatus = status;
+    localStorage.setItem('websiteStatus', websiteStatus);
+    statusMessage.textContent = "Website status updated to " + websiteStatus;
 }
 
 // Update Maintenance Message
 function updateMaintenanceMessage() {
-    const maintenanceInput = document.getElementById('maintenance-message').value;
-    maintenanceMessage = maintenanceInput; // Update the maintenance message
-    localStorage.setItem('maintenanceMessage', maintenanceMessage); // Save message
-
-    const maintenanceOutput = document.getElementById('maintenance-message-output');
-    maintenanceOutput.textContent = maintenanceMessage || "No maintenance message set.";
+    const message = document.getElementById('maintenance-message').value;
+    maintenanceMessage = message;
+    localStorage.setItem('maintenanceMessage', maintenanceMessage);
+    document.getElementById('maintenance-message-output').textContent = maintenanceMessage;
 }
 
 // Change Admin Password
 function changeAdminPassword() {
     const newPassword = document.getElementById('new-admin-password').value;
-    const passwordMessage = document.getElementById('password-message');
-
     if (newPassword) {
-        adminPassword = newPassword; // Set the new admin password
-        localStorage.setItem('adminPassword', adminPassword); // Save new password
-        passwordMessage.textContent = "Password changed successfully!";
-    } else {
-        passwordMessage.textContent = "Please enter a new password.";
+        adminPassword = newPassword;
+        localStorage.setItem('adminPassword', adminPassword);
+        document.getElementById('password-message').textContent = "Password updated successfully!";
     }
 }
 
-// Restore saved settings from localStorage
+// Restore saved settings
 document.addEventListener('DOMContentLoaded', () => {
     // Restore website status
     const savedStatus = localStorage.getItem('websiteStatus');
@@ -76,10 +62,5 @@ document.addEventListener('DOMContentLoaded', () => {
     const savedAdminPassword = localStorage.getItem('adminPassword');
     if (savedAdminPassword) {
         adminPassword = savedAdminPassword;
-    }
-
-    // Restore login state
-    if (localStorage.getItem('adminLoggedIn')) {
-        document.getElementById('admin-tools').style.display = 'block';
     }
 });
