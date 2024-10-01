@@ -1,6 +1,6 @@
 // Admin password (default)
 let adminPassword = localStorage.getItem('adminPassword') || 'admin';
-let websiteStatus = localStorage.getItem('websiteStatus') || 'Available';
+let websiteStatus = localStorage.getItem('websiteStatus') || 'available'; // Default to "available"
 let maintenanceMessage = localStorage.getItem('maintenanceMessage') || '';
 
 // Admin login function
@@ -52,6 +52,14 @@ function applyWebsiteStatus() {
 
 // On page load
 document.addEventListener('DOMContentLoaded', () => {
+    // Apply website status only if it exists in localStorage, otherwise set it to available
+    if (!localStorage.getItem('websiteStatus')) {
+        localStorage.setItem('websiteStatus', 'available');
+        websiteStatus = 'available';
+    } else {
+        websiteStatus = localStorage.getItem('websiteStatus');
+    }
+
     applyWebsiteStatus(); // Apply the status of the website on load
 
     // Restore saved settings
