@@ -160,3 +160,109 @@ footer p {
         padding: 20px;
     }
 }
+
+/* Logo Styling */
+.logo {
+    width: 100px;
+    height: auto;
+    margin-right: 20px;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #ff8008;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Navigation Styling */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #e87006;
+}
+
+/* Footer Styling */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: #ff8008;
+    padding: 10px;
+    color: white;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.admin-footer-btn {
+    background-color: white;
+    border: none;
+    padding: 10px 15px;
+    color: #ff8008;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.admin-footer-btn:hover {
+    background-color: #e87006;
+    color: white;
+}
+
+/* Admin Login Page */
+.admin-login-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    background-color: #ff8008;
+    color: white;
+}
+
+.admin-password {
+    padding: 10px;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 300px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.admin-login-btn {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    color: #ff8008;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.admin-login-btn:hover {
+    background-color: #e87006;
+    color: white;
+}
