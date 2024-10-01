@@ -16,10 +16,9 @@ function loginAdmin() {
 // Update Website Status
 function updateWebsiteStatus() {
     const status = document.getElementById('website-status').value;
-    const statusMessage = document.getElementById('status-message');
     websiteStatus = status;
     localStorage.setItem('websiteStatus', websiteStatus);
-    statusMessage.textContent = "Website status updated to " + websiteStatus;
+    document.getElementById('status-message').textContent = "Website status updated to " + websiteStatus;
 }
 
 // Update Maintenance Message
@@ -46,14 +45,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const savedStatus = localStorage.getItem('websiteStatus');
     if (savedStatus) {
         websiteStatus = savedStatus;
-        document.getElementById('website-status').value = websiteStatus;
+        const statusDropdown = document.getElementById('website-status');
+        if (statusDropdown) {
+            statusDropdown.value = websiteStatus;
+        }
     }
 
     // Restore maintenance message
     const savedMessage = localStorage.getItem('maintenanceMessage');
     if (savedMessage) {
         maintenanceMessage = savedMessage;
-        document.getElementById('maintenance-message-output').textContent = maintenanceMessage;
+        const maintenanceMessageOutput = document.getElementById('maintenance-message-output');
+        if (maintenanceMessageOutput) {
+            maintenanceMessageOutput.textContent = maintenanceMessage;
+        }
     }
 
     // Restore admin password
@@ -63,30 +68,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Dark mode toggle
-function toggleDarkMode() {
-    document.body.classList.toggle('dark-mode');
-}
-
-// Decrease Font Size
-function decreaseFontSize() {
-    document.body.style.fontSize = 'smaller';
-}
-
-// Increase Font Size
-function increaseFontSize() {
-    document.body.style.fontSize = 'larger';
-}
-
-// High Contrast Mode
-function toggleHighContrast() {
-    document.body.classList.toggle('high-contrast');
-}
-
 // Copy IP address function for "Join Now" button
 function copyIP() {
     const ip = '23.26.247.227:26246';
     navigator.clipboard.writeText(ip).then(() => {
         alert('IP Address copied to clipboard!');
     });
+}
+
+// Open admin page
+function openAdminPage() {
+    window.location.href = 'admin.html';
 }
