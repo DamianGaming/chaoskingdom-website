@@ -1,7 +1,7 @@
 // Admin password (default)
 let adminPassword = localStorage.getItem('adminPassword') || 'admin';
-let websiteStatus = 'available';
-let maintenanceMessage = '';
+let websiteStatus = localStorage.getItem('websiteStatus') || 'available';
+let maintenanceMessage = localStorage.getItem('maintenanceMessage') || '';
 
 // Admin login function
 function loginAdmin() {
@@ -71,6 +71,16 @@ function toggleDarkMode() {
 // Decrease Font Size
 function decreaseFontSize() {
     document.body.style.fontSize = 'smaller';
+}
+
+// Increase Font Size
+function increaseFontSize() {
+    document.body.style.fontSize = 'larger';
+}
+
+// High Contrast Mode
+function toggleHighContrast() {
+    document.body.classList.toggle('high-contrast');
 }
 
 // Copy IP address function for "Join Now" button
