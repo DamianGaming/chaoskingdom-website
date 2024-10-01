@@ -9,28 +9,16 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="features.html">Features</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
-        </nav>
-    </header>
-
     <main>
-        <div class="text-box">
+        <section class="admin-login-section">
             <h1>Admin Login</h1>
-            <input type="password" id="admin-password" placeholder="Enter Admin Password">
-            <button onclick="loginAdmin()">Login</button>
+            <input type="password" id="admin-password" placeholder="Enter admin password" class="text-box">
+            <button onclick="loginAdmin()" class="admin-login-btn">Login</button>
             <p id="admin-login-message"></p>
-        </div>
+        </section>
     </main>
-
     <footer>
-        <p>&copy; 2024 ChaosKingdom. All rights reserved.</p>
-        <button class="admin-button" onclick="openAdminPage()">Admin</button>
+        <p>ChaosKingdom © 2024 | Made by [Your Name]</p>
     </footer>
 </body>
 </html>
