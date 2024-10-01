@@ -50,10 +50,10 @@ header {
 }
 
 .nav-links a:hover {
-    color: #ffc837; /* Highlight color */
+    color: #ffc837;
 }
 
-/* Main Content */
+/* Hero Section */
 .hero-section {
     text-align: center;
     margin: 50px 0;
@@ -84,18 +84,18 @@ header {
     background-color: #ffcc00;
 }
 
-/* Footer */
-footer {
-    background-color: rgba(0, 0, 0, 0.9);
-    padding: 15px 0;
+/* Admin Panel and Login */
+.text-box {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 500px;
     text-align: center;
-    color: #ffd700;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
 }
 
-.admin-button, .accessibility-button {
+/* Accessibility Buttons */
+.accessibility-button {
     background-color: #ffd700;
     border: none;
     border-radius: 5px;
@@ -106,16 +106,34 @@ footer {
     transition: background-color 0.3s ease;
 }
 
-.admin-button:hover, .accessibility-button:hover {
+.accessibility-button:hover {
     background-color: #ffcc00;
 }
 
-/* Utility Classes */
-.text-box {
-    background-color: rgba(255, 255, 255, 0.1); /* Textbox highlight */
-    border-radius: 10px;
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 500px;
+/* Footer */
+footer {
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 15px;
     text-align: center;
+    color: #fff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin-bottom: 5px;
+}
+
+.admin-button {
+    background-color: #ffc837;
+    color: #000;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.admin-button:hover {
+    background-color: #ff8008;
 }
