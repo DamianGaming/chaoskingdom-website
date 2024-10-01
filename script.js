@@ -43,7 +43,7 @@ function changeAdminPassword() {
 // Apply Website Status (Available/Unavailable)
 function applyWebsiteStatus() {
     // Check if the website is set to unavailable
-    if (websiteStatus === 'unavailable') {
+    if (websiteStatus === 'unavailable' && window.location.pathname !== '/admin.html') {
         // Replace the body content with the "Unavailable" message and the admin button
         document.body.innerHTML = `
             <div style="display: flex; height: 100vh; align-items: center; justify-content: center; flex-direction: column;">
