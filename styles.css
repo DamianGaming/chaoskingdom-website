@@ -5,108 +5,101 @@
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+}
+
 body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #ff8008, #ffc837); /* Orange gradient */
-    color: #fff;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ff8008, #ffc837); /* Orange gradient */
+    color: #fff;
 }
 
 /* Header */
 header {
-    background-color: rgba(0, 0, 0, 0.9);
-    padding: 10px 0;
-    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .logo-container {
-    display: inline-block;
-    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
 }
 
 .logo-img {
-    width: 150px;
-    height: auto;
+    height: 50px;
 }
 
 .nav-links {
-    display: flex;
-    justify-content: center;
     list-style: none;
-    padding: 10px 0;
 }
 
 .nav-links li {
-    margin: 0 15px;
+    display: inline;
+    margin-left: 15px;
 }
 
 .nav-links a {
-    text-decoration: none;
     color: #fff;
-    font-weight: bold;
-    transition: color 0.3s ease;
+    text-decoration: none;
+    font-size: 1rem;
 }
 
-.nav-links a:hover {
-    color: #ffc837;
+/* Main Content */
+main {
+    flex-grow: 1;
 }
 
-/* Hero Section */
-.hero-section {
+.home-section,
+.features-section,
+.about-section,
+.admin-panel-section {
     text-align: center;
-    margin: 50px 0;
+    padding: 50px;
 }
 
-.hero-section h1 {
-    font-size: 3rem;
+h1, h2 {
     margin-bottom: 20px;
 }
 
-.hero-section p {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-}
-
-.join-now-btn {
-    background-color: #ffd700;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 1.2rem;
-    color: #000;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.join-now-btn:hover {
-    background-color: #ffcc00;
-}
-
-/* Admin Panel and Login */
+/* Text Boxes */
 .text-box {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
     padding: 20px;
     margin: 20px auto;
     max-width: 500px;
-    text-align: center;
+    color: #333;
 }
 
-/* Accessibility Buttons */
-.accessibility-button {
-    background-color: #ffd700;
+.text-box input {
+    background-color: #f1f1f1;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+.text-box button {
+    background-color: #ff8008;
+    color: #fff;
+    padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    padding: 8px 15px;
-    margin: 5px;
-    font-size: 14px;
+    font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-.accessibility-button:hover {
+.text-box button:hover {
     background-color: #ffcc00;
 }
 
@@ -116,9 +109,8 @@ footer {
     padding: 15px;
     text-align: center;
     color: #fff;
-    position: relative;
-    bottom: 0;
     width: 100%;
+    margin-top: auto;
 }
 
 footer p {
@@ -126,14 +118,10 @@ footer p {
 }
 
 .admin-button {
-    background-color: #ffc837;
-    color: #000;
-    padding: 5px 10px;
-    font-size: 14px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.admin-button:hover {
     background-color: #ff8008;
+    border: none;
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
 }
