@@ -42,11 +42,19 @@ function changeAdminPassword() {
 
 // Apply Website Status (Available/Unavailable)
 function applyWebsiteStatus() {
+    // Check if the website is set to unavailable
     if (websiteStatus === 'unavailable') {
-        document.body.innerHTML = `<div style="display: flex; height: 100vh; align-items: center; justify-content: center; flex-direction: column;">
-            <h1 style="font-size: 3rem; color: #ff8008;">Website Unavailable</h1>
-            <p style="font-size: 1.5rem; color: #fff;">${maintenanceMessage || 'We are currently performing maintenance. Please check back later.'}</p>
-        </div>`;
+        // Replace the body content with the "Unavailable" message and the admin button
+        document.body.innerHTML = `
+            <div style="display: flex; height: 100vh; align-items: center; justify-content: center; flex-direction: column;">
+                <h1 style="font-size: 3rem; color: #ff8008;">Website Unavailable</h1>
+                <p style="font-size: 1.5rem; color: #fff;">
+                    ${maintenanceMessage || 'We are currently performing maintenance. Please check back later.'}
+                </p>
+                <button onclick="openAdminPage()" style="padding: 10px 20px; font-size: 1rem; background-color: #ff8008; border: none; border-radius: 5px; color: white;">
+                    Admin Login
+                </button>
+            </div>`;
     }
 }
 
