@@ -7,9 +7,18 @@ let maintenanceMessage = localStorage.getItem('maintenanceMessage') || '';
 function loginAdmin() {
     const inputPassword = document.getElementById('admin-password').value;
     if (inputPassword === adminPassword) {
-        window.location.href = 'admin-panel.html';
+        // Set session storage to indicate admin logged in
+        sessionStorage.setItem('isAdmin', 'true');
+        window.location.href = 'admin-panel.html'; // Redirect to admin panel
     } else {
         document.getElementById('admin-login-message').textContent = 'Incorrect password!';
+    }
+}
+
+// Ensure that the user is logged in as admin to access admin panel
+function checkAdminAccess() {
+    if (sessionStorage.getItem('isAdmin') !== 'true') {
+        window.location.href = 'admin.html'; // Redirect to login page if not logged in
     }
 }
 
@@ -43,7 +52,7 @@ function changeAdminPassword() {
 // Apply Website Status (Available/Unavailable)
 function applyWebsiteStatus() {
     // Check if the website is set to unavailable
-    if (websiteStatus === 'unavailable' && window.location.pathname !== '/admin.html') {
+    if (websiteStatus === 'unavailable' && window.location.pathname !== '/admin.html' && window.location.pathname !== '/admin-panel.html') {
         // Replace the body content with the "Unavailable" message and the admin button
         document.body.innerHTML = `
             <div style="display: flex; height: 100vh; align-items: center; justify-content: center; flex-direction: column;">
