@@ -1,6 +1,6 @@
 // Admin password (default)
 let adminPassword = localStorage.getItem('adminPassword') || 'admin';
-let websiteStatus = localStorage.getItem('websiteStatus') || 'available';
+let websiteStatus = localStorage.getItem('websiteStatus') || 'Available';
 let maintenanceMessage = localStorage.getItem('maintenanceMessage') || '';
 
 // Admin login function
