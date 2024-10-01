@@ -19,6 +19,7 @@ function updateWebsiteStatus() {
     websiteStatus = status;
     localStorage.setItem('websiteStatus', websiteStatus);
     document.getElementById('status-message').textContent = "Website status updated to " + websiteStatus;
+    applyWebsiteStatus();
 }
 
 // Update Maintenance Message
@@ -39,9 +40,21 @@ function changeAdminPassword() {
     }
 }
 
-// Restore saved settings
+// Apply Website Status (Available/Unavailable)
+function applyWebsiteStatus() {
+    if (websiteStatus === 'unavailable') {
+        document.body.innerHTML = `<div style="display: flex; height: 100vh; align-items: center; justify-content: center; flex-direction: column;">
+            <h1 style="font-size: 3rem; color: #ff8008;">Website Unavailable</h1>
+            <p style="font-size: 1.5rem; color: #fff;">${maintenanceMessage || 'We are currently performing maintenance. Please check back later.'}</p>
+        </div>`;
+    }
+}
+
+// On page load
 document.addEventListener('DOMContentLoaded', () => {
-    // Restore website status
+    applyWebsiteStatus(); // Apply the status of the website on load
+
+    // Restore saved settings
     const savedStatus = localStorage.getItem('websiteStatus');
     if (savedStatus) {
         websiteStatus = savedStatus;
@@ -51,7 +64,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Restore maintenance message
     const savedMessage = localStorage.getItem('maintenanceMessage');
     if (savedMessage) {
         maintenanceMessage = savedMessage;
@@ -61,7 +73,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Restore admin password
     const savedAdminPassword = localStorage.getItem('adminPassword');
     if (savedAdminPassword) {
         adminPassword = savedAdminPassword;
