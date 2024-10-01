@@ -4,54 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
 </head>
 <body>
+    <header>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<header>
-    <nav>
-        <div class="logo-container">
-            <img src="New_Project_5.png" alt="ChaosKingdom Logo" class="logo-img">
-        </div>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="features.html">Features</a></li>
-            <li><a href="about.html">About</a></li>
-        </ul>
-    </nav>
-</header>
-
-<main>
-    <section class="admin-panel-section">
-        <h2>Admin Panel</h2>
+    <main>
         <div class="text-box">
-            <label for="website-status">Website Status:</label>
+            <h1>Admin Panel</h1>
+
+            <h2>Website Status</h2>
             <select id="website-status" onchange="updateWebsiteStatus()">
                 <option value="available">Available</option>
                 <option value="unavailable">Unavailable</option>
             </select>
             <p id="status-message"></p>
-        </div>
-        <div class="text-box">
-            <label for="maintenance-message">Maintenance Message:</label>
-            <input type="text" id="maintenance-message" placeholder="Enter maintenance message">
+
+            <h2>Maintenance Message</h2>
+            <textarea id="maintenance-message" placeholder="Enter maintenance message"></textarea>
             <button onclick="updateMaintenanceMessage()">Update Message</button>
             <p id="maintenance-message-output"></p>
-        </div>
-        <div class="text-box">
-            <label for="new-admin-password">New Admin Password:</label>
-            <input type="password" id="new-admin-password" placeholder="Enter new password">
+
+            <h2>Change Admin Password</h2>
+            <input type="password" id="new-admin-password" placeholder="Enter New Password">
             <button onclick="changeAdminPassword()">Change Password</button>
             <p id="password-message"></p>
         </div>
-    </section>
-</main>
+    </main>
 
-<footer>
-    <p>Website by MegaStudios</p>
-    <button class="admin-button" onclick="openAdminPage()">Admin</button>
-</footer>
-
+    <footer>
+        <p>&copy; 2024 ChaosKingdom. All rights reserved.</p>
+    </footer>
 </body>
 </html>
