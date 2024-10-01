@@ -23,26 +23,29 @@
 </header>
 
 <main>
-    <div class="text-box">
+    <section class="admin-panel-section">
         <h2>Admin Panel</h2>
-        <h3>Website Status</h3>
-        <select id="website-status">
-            <option value="available">Available</option>
-            <option value="unavailable">Unavailable</option>
-        </select>
-        <button onclick="updateWebsiteStatus()">Update Status</button>
-        <p id="status-message"></p>
-
-        <h3>Maintenance Message</h3>
-        <input type="text" id="maintenance-message" placeholder="Enter Maintenance Message">
-        <button onclick="updateMaintenanceMessage()">Update Message</button>
-        <p id="maintenance-message-output"></p>
-
-        <h3>Change Admin Password</h3>
-        <input type="password" id="new-admin-password" placeholder="New Admin Password">
-        <button onclick="changeAdminPassword()">Change Password</button>
-        <p id="password-message"></p>
-    </div>
+        <div class="text-box">
+            <label for="website-status">Website Status:</label>
+            <select id="website-status" onchange="updateWebsiteStatus()">
+                <option value="available">Available</option>
+                <option value="unavailable">Unavailable</option>
+            </select>
+            <p id="status-message"></p>
+        </div>
+        <div class="text-box">
+            <label for="maintenance-message">Maintenance Message:</label>
+            <input type="text" id="maintenance-message" placeholder="Enter maintenance message">
+            <button onclick="updateMaintenanceMessage()">Update Message</button>
+            <p id="maintenance-message-output"></p>
+        </div>
+        <div class="text-box">
+            <label for="new-admin-password">New Admin Password:</label>
+            <input type="password" id="new-admin-password" placeholder="Enter new password">
+            <button onclick="changeAdminPassword()">Change Password</button>
+            <p id="password-message"></p>
+        </div>
+    </section>
 </main>
 
 <footer>
