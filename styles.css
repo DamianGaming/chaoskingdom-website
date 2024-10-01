@@ -7,15 +7,16 @@
 
 html, body {
     height: 100%;
+    font-family: 'Poppins', sans-serif; /* Apply Poppins font */
 }
 
 body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #ff8008, #ffc837); /* Orange gradient */
     color: #fff;
+    padding: 0 10px;
 }
 
 /* Header */
@@ -25,6 +26,25 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+    z-index: 1000;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    padding: 0 10px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
 }
 
 .logo-container {
@@ -33,56 +53,50 @@ header {
 }
 
 .logo-img {
-    height: 50px;
-}
-
-.nav-links {
-    list-style: none;
-}
-
-.nav-links li {
-    display: inline;
-    margin-left: 15px;
-}
-
-.nav-links a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1rem;
+    height: 60px; /* Increase logo size */
 }
 
 /* Main Content */
 main {
     flex-grow: 1;
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
-.home-section,
-.features-section,
-.about-section,
-.admin-panel-section {
+section {
     text-align: center;
-    padding: 50px;
 }
 
 h1, h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.2rem;
+    line-height: 1.5;
     margin-bottom: 20px;
 }
 
 /* Text Boxes */
 .text-box {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.9);
     border-radius: 10px;
     padding: 20px;
     margin: 20px auto;
-    max-width: 500px;
+    max-width: 600px;
     color: #333;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .text-box input {
-    background-color: #f1f1f1;
+    background-color: #f9f9f9;
     border: 2px solid #ddd;
     border-radius: 5px;
-    padding: 10px;
+    padding: 12px;
     width: 100%;
     margin-bottom: 15px;
     font-size: 1rem;
@@ -91,7 +105,7 @@ h1, h2 {
 .text-box button {
     background-color: #ff8008;
     color: #fff;
-    padding: 10px 20px;
+    padding: 12px 25px;
     border: none;
     border-radius: 5px;
     font-size: 1rem;
@@ -106,22 +120,43 @@ h1, h2 {
 /* Footer */
 footer {
     background-color: rgba(0, 0, 0, 0.9);
-    padding: 15px;
+    padding: 20px;
     text-align: center;
     color: #fff;
-    width: 100%;
     margin-top: auto;
+    width: 100%;
 }
 
 footer p {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .admin-button {
     background-color: #ff8008;
     border: none;
     color: #fff;
-    padding: 10px;
+    padding: 12px;
     cursor: pointer;
     border-radius: 5px;
+    font-size: 1rem;
+}
+
+.admin-button:hover {
+    background-color: #ffcc00;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    main {
+        padding: 20px;
+    }
 }
