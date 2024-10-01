@@ -4,37 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
 </head>
 <body>
+    <header>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<header>
-    <nav>
-        <div class="logo-container">
-            <img src="New_Project_5.png" alt="ChaosKingdom Logo" class="logo-img">
+    <main>
+        <div class="text-box">
+            <h1>Admin Login</h1>
+            <input type="password" id="admin-password" placeholder="Enter Admin Password">
+            <button onclick="loginAdmin()">Login</button>
+            <p id="admin-login-message"></p>
         </div>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="features.html">Features</a></li>
-            <li><a href="about.html">About</a></li>
-        </ul>
-    </nav>
-</header>
+    </main>
 
-<main>
-    <div class="text-box">
-        <h2>Admin Login</h2>
-        <input type="password" id="admin-password" placeholder="Enter Admin Password">
-        <button onclick="loginAdmin()">Login</button>
-        <p id="admin-login-message"></p>
-    </div>
-</main>
-
-<footer>
-    <p>Website by MegaStudios</p>
-    <button class="admin-button" onclick="openAdminPage()">Admin</button>
-</footer>
-
+    <footer>
+        <p>&copy; 2024 ChaosKingdom. All rights reserved.</p>
+        <button class="admin-button" onclick="openAdminPage()">Admin</button>
+    </footer>
 </body>
 </html>
