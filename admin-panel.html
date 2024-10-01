@@ -9,41 +9,33 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="features.html">Features</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
-        </nav>
-    </header>
-
     <main>
-        <div class="text-box">
+        <section class="admin-panel-section">
             <h1>Admin Panel</h1>
-
-            <h2>Website Status</h2>
-            <select id="website-status" onchange="updateWebsiteStatus()">
-                <option value="available">Available</option>
-                <option value="unavailable">Unavailable</option>
-            </select>
-            <p id="status-message"></p>
-
-            <h2>Maintenance Message</h2>
-            <textarea id="maintenance-message" placeholder="Enter maintenance message"></textarea>
-            <button onclick="updateMaintenanceMessage()">Update Message</button>
-            <p id="maintenance-message-output"></p>
-
-            <h2>Change Admin Password</h2>
-            <input type="password" id="new-admin-password" placeholder="Enter New Password">
-            <button onclick="changeAdminPassword()">Change Password</button>
-            <p id="password-message"></p>
-        </div>
+            <div class="text-box">
+                <h2>Website Status</h2>
+                <select id="website-status" onchange="updateWebsiteStatus()">
+                    <option value="available">Available</option>
+                    <option value="unavailable">Unavailable</option>
+                </select>
+                <p id="status-message"></p>
+            </div>
+            <div class="text-box">
+                <h2>Maintenance Message</h2>
+                <textarea id="maintenance-message" placeholder="Enter maintenance message"></textarea>
+                <button onclick="updateMaintenanceMessage()">Update Message</button>
+                <p id="maintenance-message-output"></p>
+            </div>
+            <div class="text-box">
+                <h2>Change Admin Password</h2>
+                <input type="password" id="new-admin-password" placeholder="New password">
+                <button onclick="changeAdminPassword()">Change Password</button>
+                <p id="password-message"></p>
+            </div>
+        </section>
     </main>
-
     <footer>
-        <p>&copy; 2024 ChaosKingdom. All rights reserved.</p>
+        <p>ChaosKingdom © 2024 | Made by [Your Name]</p>
     </footer>
 </body>
 </html>
