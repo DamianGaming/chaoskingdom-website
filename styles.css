@@ -8,7 +8,7 @@
 /* General font styling */
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to right, #ff8008, #ffc837);
+    background: linear-gradient(to right, #ff8008, #ff9508);
     color: #333;
 }
 
@@ -100,16 +100,14 @@ input[type="text"]:focus,
 textarea:focus {
     border-color: #ff8008;
     outline: none;
-    box-shadow: 0px 0px 5px rgba(255, 128, 8, 0.5);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Buttons */
 button {
     background-color: #ff8008;
-    border: none;
     color: white;
-    padding: 10px 15px;
-    font-size: 1rem;
+    border: none;
+    padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -123,16 +121,14 @@ button:hover {
 .text-box {
     background-color: white;
     color: #333;
-    padding: 15px;
-    margin-bottom: 20px;
+    padding: 20px;
+    margin: 20px auto;
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
     max-width: 800px;
-    margin: 20px auto;
 }
 
-/* Position logo elsewhere */
+/* Logo positioning */
 .logo-container {
     display: flex;
     justify-content: center;
@@ -140,25 +136,20 @@ button:hover {
 }
 
 .logo {
-    width: 150px;
+    width: 200px;
     height: auto;
     margin-bottom: 20px;
 }
 
-h1, h2, h3 {
-    color: #333;
-}
-
+/* Responsive adjustments */
 @media (max-width: 768px) {
     .nav-links {
         flex-direction: column;
+        gap: 15px;
     }
 
     .footer-container {
         flex-direction: column;
-    }
-
-    footer p {
-        margin-bottom: 10px;
+        gap: 10px;
     }
 }
