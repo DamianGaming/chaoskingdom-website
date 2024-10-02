@@ -1,118 +1,94 @@
-// Admin password (default)
-let adminPassword = localStorage.getItem('adminPassword') || 'admin';
-let websiteStatus = localStorage.getItem('websiteStatus') || 'available'; // Default to "available"
-let maintenanceMessage = localStorage.getItem('maintenanceMessage') || '';
-
-// Admin login function
 function loginAdmin() {
-    const inputPassword = document.getElementById('admin-password').value;
-    if (inputPassword === adminPassword) {
-        // Set session storage to indicate admin logged in
-        sessionStorage.setItem('isAdmin', 'true');
-        window.location.href = 'admin-panel.html'; // Redirect to admin panel
+    const password = document.getElementById("admin-password").value;
+    if (password === "Admin32") {  // replace "yourAdminPassword" with your actual password
+        window.location.href = "admin-panel.html";
     } else {
-        document.getElementById('admin-login-message').textContent = 'Incorrect password!';
+        document.getElementById("admin-login-message").textContent = "Incorrect password.";
     }
 }
 
-// Ensure that the user is logged in as admin to access admin panel
-function checkAdminAccess() {
-    if (sessionStorage.getItem('isAdmin') !== 'true') {
-        window.location.href = 'admin.html'; // Redirect to login page if not logged in
-    }
-}
-
-// Update Website Status
 function updateWebsiteStatus() {
-    const status = document.getElementById('website-status').value;
-    websiteStatus = status;
-    localStorage.setItem('websiteStatus', websiteStatus);
-    document.getElementById('status-message').textContent = "Website status updated to " + websiteStatus;
-    applyWebsiteStatus();
+    const status = document.getElementById("website-status").value;
+    localStorage.setItem("websiteStatus", status);
+    checkWebsiteStatus();
 }
 
-// Update Maintenance Message
-function updateMaintenanceMessage() {
-    const message = document.getElementById('maintenance-message').value;
-    maintenanceMessage = message;
-    localStorage.setItem('maintenanceMessage', maintenanceMessage);
-    document.getElementById('maintenance-message-output').textContent = maintenanceMessage;
-}
-
-// Change Admin Password
-function changeAdminPassword() {
-    const newPassword = document.getElementById('new-admin-password').value;
-    if (newPassword) {
-        adminPassword = newPassword;
-        localStorage.setItem('adminPassword', adminPassword);
-        document.getElementById('password-message').textContent = "Password updated successfully!";
-    }
-}
-
-// Apply Website Status (Available/Unavailable)
-function applyWebsiteStatus() {
-    // Check if the website is set to unavailable
-    if (websiteStatus === 'unavailable' && window.location.pathname !== '/admin.html' && window.location.pathname !== '/admin-panel.html') {
-        // Replace the body content with the "Unavailable" message and the admin button
-        document.body.innerHTML = `
-            <div style="display: flex; height: 100vh; align-items: center; justify-content: center; flex-direction: column;">
-                <h1 style="font-size: 3rem; color: #ff8008;">Website Unavailable</h1>
-                <p style="font-size: 1.5rem; color: #fff;">
-                    ${maintenanceMessage || 'We are currently performing maintenance. Please check back later.'}
-                </p>
-                <button onclick="openAdminPage()" style="padding: 10px 20px; font-size: 1rem; background-color: #ff8008; border: none; border-radius: 5px; color: white;">
-                    Admin Login
-                </button>
-            </div>`;
-    }
-}
-
-// On page load
-document.addEventListener('DOMContentLoaded', () => {
-    // Apply website status only if it exists in localStorage, otherwise set it to available
-    if (!localStorage.getItem('websiteStatus')) {
-        localStorage.setItem('websiteStatus', 'available');
-        websiteStatus = 'available';
+function checkWebsiteStatus() {
+    const status = localStorage.getItem("websiteStatus") || "available";
+    const statusMessage = document.getElementById("status-message");
+    if (status === "unavailable") {
+        statusMessage.textContent = "The website is currently unavailable.";
+        document.body.innerHTML = `<h1>Website Unavailable</h1><button onclick="openAdminPage()">Admin Login</button>`;
     } else {
-        websiteStatus = localStorage.getItem('websiteStatus');
+        statusMessage.textContent = "The website is available.";
     }
+}
 
-    applyWebsiteStatus(); // Apply the status of the website on load
+window.onload = function () {
+    checkWebsiteStatus();
+    logUserVisit();
+    checkBannedStatus();
+};
 
-    // Restore saved settings
-    const savedStatus = localStorage.getItem('websiteStatus');
-    if (savedStatus) {
-        websiteStatus = savedStatus;
-        const statusDropdown = document.getElementById('website-status');
-        if (statusDropdown) {
-            statusDropdown.value = websiteStatus;
-        }
-    }
+function updateMaintenanceMessage() {
+    const message = document.getElementById("maintenance-message").value;
+    localStorage.setItem("maintenanceMessage", message);
+    document.getElementById("maintenance-message-output").textContent = message;
+}
 
-    const savedMessage = localStorage.getItem('maintenanceMessage');
-    if (savedMessage) {
-        maintenanceMessage = savedMessage;
-        const maintenanceMessageOutput = document.getElementById('maintenance-message-output');
-        if (maintenanceMessageOutput) {
-            maintenanceMessageOutput.textContent = maintenanceMessage;
-        }
-    }
-
-    const savedAdminPassword = localStorage.getItem('adminPassword');
-    if (savedAdminPassword) {
-        adminPassword = savedAdminPassword;
-    }
-});
-
-// Copy IP address function for "Join Now" button
 function copyIP() {
-    const ip = '23.26.247.227:26246';
+    const ip = "23.26.247.227:26246";
     navigator.clipboard.writeText(ip).then(() => {
-        alert('IP Address copied to clipboard!');
+        alert("IP Address copied to clipboard!");
     });
 }
 
-// Open admin page
 function openAdminPage() {
-    window.location.href = 'admin.html';
+    window.location.href = "admin.html";
+}
+
+// Logging visitors
+function logUserVisit() {
+    const userIP = getUserIP();
+    let userLog = JSON.parse(localStorage.getItem("userLog")) || [];
+    if (!userLog.includes(userIP)) {
+        userLog.push(userIP);
+        localStorage.setItem("userLog", JSON.stringify(userLog));
+    }
+    displayUserLog();
+}
+
+function displayUserLog() {
+    const userLog = JSON.parse(localStorage.getItem("userLog")) || [];
+    const userLogList = document.getElementById("user-log-list");
+    userLogList.innerHTML = '';
+    userLog.forEach(user => {
+        const li = document.createElement('li');
+        li.textContent = user;
+        userLogList.appendChild(li);
+    });
+}
+
+// Ban user functionality
+function banUser() {
+    const userIP = document.getElementById("ban-user-ip").value;
+    const banMessage = document.getElementById("ban-message").value;
+    let bannedUsers = JSON.parse(localStorage.getItem("bannedUsers")) || {};
+    bannedUsers[userIP] = banMessage;
+    localStorage.setItem("bannedUsers", JSON.stringify(bannedUsers));
+    document.getElementById("ban-output").textContent = `User ${userIP} has been banned.`;
+}
+
+function checkBannedStatus() {
+    const userIP = getUserIP();
+    const bannedUsers = JSON.parse(localStorage.getItem("bannedUsers")) || {};
+    if (bannedUsers[userIP]) {
+        document.body.innerHTML = `<h1>You are banned from this website</h1><p>${bannedUsers[userIP]}</p>`;
+    }
+}
+
+function getUserIP() {
+    // For now, we'll use a mock IP address for testing purposes.
+    // In a live environment, you'd need to fetch the user's real IP.
+    return "192.168.1.1";  // Mock IP for testing
 }
