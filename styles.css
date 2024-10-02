@@ -1,15 +1,15 @@
-/* Basic reset */
+/* General reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* General font styling */
 body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(to right, #ff8008, #ff9508);
     color: #333;
+    padding-bottom: 50px;
 }
 
 /* Header styling */
@@ -17,19 +17,14 @@ header {
     background-color: #333;
     padding: 20px 0;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.header-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
 }
 
 .nav-links {
-    list-style-type: none;
+    list-style: none;
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 20px;
 }
 
 .nav-links li {
@@ -47,7 +42,6 @@ header {
 .nav-links a:hover {
     background-color: #ff8008;
     border-radius: 5px;
-    color: #fff;
 }
 
 /* Footer styling */
@@ -55,17 +49,17 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
-    text-align: center;
     background-color: #333;
-    padding: 10px;
     color: white;
+    text-align: center;
+    padding: 10px;
     font-size: 0.9rem;
 }
 
 .footer-container {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    padding: 0 20px;
 }
 
 .admin-footer-btn {
@@ -73,26 +67,62 @@ footer {
     border: none;
     padding: 10px 20px;
     color: white;
-    font-weight: bold;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
 .admin-footer-btn:hover {
     background-color: #e87006;
 }
 
-/* Accessibility and consistency */
+/* Styling for the unavailable message */
+.unavailable-message {
+    text-align: center;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+}
+
+.unavailable-message h1 {
+    font-size: 2rem;
+    color: #ff8008;
+}
+
+.unavailable-message p {
+    font-size: 1.2rem;
+}
+
+.admin-login-btn {
+    background-color: #ff8008;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.admin-login-btn:hover {
+    background-color: #e87006;
+}
+
+/* Textbox styling */
 input[type="password"],
 input[type="text"],
 textarea {
-    background-color: white;
-    color: #333;
-    border: 1px solid #ccc;
+    width: 100%;
     padding: 10px;
+    margin: 10px 0;
+    background-color: white;
+    border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 1rem;
+    color: #333;
+    transition: border-color 0.3s;
 }
 
 input[type="password"]:focus,
@@ -100,7 +130,6 @@ input[type="text"]:focus,
 textarea:focus {
     border-color: #ff8008;
     outline: none;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 button {
@@ -108,6 +137,7 @@ button {
     color: white;
     border: none;
     padding: 10px 20px;
+    font-size: 1rem;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -117,7 +147,7 @@ button:hover {
     background-color: #e87006;
 }
 
-/* Textbox styling */
+/* Textbox sections */
 .text-box {
     background-color: white;
     color: #333;
@@ -126,30 +156,4 @@ button:hover {
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 800px;
-}
-
-/* Logo positioning */
-.logo-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
-}
-
-.logo {
-    width: 200px;
-    height: auto;
-    margin-bottom: 20px;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .nav-links {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .footer-container {
-        flex-direction: column;
-        gap: 10px;
-    }
 }
