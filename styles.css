@@ -1,188 +1,35 @@
-/* General Reset */
+/* Basic reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html, body {
-    height: 100%;
-    font-family: 'Poppins', sans-serif; /* Apply Poppins font */
-}
-
+/* General font styling */
 body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #ff8008, #ffc837); /* Orange gradient */
-    color: #fff;
-    padding: 0 10px;
-}
-
-/* Header */
-header {
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    z-index: 1000;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
-
-.nav-links li {
-    padding: 0 10px;
-}
-
-.nav-links a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1.1rem;
-    font-weight: 500;
-}
-
-.logo-container {
-    display: flex;
-    align-items: center;
-}
-
-.logo-img {
-    height: 60px; /* Increase logo size */
-}
-
-/* Main Content */
-main {
-    flex-grow: 1;
-    padding: 50px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-section {
-    text-align: center;
-}
-
-h1, h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-}
-
-p {
-    font-size: 1.2rem;
-    line-height: 1.5;
-    margin-bottom: 20px;
-}
-
-/* Text Boxes */
-.text-box {
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 600px;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #ff8008, #ffc837);
     color: #333;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.text-box input {
-    background-color: #f9f9f9;
-    border: 2px solid #ddd;
-    border-radius: 5px;
-    padding: 12px;
-    width: 100%;
-    margin-bottom: 15px;
-    font-size: 1rem;
-}
-
-.text-box button {
-    background-color: #ff8008;
-    color: #fff;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.text-box button:hover {
-    background-color: #ffcc00;
-}
-
-/* Footer */
-footer {
-    background-color: rgba(0, 0, 0, 0.9);
-    padding: 20px;
-    text-align: center;
-    color: #fff;
-    margin-top: auto;
-    width: 100%;
-}
-
-footer p {
-    margin-bottom: 10px;
-}
-
-.admin-button {
-    background-color: #ff8008;
-    border: none;
-    color: #fff;
-    padding: 12px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 1rem;
-}
-
-.admin-button:hover {
-    background-color: #ffcc00;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-    }
-
-    .nav-links {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    main {
-        padding: 20px;
-    }
-}
-
-/* Logo Styling */
-.logo {
-    width: 100px;
-    height: auto;
-    margin-right: 20px;
+/* Header styling */
+header {
+    background-color: #333;
+    padding: 20px 0;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .header-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    padding: 10px 20px;
-    background-color: #ff8008;
-    color: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Navigation Styling */
 .nav-links {
-    list-style: none;
+    list-style-type: none;
     display: flex;
-    gap: 15px;
+    justify-content: center;
+    gap: 30px;
 }
 
 .nav-links li {
@@ -190,79 +37,128 @@ footer p {
 }
 
 .nav-links a {
-    text-decoration: none;
     color: white;
-    font-weight: bold;
-    font-family: 'Poppins', sans-serif;
-    transition: color 0.3s;
+    font-size: 1.2rem;
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .nav-links a:hover {
-    color: #e87006;
+    background-color: #ff8008;
+    border-radius: 5px;
+    color: #fff;
 }
 
-/* Footer Styling */
+/* Footer styling */
 footer {
     position: fixed;
     bottom: 0;
     width: 100%;
     text-align: center;
-    background-color: #ff8008;
+    background-color: #333;
     padding: 10px;
     color: white;
-    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 0.9rem;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .admin-footer-btn {
-    background-color: white;
+    background-color: #ff8008;
     border: none;
-    padding: 10px 15px;
-    color: #ff8008;
+    padding: 10px 20px;
+    color: white;
     font-weight: bold;
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
+    transition: background-color 0.3s ease;
 }
 
 .admin-footer-btn:hover {
     background-color: #e87006;
-    color: white;
 }
 
-/* Admin Login Page */
-.admin-login-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 80vh;
-    background-color: #ff8008;
-    color: white;
-}
-
-.admin-password {
-    padding: 10px;
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-    width: 100%;
-    max-width: 300px;
-    border: none;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.admin-login-btn {
-    padding: 10px 20px;
-    font-size: 1.2rem;
+/* Accessibility and consistency */
+input[type="password"],
+input[type="text"],
+textarea {
     background-color: white;
-    border: none;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 10px;
     border-radius: 5px;
-    color: #ff8008;
+    font-size: 1rem;
+}
+
+input[type="password"]:focus,
+input[type="text"]:focus,
+textarea:focus {
+    border-color: #ff8008;
+    outline: none;
+    box-shadow: 0px 0px 5px rgba(255, 128, 8, 0.5);
+}
+
+/* Buttons */
+button {
+    background-color: #ff8008;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.admin-login-btn:hover {
+button:hover {
     background-color: #e87006;
-    color: white;
+}
+
+/* Textbox styling */
+.text-box {
+    background-color: white;
+    color: #333;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+/* Position logo elsewhere */
+.logo-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.logo {
+    width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+h1, h2, h3 {
+    color: #333;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+    }
+
+    .footer-container {
+        flex-direction: column;
+    }
+
+    footer p {
+        margin-bottom: 10px;
+    }
 }
