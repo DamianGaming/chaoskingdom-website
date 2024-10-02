@@ -1,6 +1,7 @@
 function loginAdmin() {
     const password = document.getElementById("admin-password").value;
-    if (password === "Admin32") {  // replace "yourAdminPassword" with your actual password
+    if (password === "Admin54") {  // Update with your actual admin password
+        localStorage.setItem("isAdminLoggedIn", true);
         window.location.href = "admin-panel.html";
     } else {
         document.getElementById("admin-login-message").textContent = "Incorrect password.";
@@ -15,12 +16,12 @@ function updateWebsiteStatus() {
 
 function checkWebsiteStatus() {
     const status = localStorage.getItem("websiteStatus") || "available";
-    const statusMessage = document.getElementById("status-message");
-    if (status === "unavailable") {
-        statusMessage.textContent = "The website is currently unavailable.";
-        document.body.innerHTML = `<h1>Website Unavailable</h1><button onclick="openAdminPage()">Admin Login</button>`;
-    } else {
-        statusMessage.textContent = "The website is available.";
+    const isAdminLoggedIn = localStorage.getItem("isAdminLoggedIn");
+    
+    if (status === "unavailable" && !isAdminLoggedIn) {
+        document.body.innerHTML = `<h1 style="text-align: center;">Website Unavailable</h1>
+        <p style="text-align: center;">The website is currently unavailable. Please try again later.</p>
+        <button onclick="openAdminPage()" style="display: block; margin: 20px auto;">Admin Login</button>`;
     }
 }
 
@@ -83,12 +84,12 @@ function checkBannedStatus() {
     const userIP = getUserIP();
     const bannedUsers = JSON.parse(localStorage.getItem("bannedUsers")) || {};
     if (bannedUsers[userIP]) {
-        document.body.innerHTML = `<h1>You are banned from this website</h1><p>${bannedUsers[userIP]}</p>`;
+        document.body.innerHTML = `<h1 style="text-align: center;">You are banned from this website</h1>
+        <p style="text-align: center;">${bannedUsers[userIP]}</p>`;
     }
 }
 
 function getUserIP() {
     // For now, we'll use a mock IP address for testing purposes.
-    // In a live environment, you'd need to fetch the user's real IP.
     return "192.168.1.1";  // Mock IP for testing
 }
