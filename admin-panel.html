@@ -4,14 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
 </head>
-<body onload="checkAdminAccess()">
+<body>
     <header>
         <div class="header-container">
-            <img src="New_Project_5.png" alt="ChaosKingdom Logo" class="logo">
             <nav>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
@@ -25,9 +23,8 @@
 
     <main>
         <section class="admin-panel-section">
-            <h1>Admin Panel</h1>
             <div class="text-box">
-                <h2>Website Status</h2>
+                <h2>Website Availability</h2>
                 <select id="website-status" onchange="updateWebsiteStatus()">
                     <option value="available">Available</option>
                     <option value="unavailable">Unavailable</option>
@@ -37,21 +34,29 @@
             <div class="text-box">
                 <h2>Maintenance Message</h2>
                 <textarea id="maintenance-message" placeholder="Enter maintenance message"></textarea>
-                <button onclick="updateMaintenanceMessage()">Update Message</button>
+                <button onclick="updateMaintenanceMessage()">Update</button>
                 <p id="maintenance-message-output"></p>
             </div>
             <div class="text-box">
-                <h2>Change Admin Password</h2>
-                <input type="password" id="new-admin-password" placeholder="New password">
-                <button onclick="changeAdminPassword()">Change Password</button>
-                <p id="password-message"></p>
+                <h2>User Logs</h2>
+                <p>Below is the list of users who have visited the website:</p>
+                <ul id="user-log-list"></ul>
+            </div>
+            <div class="text-box">
+                <h2>Ban a User</h2>
+                <input type="text" id="ban-user-ip" placeholder="Enter user IP">
+                <textarea id="ban-message" placeholder="Enter custom ban message"></textarea>
+                <button onclick="banUser()">Ban User</button>
+                <p id="ban-output"></p>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>ChaosKingdom © 2024 | Made by DamianGamingYT | Co-Owner: Dysshanks | Assistant Co-Owner: RedsRyzen</p>
-        <button onclick="openAdminPage()" class="admin-footer-btn">Admin Login</button>
+        <div class="footer-container">
+            <p>ChaosKingdom © 2024 | Made by DamianGamingYT | Co-Owner: Dysshanks | Assistant Co-Owner: RedsRyzen</p>
+            <button onclick="openAdminPage()" class="admin-footer-btn">Admin Login</button>
+        </div>
     </footer>
 </body>
 </html>
