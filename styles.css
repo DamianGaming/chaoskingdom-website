@@ -76,3 +76,47 @@ button {
     width: 80%;
     margin: 0 auto;
 }
+
+.text-box {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.game-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+}
+
+#game {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 10px;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+    font-size: 2rem;
+    color: #ff6600;
+    cursor: pointer;
+}
+
+.admin-section {
+    margin-bottom: 30px;
+}
+
+textarea, input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
