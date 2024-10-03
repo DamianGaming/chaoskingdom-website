@@ -3,41 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChaosKingdom - Home</title>
+    <title>Chaos Kingdom</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
 </head>
-<body>
+<body onload="checkWebsiteStatus();">
     <header>
-        <div class="header-container">
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="features.html">Features</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="admin.html">Admin</a></li>
-                </ul>
-            </nav>
-        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="features.html">Features</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <div class="logo-container">
-        <img src="New_Project_5.png" alt="ChaosKingdom Logo" class="logo">
-    </div>
-
     <main>
-        <div class="text-box">
-            <h1>Welcome to ChaosKingdom</h1>
-            <p>Join our amazing Minecraft server at <strong>23.26.247.227:26246</strong></p>
+        <div class="hero-section">
+            <h1>Welcome to Chaos Kingdom</h1>
+            <p>Your ultimate gaming community</p>
             <button onclick="copyIP()">Join Now</button>
+        </div>
+
+        <div class="game-container">
+            <h2>Play Tic-Tac-Toe</h2>
+            <div id="game">
+                <div class="row">
+                    <div class="cell" onclick="makeMove(0)"></div>
+                    <div class="cell" onclick="makeMove(1)"></div>
+                    <div class="cell" onclick="makeMove(2)"></div>
+                </div>
+                <div class="row">
+                    <div class="cell" onclick="makeMove(3)"></div>
+                    <div class="cell" onclick="makeMove(4)"></div>
+                    <div class="cell" onclick="makeMove(5)"></div>
+                </div>
+                <div class="row">
+                    <div class="cell" onclick="makeMove(6)"></div>
+                    <div class="cell" onclick="makeMove(7)"></div>
+                    <div class="cell" onclick="makeMove(8)"></div>
+                </div>
+            </div>
+            <p id="game-message"></p>
+            <button onclick="restartGame()">Restart Game</button>
         </div>
     </main>
 
     <footer>
         <div class="footer-container">
-            <p>ChaosKingdom © 2024 | Made by DamianGamingYT | Co-Owner: Dysshanks | Assistant Co-Owner: RedsRyzen</p>
+            <p>&copy; 2024 Chaos Kingdom | Created by DamianGamingYT</p>
             <button onclick="openAdminPage()" class="admin-footer-btn">Admin Login</button>
         </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
