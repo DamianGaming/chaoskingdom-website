@@ -33,51 +33,46 @@ function checkWebsiteStatus() {
 
 // Tic-Tac-Toe game logic
 let currentPlayer = "X";
-let board = ["", "", "", "", "", "", "", "", ""];
-let gameActive = true;
+let gameBoard = ["", "", "", "", "", "", "", "", ""];
 
 function makeMove(index) {
-    if (board[index] === "" && gameActive) {
-        board[index] = currentPlayer;
+    if (gameBoard[index] === "") {
+        gameBoard[index] = currentPlayer;
         document.getElementsByClassName("cell")[index].textContent = currentPlayer;
-        if (checkWin()) {
-            document.getElementById("game-message").textContent = `${currentPlayer} Wins!`;
-            gameActive = false;
-        } else if (board.every(cell => cell !== "")) {
-            document.getElementById("game-message").textContent = "It's a Draw!";
-            gameActive = false;
+        if (checkWinner()) {
+            document.getElementById("game-message").textContent = `Player ${currentPlayer} wins!`;
+        } else if (gameBoard.every(cell => cell !== "")) {
+            document.getElementById("game-message").textContent = "It's a tie!";
         } else {
             currentPlayer = currentPlayer === "X" ? "O" : "X";
         }
     }
 }
 
-function checkWin() {
-    const winConditions = [
-        [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
-        [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
-        [0, 4, 8], [2, 4, 6]             // Diagonals
+function checkWinner() {
+    const winPatterns = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6]
     ];
-    return winConditions.some(condition => {
-        const [a, b, c] = condition;
-        return board[a] === currentPlayer && board[a] === board[b] && board[a] === board[c];
-    });
+    return winPatterns.some(pattern =>
+        pattern.every(index => gameBoard[index] === currentPlayer)
+    );
 }
 
 function restartGame() {
-    board = ["", "", "", "", "", "", "", "", ""];
-    currentPlayer = "X";
-    gameActive = true;
-    document.querySelectorAll(".cell").forEach(cell => cell.textContent = "");
+    gameBoard.fill("");
+    document.querySelectorAll(".cell").forEach(cell => (cell.textContent = ""));
     document.getElementById("game-message").textContent = "";
+    currentPlayer = "X";
 }
 
-// Admin page redirect
-function openAdminPage() {
-    window.location.href = "admin.html";
-}
-
-// Ban a user
+// Ban user feature
 function banUser() {
     const userIP = document.getElementById("ban-user-ip").value;
     const banMessage = document.getElementById("ban-message").value;
@@ -89,6 +84,9 @@ function banUser() {
 function displayUserLog() {
     const logList = document.getElementById("user-log-list");
     const log = JSON.parse(localStorage.getItem("userLog") || "[]");
-
     logList.innerHTML = log.map(entry => `<li>${entry}</li>`).join("");
+}
+
+function openAdminPage() {
+    window.location.href = "admin-login.html";
 }
