@@ -4,59 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
 </head>
-<body>
+<body onload="displayUserLog();">
     <header>
-        <div class="header-container">
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="features.html">Features</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="admin.html">Admin</a></li>
-                </ul>
-            </nav>
-        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="features.html">Features</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <main>
-        <section class="admin-panel-section">
-            <div class="text-box">
-                <h2>Website Availability</h2>
-                <select id="website-status" onchange="updateWebsiteStatus()">
-                    <option value="available">Available</option>
-                    <option value="unavailable">Unavailable</option>
-                </select>
-                <p id="status-message"></p>
-            </div>
-            <div class="text-box">
-                <h2>Maintenance Message</h2>
-                <textarea id="maintenance-message" placeholder="Enter maintenance message"></textarea>
-                <button onclick="updateMaintenanceMessage()">Update</button>
-                <p id="maintenance-message-output"></p>
-            </div>
-            <div class="text-box">
-                <h2>User Logs</h2>
-                <p>Below is the list of users who have visited the website:</p>
-                <ul id="user-log-list"></ul>
-            </div>
-            <div class="text-box">
-                <h2>Ban a User</h2>
-                <input type="text" id="ban-user-ip" placeholder="Enter user IP">
-                <textarea id="ban-message" placeholder="Enter custom ban message"></textarea>
-                <button onclick="banUser()">Ban User</button>
-                <p id="ban-output"></p>
-            </div>
-        </section>
+    <main class="admin-panel">
+        <h1>Admin Panel</h1>
+
+        <div class="admin-section">
+            <h2>Website Status</h2>
+            <select id="website-status" onchange="updateWebsiteStatus()">
+                <option value="available">Available</option>
+                <option value="unavailable">Unavailable</option>
+            </select>
+            <p id="status-message"></p>
+        </div>
+
+        <div class="admin-section">
+            <h2>User Logs</h2>
+            <ul id="user-log-list"></ul>
+        </div>
+
+        <div class="admin-section">
+            <h2>Ban a User</h2>
+            <input type="text" id="ban-user-ip" placeholder="Enter user IP">
+            <textarea id="ban-message" placeholder="Enter ban message"></textarea>
+            <button onclick="banUser()">Ban User</button>
+            <p id="ban-output"></p>
+        </div>
     </main>
 
     <footer>
         <div class="footer-container">
-            <p>ChaosKingdom © 2024 | Made by DamianGamingYT | Co-Owner: Dysshanks | Assistant Co-Owner: RedsRyzen</p>
-            <button onclick="openAdminPage()" class="admin-footer-btn">Admin Login</button>
+            <p>&copy; 2024 Chaos Kingdom | Created by DamianGamingYT</p>
         </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
