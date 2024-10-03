@@ -1,159 +1,78 @@
-/* General reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to right, #ff8008, #ff9508);
-    color: #333;
-    padding-bottom: 50px;
+    background: linear-gradient(135deg, #ff6600, #ff9933);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-/* Header styling */
 header {
     background-color: #333;
-    padding: 20px 0;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    position: relative;
+    padding: 10px;
+    text-align: center;
 }
 
 .nav-links {
-    list-style: none;
+    list-style-type: none;
     display: flex;
     justify-content: center;
     gap: 20px;
 }
 
-.nav-links li {
-    display: inline;
-}
-
 .nav-links a {
-    color: white;
-    font-size: 1.2rem;
+    color: #fff;
     text-decoration: none;
-    padding: 10px 15px;
-    transition: background-color 0.3s, color 0.3s;
+    font-weight: 600;
 }
 
-.nav-links a:hover {
-    background-color: #ff8008;
-    border-radius: 5px;
-}
-
-/* Footer styling */
 footer {
-    position: fixed;
+    background-color: #222;
+    color: #fff;
+    padding: 20px;
+    position: absolute;
     bottom: 0;
     width: 100%;
-    background-color: #333;
-    color: white;
     text-align: center;
-    padding: 10px;
-    font-size: 0.9rem;
 }
 
-.footer-container {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 20px;
+footer p {
+    margin-bottom: 10px;
 }
 
-.admin-footer-btn {
-    background-color: #ff8008;
-    border: none;
+.admin-footer-btn, .admin-login-btn {
+    background-color: #ff6600;
+    color: #fff;
     padding: 10px 20px;
-    color: white;
-    border-radius: 5px;
+    border: none;
     cursor: pointer;
 }
 
-.admin-footer-btn:hover {
-    background-color: #e87006;
-}
-
-/* Styling for the unavailable message */
-.unavailable-message {
+.hero-section {
+    padding: 100px 20px;
     text-align: center;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    max-width: 600px;
-}
-
-.unavailable-message h1 {
-    font-size: 2rem;
-    color: #ff8008;
-}
-
-.unavailable-message p {
-    font-size: 1.2rem;
-}
-
-.admin-login-btn {
-    background-color: #ff8008;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.admin-login-btn:hover {
-    background-color: #e87006;
-}
-
-/* Textbox styling */
-input[type="password"],
-input[type="text"],
-textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    background-color: white;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-    color: #333;
-    transition: border-color 0.3s;
-}
-
-input[type="password"]:focus,
-input[type="text"]:focus,
-textarea:focus {
-    border-color: #ff8008;
-    outline: none;
 }
 
 button {
-    background-color: #ff8008;
-    color: white;
-    border: none;
+    background-color: #ff6600;
+    color: #fff;
     padding: 10px 20px;
-    font-size: 1rem;
-    border-radius: 5px;
+    border: none;
     cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
-button:hover {
-    background-color: #e87006;
-}
-
-/* Textbox sections */
-.text-box {
-    background-color: white;
-    color: #333;
-    padding: 20px;
-    margin: 20px auto;
+.unavailable-message {
+    text-align: center;
+    padding: 100px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #ff6600;
     border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
+    width: 80%;
+    margin: 0 auto;
 }
