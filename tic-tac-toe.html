@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play Tic-Tac-Toe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="tic-tac-toe.html">Tic-Tac-Toe</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="game-page">
+        <h1>Play Tic-Tac-Toe</h1>
+        <div id="game">
+            <div class="row">
+                <div class="cell" onclick="makeMove(0)"></div>
+                <div class="cell" onclick="makeMove(1)"></div>
+                <div class="cell" onclick="makeMove(2)"></div>
+            </div>
+            <div class="row">
+                <div class="cell" onclick="makeMove(3)"></div>
+                <div class="cell" onclick="makeMove(4)"></div>
+                <div class="cell" onclick="makeMove(5)"></div>
+            </div>
+            <div class="row">
+                <div class="cell" onclick="makeMove(6)"></div>
+                <div class="cell" onclick="makeMove(7)"></div>
+                <div class="cell" onclick="makeMove(8)"></div>
+            </div>
+        </div>
+        <p id="game-message"></p>
+        <button onclick="restartGame()">Restart Game</button>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 Chaos Kingdom | Created by DamianGamingYT</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
