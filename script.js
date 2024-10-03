@@ -1,7 +1,7 @@
 // Admin login functionality
 function loginAdmin() {
     const password = document.getElementById("admin-password").value;
-    if (password === "yourAdminPassword") {  // Update with your actual admin password
+    if (password === "yourAdminPassword") {
         localStorage.setItem("isAdminLoggedIn", true);
         window.location.href = "admin-panel.html";
     } else {
@@ -9,15 +9,15 @@ function loginAdmin() {
     }
 }
 
-// Update website availability
+// Update website status
 function updateWebsiteStatus() {
     const status = document.getElementById("website-status").value;
     localStorage.setItem("websiteStatus", status);
     document.getElementById("status-message").textContent = `Website is now ${status}`;
-    checkWebsiteStatus();  // Check website status after update
+    checkWebsiteStatus();
 }
 
-// Check if the website should be available or unavailable
+// Check website status
 function checkWebsiteStatus() {
     const status = localStorage.getItem("websiteStatus") || "available";
     const isAdminLoggedIn = localStorage.getItem("isAdminLoggedIn");
@@ -31,79 +31,64 @@ function checkWebsiteStatus() {
     }
 }
 
-// Make sure the admin page opens for logged-in users
+// Tic-Tac-Toe game logic
+let currentPlayer = "X";
+let board = ["", "", "", "", "", "", "", "", ""];
+let gameActive = true;
+
+function makeMove(index) {
+    if (board[index] === "" && gameActive) {
+        board[index] = currentPlayer;
+        document.getElementsByClassName("cell")[index].textContent = currentPlayer;
+        if (checkWin()) {
+            document.getElementById("game-message").textContent = `${currentPlayer} Wins!`;
+            gameActive = false;
+        } else if (board.every(cell => cell !== "")) {
+            document.getElementById("game-message").textContent = "It's a Draw!";
+            gameActive = false;
+        } else {
+            currentPlayer = currentPlayer === "X" ? "O" : "X";
+        }
+    }
+}
+
+function checkWin() {
+    const winConditions = [
+        [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
+        [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
+        [0, 4, 8], [2, 4, 6]             // Diagonals
+    ];
+    return winConditions.some(condition => {
+        const [a, b, c] = condition;
+        return board[a] === currentPlayer && board[a] === board[b] && board[a] === board[c];
+    });
+}
+
+function restartGame() {
+    board = ["", "", "", "", "", "", "", "", ""];
+    currentPlayer = "X";
+    gameActive = true;
+    document.querySelectorAll(".cell").forEach(cell => cell.textContent = "");
+    document.getElementById("game-message").textContent = "";
+}
+
+// Admin page redirect
 function openAdminPage() {
     window.location.href = "admin.html";
-}
-
-// Update maintenance message
-function updateMaintenanceMessage() {
-    const message = document.getElementById("maintenance-message").value;
-    localStorage.setItem("maintenanceMessage", message);
-    document.getElementById("maintenance-message-output").textContent = message;
-}
-
-// Copy server IP to clipboard
-function copyIP() {
-    const ip = "23.26.247.227:26246";
-    navigator.clipboard.writeText(ip).then(() => {
-        alert("IP Address copied to clipboard!");
-    });
-}
-
-// Log user visits
-function logUserVisit() {
-    const userIP = getUserIP();  // Get mock user IP
-    let userLog = JSON.parse(localStorage.getItem("userLog")) || [];
-    if (!userLog.includes(userIP)) {
-        userLog.push(userIP);
-        localStorage.setItem("userLog", JSON.stringify(userLog));
-    }
-    displayUserLog();
-}
-
-// Display user logs
-function displayUserLog() {
-    const userLog = JSON.parse(localStorage.getItem("userLog")) || [];
-    const userLogList = document.getElementById("user-log-list");
-    userLogList.innerHTML = '';
-    userLog.forEach(user => {
-        const li = document.createElement('li');
-        li.textContent = user;
-        userLogList.appendChild(li);
-    });
 }
 
 // Ban a user
 function banUser() {
     const userIP = document.getElementById("ban-user-ip").value;
     const banMessage = document.getElementById("ban-message").value;
-    let bannedUsers = JSON.parse(localStorage.getItem("bannedUsers")) || {};
-    bannedUsers[userIP] = banMessage;
-    localStorage.setItem("bannedUsers", JSON.stringify(bannedUsers));
-    document.getElementById("ban-output").textContent = `User ${userIP} has been banned.`;
+    localStorage.setItem(`banned_${userIP}`, banMessage);
+    document.getElementById("ban-output").textContent = `User with IP ${userIP} is now banned.`;
 }
 
-// Check if the user is banned
-function checkBannedStatus() {
-    const userIP = getUserIP();
-    const bannedUsers = JSON.parse(localStorage.getItem("bannedUsers")) || {};
-    if (bannedUsers[userIP]) {
-        document.body.innerHTML = `<div class="ban-message">
-            <h1>You are banned from this website</h1>
-            <p>${bannedUsers[userIP]}</p>
-        </div>`;
-    }
-}
+// Display user logs
+function displayUserLog() {
+    const logList = document.getElementById("user-log-list");
+    const log = JSON.parse(localStorage.getItem("userLog") || "[]");
 
-// Mock user IP for demo purposes
-function getUserIP() {
-    return "192.168.1.1";  // Replace with actual user IP retrieval in a real environment
+    logList.innerHTML = log.map(entry => `<li>${entry}</li>`).join("");
 }
-
-// Initialize the page on load
-window.onload = function () {
-    checkWebsiteStatus();
-    logUserVisit();
-    checkBannedStatus();
-};
