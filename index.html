@@ -3,35 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chaos Kingdom</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <title>Chaos Kingdom - Home</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
+        <img src="New_Project_5.png" alt="Logo" class="logo">
         <nav>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="features.html">Features</a></li>
                 <li><a href="tic-tac-toe.html">Tic-Tac-Toe</a></li>
+                <li><a href="admin-login.html">Admin</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <img src="New_Project_5.png" alt="Chaos Kingdom Logo" class="homepage-logo">
-        <div class="text-box">
-            <h1>Welcome to Chaos Kingdom!</h1>
-            <p>This is a Minecraft server where you can build your kingdom and explore new lands!</p>
-            <button class="join-now-btn">Join Now</button>
-        </div>
+        <section class="hero-section">
+            <h1>Welcome to Chaos Kingdom</h1>
+            <p>Join the fun and experience the best features!</p>
+            <button class="join-now-btn" onclick="location.href='signup.html'">Join Now</button>
+        </section>
     </main>
 
     <footer>
         <div class="footer-container">
             <p>&copy; 2024 Chaos Kingdom | Created by DamianGamingYT</p>
-            <button onclick="openAdminPage()" class="admin-footer-btn">Admin Login</button>
+            <p><a href="admin-login.html">Admin Login</a></p>
         </div>
     </footer>
 
