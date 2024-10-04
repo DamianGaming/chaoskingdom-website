@@ -1,92 +1,82 @@
-// Admin login functionality
-function loginAdmin() {
-    const password = document.getElementById("admin-password").value;
-    if (password === "yourAdminPassword") {
-        localStorage.setItem("isAdminLoggedIn", true);
-        window.location.href = "admin-panel.html";
-    } else {
-        document.getElementById("admin-login-message").textContent = "Incorrect password.";
-    }
+// Store users and admin access in localStorage
+let users = JSON.parse(localStorage.getItem('users')) || [];
+let websiteAvailable = JSON.parse(localStorage.getItem('websiteAvailable')) || true;
+
+// Toggle website availability
+function toggleWebsiteAvailability() {
+    websiteAvailable = !websiteAvailable;
+    localStorage.setItem('websiteAvailable', JSON.stringify(websiteAvailable));
+    document.getElementById('admin-message').innerText = websiteAvailable ? 'Website is available' : 'Website is unavailable';
+    updateWebsiteStatus();
 }
 
 // Update website status
 function updateWebsiteStatus() {
-    const status = document.getElementById("website-status").value;
-    localStorage.setItem("websiteStatus", status);
-    document.getElementById("status-message").textContent = `Website is now ${status}`;
-    checkWebsiteStatus();
-}
-
-// Check website status
-function checkWebsiteStatus() {
-    const status = localStorage.getItem("websiteStatus") || "available";
-    const isAdminLoggedIn = localStorage.getItem("isAdminLoggedIn");
-
-    if (status === "unavailable" && !isAdminLoggedIn) {
-        document.body.innerHTML = `<div class="unavailable-message">
-            <h1>Website Unavailable</h1>
-            <p>The website is currently unavailable. Please try again later.</p>
-            <button onclick="openAdminPage()" class="admin-login-btn">Admin Login</button>
-        </div>`;
+    if (!websiteAvailable) {
+        document.body.innerHTML = '<h1>Website is currently unavailable</h1><p>Come back later!</p>';
     }
 }
 
-// Tic-Tac-Toe game logic
-let currentPlayer = "X";
-let gameBoard = ["", "", "", "", "", "", "", "", ""];
+// Sign Up a new user
+document.getElementById('signup-form')?.addEventListener('submit', function (e) {
+    e.preventDefault();
+    let username = document.getElementById('signup-username').value;
+    let password = document.getElementById('signup-password').value;
+    let email = document.getElementById('signup-email').value;
 
-function makeMove(index) {
-    if (gameBoard[index] === "") {
-        gameBoard[index] = currentPlayer;
-        document.getElementsByClassName("cell")[index].textContent = currentPlayer;
-        if (checkWinner()) {
-            document.getElementById("game-message").textContent = `Player ${currentPlayer} wins!`;
-        } else if (gameBoard.every(cell => cell !== "")) {
-            document.getElementById("game-message").textContent = "It's a tie!";
+    let user = { username, password, email, role: 'user' };
+    users.push(user);
+    localStorage.setItem('users', JSON.stringify(users));
+    alert('Account created successfully');
+    window.location.href = 'login.html';
+});
+
+// Login user
+document.getElementById('login-form')?.addEventListener('submit', function (e) {
+    e.preventDefault();
+    let username = document.getElementById('login-username').value;
+    let password = document.getElementById('login-password').value;
+
+    let user = users.find(user => user.username === username && user.password === password);
+    if (user) {
+        if (user.role === 'admin') {
+            window.location.href = 'admin-panel.html';
         } else {
-            currentPlayer = currentPlayer === "X" ? "O" : "X";
+            alert('Login successful');
         }
+    } else {
+        alert('Invalid login credentials');
+    }
+});
+
+// Ban a user
+function banUser() {
+    let username = document.getElementById('ban-username').value;
+    let user = users.find(user => user.username === username);
+    if (user) {
+        user.banned = true;
+        localStorage.setItem('users', JSON.stringify(users));
+        alert('User has been banned');
+    } else {
+        alert('User not found');
     }
 }
 
-function checkWinner() {
-    const winPatterns = [
-        [0, 1, 2],
-        [3, 4, 5],
-        [6, 7, 8],
-        [0, 3, 6],
-        [1, 4, 7],
-        [2, 5, 8],
-        [0, 4, 8],
-        [2, 4, 6]
-    ];
-    return winPatterns.some(pattern =>
-        pattern.every(index => gameBoard[index] === currentPlayer)
-    );
+// View users
+function viewUsers() {
+    let userList = document.getElementById('user-list');
+    let userListDisplay = document.getElementById('user-list-display');
+    userList.classList.toggle('hidden');
+
+    userListDisplay.innerHTML = '';
+    users.forEach(user => {
+        let li = document.createElement('li');
+        li.textContent = `${user.username} (${user.role}) ${user.banned ? ' [Banned]' : ''}`;
+        userListDisplay.appendChild(li);
+    });
 }
 
-function restartGame() {
-    gameBoard.fill("");
-    document.querySelectorAll(".cell").forEach(cell => (cell.textContent = ""));
-    document.getElementById("game-message").textContent = "";
-    currentPlayer = "X";
-}
-
-// Ban user feature
-function banUser() {
-    const userIP = document.getElementById("ban-user-ip").value;
-    const banMessage = document.getElementById("ban-message").value;
-    localStorage.setItem(`banned_${userIP}`, banMessage);
-    document.getElementById("ban-output").textContent = `User with IP ${userIP} is now banned.`;
-}
-
-// Display user logs
-function displayUserLog() {
-    const logList = document.getElementById("user-log-list");
-    const log = JSON.parse(localStorage.getItem("userLog") || "[]");
-    logList.innerHTML = log.map(entry => `<li>${entry}</li>`).join("");
-}
-
-function openAdminPage() {
-    window.location.href = "admin-login.html";
-}
+// Automatically check website availability on load
+document.addEventListener('DOMContentLoaded', function () {
+    updateWebsiteStatus();
+});
