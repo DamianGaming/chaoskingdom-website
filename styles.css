@@ -1,122 +1,82 @@
-* {
+/* General styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(120deg, #ff6600, #ff9933);
+    color: #ffffff;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
-body {
-    background: linear-gradient(135deg, #ff6600, #ff9933);
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
 }
 
 header {
-    background-color: #333;
+    background-color: #1f1f1f;
     padding: 10px;
-    text-align: center;
 }
 
 .nav-links {
     list-style-type: none;
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    justify-content: space-around;
 }
 
 .nav-links a {
-    color: #fff;
+    color: #ff6600;
     text-decoration: none;
-    font-weight: 600;
+    padding: 10px;
 }
 
-footer {
-    background-color: #222;
+.nav-links a:hover {
     color: #fff;
-    padding: 20px;
-    position: absolute;
-    bottom: 0;
+}
+
+.logo {
+    width: 150px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Text Box styles */
+input[type="text"], input[type="password"], input[type="email"], textarea {
     width: 100%;
-    text-align: center;
-}
-
-footer p {
-    margin-bottom: 10px;
-}
-
-.admin-footer-btn, .admin-login-btn {
-    background-color: #ff6600;
-    color: #fff;
-    padding: 10px 20px;
+    padding: 15px;
+    border-radius: 10px;
     border: none;
-    cursor: pointer;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
 }
 
-.hero-section {
-    padding: 100px 20px;
-    text-align: center;
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, textarea:focus {
+    outline: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 button {
     background-color: #ff6600;
-    color: #fff;
+    color: white;
     padding: 10px 20px;
     border: none;
-    cursor: pointer;
-}
-
-.unavailable-message {
-    text-align: center;
-    padding: 100px;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: #ff6600;
-    border-radius: 10px;
-    width: 80%;
-    margin: 0 auto;
-}
-
-.text-box {
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
-
-.game-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 50px;
-}
-
-#game {
-    display: grid;
-    grid-template-columns: repeat(3, 100px);
-    grid-template-rows: repeat(3, 100px);
-    gap: 10px;
-}
-
-.cell {
-    width: 100px;
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #333;
-    font-size: 2rem;
-    color: #ff6600;
-    cursor: pointer;
-}
-
-.admin-section {
-    margin-bottom: 30px;
-}
-
-textarea, input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
     border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #ff9933;
+}
+
+/* Footer styles */
+.footer-container {
+    background-color: #1f1f1f;
+    text-align: center;
+    padding: 20px;
+}
+
+.footer-container p {
+    color: #fff;
+    margin: 0;
+}
+
+.hidden {
+    display: none;
 }
