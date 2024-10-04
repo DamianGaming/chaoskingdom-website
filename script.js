@@ -80,3 +80,72 @@ function viewUsers() {
 document.addEventListener('DOMContentLoaded', function () {
     updateWebsiteStatus();
 });
+
+// Toggle login/signup forms
+const loginBtn = document.querySelector('.login-btn');
+const signupBtn = document.querySelector('.signup-btn');
+
+const loginForm = document.createElement('div');
+loginForm.classList.add('login-form');
+loginForm.innerHTML = `
+    <h2>Login</h2>
+    <input type="text" id="login-username" placeholder="Username" required>
+    <input type="password" id="login-password" placeholder="Password" required>
+    <button type="submit" id="login-submit">Login</button>
+`;
+document.body.appendChild(loginForm);
+
+const signupForm = document.createElement('div');
+signupForm.classList.add('signup-form');
+signupForm.innerHTML = `
+    <h2>Sign Up</h2>
+    <input type="text" id="signup-username" placeholder="Username" required>
+    <input type="password" id="signup-password" placeholder="Password" required>
+    <input type="email" id="signup-email" placeholder="Email" required>
+    <button type="submit" id="signup-submit">Sign Up</button>
+`;
+document.body.appendChild(signupForm);
+
+// Toggle forms visibility
+loginBtn.addEventListener('click', () => {
+    loginForm.classList.toggle('show');
+    signupForm.classList.remove('show');
+});
+
+signupBtn.addEventListener('click', () => {
+    signupForm.classList.toggle('show');
+    loginForm.classList.remove('show');
+});
+
+// Dummy user data for demo (replace with actual implementation)
+const users = JSON.parse(localStorage.getItem('users')) || [{username: "admin", password: "admin", role: "admin"}];
+
+// Login Functionality
+document.getElementById('login-submit')?.addEventListener('click', function (e) {
+    const username = document.getElementById('login-username').value;
+    const password = document.getElementById('login-password').value;
+
+    const user = users.find(user => user.username === username && user.password === password);
+    
+    if (user) {
+        if (user.role === 'admin') {
+            window.location.href = 'admin-panel.html'; // Admin gets redirected to admin panel
+        } else {
+            alert('Login successful');
+        }
+    } else {
+        alert('Invalid credentials');
+    }
+});
+
+// Sign Up Functionality
+document.getElementById('signup-submit')?.addEventListener('click', function (e) {
+    const username = document.getElementById('signup-username').value;
+    const password = document.getElementById('signup-password').value;
+    const email = document.getElementById('signup-email').value;
+
+    const newUser = { username, password, email, role: 'user' };
+    users.push(newUser);
+    localStorage.setItem('users', JSON.stringify(users));
+    alert('Signup successful');
+});
