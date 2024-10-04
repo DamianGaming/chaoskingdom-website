@@ -12,7 +12,7 @@ body {
 
 header {
     background-color: #1f1f1f;
-    padding: 15px 0;
+    padding: 10px 0;
     width: 100%;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
 }
@@ -43,7 +43,7 @@ header .container {
 }
 
 .logo {
-    width: 120px;
+    width: 100px;
     height: auto;
 }
 
@@ -104,6 +104,19 @@ footer {
 }
 
 /* Form styles */
+.modal-form {
+    display: none;
+    position: fixed;
+    top: 50px;
+    right: 50px;
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    z-index: 1000;
+    color: #000;
+}
+
 input[type="text"], input[type="password"], input[type="email"] {
     width: 100%;
     padding: 15px;
@@ -134,19 +147,7 @@ button:hover {
     background-color: #ff9933;
 }
 
-/* Login/Signup forms that slide down */
-.login-form, .signup-form {
-    display: none;
-    position: fixed;
-    top: 50px;
-    right: 50px;
-    background-color: #ffffff;
-    padding: 20px;
-    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    z-index: 1000;
-}
-
+/* Showing login/signup */
 .show {
     display: block !important;
 }
