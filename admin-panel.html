@@ -7,40 +7,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body onload="displayUserLog();">
+<body>
     <header>
         <nav>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="features.html">Features</a></li>
+                <li><a href="tic-tac-toe.html">Tic-Tac-Toe</a></li>
             </ul>
         </nav>
     </header>
 
-    <main class="admin-panel">
+    <main>
         <h1>Admin Panel</h1>
-
-        <div class="admin-section">
-            <h2>Website Status</h2>
-            <select id="website-status" onchange="updateWebsiteStatus()">
-                <option value="available">Available</option>
-                <option value="unavailable">Unavailable</option>
-            </select>
-            <p id="status-message"></p>
-        </div>
-
-        <div class="admin-section">
-            <h2>User Logs</h2>
-            <ul id="user-log-list"></ul>
-        </div>
-
-        <div class="admin-section">
-            <h2>Ban a User</h2>
-            <input type="text" id="ban-user-ip" placeholder="Enter user IP">
-            <textarea id="ban-message" placeholder="Enter ban message"></textarea>
+        <div class="admin-controls">
+            <button onclick="toggleWebsiteAvailability()">Toggle Website Availability</button>
+            <input type="text" id="ban-username" placeholder="Enter username to ban">
             <button onclick="banUser()">Ban User</button>
-            <p id="ban-output"></p>
+            <button onclick="viewUsers()">View Users</button>
+            <p id="admin-message"></p>
+        </div>
+
+        <div id="user-list" class="hidden">
+            <h2>User List</h2>
+            <ul id="user-list-display"></ul>
         </div>
     </main>
 
