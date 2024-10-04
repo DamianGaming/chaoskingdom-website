@@ -4,35 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="features.html">Features</a></li>
-                <li><a href="tic-tac-toe.html">Tic-Tac-Toe</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <h1>Admin Panel</h1>
+        </div>
     </header>
 
     <main>
-        <h1>Admin Panel</h1>
-        <div class="admin-controls">
-            <button onclick="toggleWebsiteAvailability()">Toggle Website Availability</button>
-            <input type="text" id="ban-username" placeholder="Enter username to ban">
-            <button onclick="banUser()">Ban User</button>
-            <button onclick="viewUsers()">View Users</button>
-            <p id="admin-message"></p>
-        </div>
-
-        <div id="user-list" class="hidden">
-            <h2>User List</h2>
-            <ul id="user-list-display"></ul>
-        </div>
+        <section class="admin-section">
+            <h2>Website Management</h2>
+            <button id="toggle-availability">Toggle Website Availability</button>
+        </section>
     </main>
 
     <footer>
