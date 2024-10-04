@@ -1,151 +1,87 @@
-// Store users and admin access in localStorage
-let users = JSON.parse(localStorage.getItem('users')) || [];
-let websiteAvailable = JSON.parse(localStorage.getItem('websiteAvailable')) || true;
+// User data management
+const users = JSON.parse(localStorage.getItem('users')) || [
+    { username: "admin", password: "admin", role: "admin" }
+];
 
-// Toggle website availability
-function toggleWebsiteAvailability() {
-    websiteAvailable = !websiteAvailable;
-    localStorage.setItem('websiteAvailable', JSON.stringify(websiteAvailable));
-    document.getElementById('admin-message').innerText = websiteAvailable ? 'Website is available' : 'Website is unavailable';
-    updateWebsiteStatus();
-}
+// Toggle login/signup forms
+const loginBtn = document.getElementById('login-btn');
+const signupBtn = document.getElementById('signup-btn');
+const loginForm = document.getElementById('login-form');
+const signupForm = document.getElementById('signup-form');
 
-// Update website status
-function updateWebsiteStatus() {
-    if (!websiteAvailable) {
-        document.body.innerHTML = '<h1>Website is currently unavailable</h1><p>Come back later!</p>';
-    }
-}
-
-// Sign Up a new user
-document.getElementById('signup-form')?.addEventListener('submit', function (e) {
-    e.preventDefault();
-    let username = document.getElementById('signup-username').value;
-    let password = document.getElementById('signup-password').value;
-    let email = document.getElementById('signup-email').value;
-
-    let user = { username, password, email, role: 'user' };
-    users.push(user);
-    localStorage.setItem('users', JSON.stringify(users));
-    alert('Account created successfully');
-    window.location.href = 'login.html';
-});
-
-// Login user
-document.getElementById('login-form')?.addEventListener('submit', function (e) {
-    e.preventDefault();
-    let username = document.getElementById('login-username').value;
-    let password = document.getElementById('login-password').value;
-
-    let user = users.find(user => user.username === username && user.password === password);
-    if (user) {
-        if (user.role === 'admin') {
-            window.location.href = 'admin-panel.html';
-        } else {
-            alert('Login successful');
-        }
-    } else {
-        alert('Invalid login credentials');
-    }
-});
-
-// Ban a user
-function banUser() {
-    let username = document.getElementById('ban-username').value;
-    let user = users.find(user => user.username === username);
-    if (user) {
-        user.banned = true;
-        localStorage.setItem('users', JSON.stringify(users));
-        alert('User has been banned');
-    } else {
-        alert('User not found');
-    }
-}
-
-// View users
-function viewUsers() {
-    let userList = document.getElementById('user-list');
-    let userListDisplay = document.getElementById('user-list-display');
-    userList.classList.toggle('hidden');
-
-    userListDisplay.innerHTML = '';
-    users.forEach(user => {
-        let li = document.createElement('li');
-        li.textContent = `${user.username} (${user.role}) ${user.banned ? ' [Banned]' : ''}`;
-        userListDisplay.appendChild(li);
+// Show/Hide Login Form
+if (loginBtn) {
+    loginBtn.addEventListener('click', () => {
+        loginForm.classList.toggle('show');
+        signupForm.classList.remove('show');
     });
 }
 
-// Automatically check website availability on load
-document.addEventListener('DOMContentLoaded', function () {
-    updateWebsiteStatus();
-});
-
-// Toggle login/signup forms
-const loginBtn = document.querySelector('.login-btn');
-const signupBtn = document.querySelector('.signup-btn');
-
-const loginForm = document.createElement('div');
-loginForm.classList.add('login-form');
-loginForm.innerHTML = `
-    <h2>Login</h2>
-    <input type="text" id="login-username" placeholder="Username" required>
-    <input type="password" id="login-password" placeholder="Password" required>
-    <button type="submit" id="login-submit">Login</button>
-`;
-document.body.appendChild(loginForm);
-
-const signupForm = document.createElement('div');
-signupForm.classList.add('signup-form');
-signupForm.innerHTML = `
-    <h2>Sign Up</h2>
-    <input type="text" id="signup-username" placeholder="Username" required>
-    <input type="password" id="signup-password" placeholder="Password" required>
-    <input type="email" id="signup-email" placeholder="Email" required>
-    <button type="submit" id="signup-submit">Sign Up</button>
-`;
-document.body.appendChild(signupForm);
-
-// Toggle forms visibility
-loginBtn.addEventListener('click', () => {
-    loginForm.classList.toggle('show');
-    signupForm.classList.remove('show');
-});
-
-signupBtn.addEventListener('click', () => {
-    signupForm.classList.toggle('show');
-    loginForm.classList.remove('show');
-});
-
-// Dummy user data for demo (replace with actual implementation)
-const users = JSON.parse(localStorage.getItem('users')) || [{username: "admin", password: "admin", role: "admin"}];
+// Show/Hide Signup Form
+if (signupBtn) {
+    signupBtn.addEventListener('click', () => {
+        signupForm.classList.toggle('show');
+        loginForm.classList.remove('show');
+    });
+}
 
 // Login Functionality
-document.getElementById('login-submit')?.addEventListener('click', function (e) {
-    const username = document.getElementById('login-username').value;
-    const password = document.getElementById('login-password').value;
+if (document.getElementById('login-submit')) {
+    document.getElementById('login-submit').addEventListener('click', function (e) {
+        const username = document.getElementById('login-username').value;
+        const password = document.getElementById('login-password').value;
 
-    const user = users.find(user => user.username === username && user.password === password);
-    
-    if (user) {
-        if (user.role === 'admin') {
-            window.location.href = 'admin-panel.html'; // Admin gets redirected to admin panel
+        const user = users.find(user => user.username === username && user.password === password);
+        
+        if (user) {
+            if (user.role === 'admin') {
+                window.location.href = 'admin-panel.html'; // Redirect to admin panel
+            } else {
+                alert('Login successful');
+            }
         } else {
-            alert('Login successful');
+            alert('Invalid login credentials');
         }
-    } else {
-        alert('Invalid credentials');
+    });
+}
+
+// Signup Functionality
+if (document.getElementById('signup-submit')) {
+    document.getElementById('signup-submit').addEventListener('click', function (e) {
+        const username = document.getElementById('signup-username').value;
+        const password = document.getElementById('signup-password').value;
+        const email = document.getElementById('signup-email').value;
+
+        const newUser = { username, password, email, role: 'user' };
+        users.push(newUser);
+        localStorage.setItem('users', JSON.stringify(users));
+        alert('Signup successful');
+    });
+}
+
+// Admin Panel Toggle Website Availability
+if (document.getElementById('toggle-availability')) {
+    document.getElementById('toggle-availability').addEventListener('click', function () {
+        const isUnavailable = localStorage.getItem('websiteUnavailable') === 'true';
+        if (isUnavailable) {
+            localStorage.setItem('websiteUnavailable', 'false');
+            alert('Website is now available.');
+        } else {
+            localStorage.setItem('websiteUnavailable', 'true');
+            alert('Website is now unavailable.');
+        }
+        window.location.reload();
+    });
+}
+
+// Checking if website is unavailable
+window.addEventListener('DOMContentLoaded', function () {
+    if (localStorage.getItem('websiteUnavailable') === 'true') {
+        document.body.innerHTML = `
+            <div style="text-align: center; padding-top: 20%;">
+                <h1 style="font-size: 3rem; color: #ff6600;">Website is Currently Unavailable</h1>
+                <p style="color: #ffffff;">Please check back later.</p>
+            </div>
+        `;
     }
-});
-
-// Sign Up Functionality
-document.getElementById('signup-submit')?.addEventListener('click', function (e) {
-    const username = document.getElementById('signup-username').value;
-    const password = document.getElementById('signup-password').value;
-    const email = document.getElementById('signup-email').value;
-
-    const newUser = { username, password, email, role: 'user' };
-    users.push(newUser);
-    localStorage.setItem('users', JSON.stringify(users));
-    alert('Signup successful');
 });
