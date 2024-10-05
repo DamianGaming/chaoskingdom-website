@@ -62,7 +62,7 @@ if (document.getElementById('signup-submit')) {
 // Admin Panel Toggle Website Availability
 if (document.getElementById('toggle-availability')) {
     document.getElementById('toggle-availability').addEventListener('click', function () {
-        const isUnavailable = localStorage.getItem('websiteUnavailable') === 'true';
+        const isUnavailable = localStorage.getItem('websiteUnavailable') === 'false';
         if (isUnavailable) {
             localStorage.setItem('websiteUnavailable', 'false');
             alert('Website is now available.');
