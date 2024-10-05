@@ -5,12 +5,13 @@ body {
   font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
-  background: linear-gradient(to right, #ff9a9e, #ff6a6a);  /* Brighter orange gradient */
+  background-color: #FFA500; /* Orange background */
   color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  text-align: center;
   padding-top: 80px; /* Add space for fixed header */
 }
 
