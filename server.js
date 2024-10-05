@@ -8,20 +8,20 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Static file serving for the HTML, CSS, and JS
-app.use(express.static('public'));
-
 // Session middleware for managing user sessions
 app.use(session({
   secret: 'your-secret-key', // Replace with your own secret
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: false } // In production, set to true if using HTTPS
+  cookie: { secure: false } // Set to true in production (requires HTTPS)
 }));
+
+// Serve static files from the 'public' directory
+app.use(express.static('public'));
 
 // Simulate a simple database for storing users (you can replace with a real DB)
 const users = [
-  { email: 'jurdzinskidamian77@gmail.com', password: bcrypt.hashSync('FuckMeBitch12!', 10), role: 'admin' }
+  { email: 'admin@chaoskingdom.com', password: bcrypt.hashSync('adminpassword', 10), role: 'admin' }
 ];
 
 // Route: Homepage
@@ -51,13 +51,15 @@ app.get('/user-dashboard', (req, res) => {
 app.post('/login', async (req, res) => {
   const { email, password } = req.body;
 
-  // Find user in the users array (replace this with DB query in real app)
+  // Find user in the users array (replace with a DB query in real app)
   const user = users.find(u => u.email === email);
 
   if (user && await bcrypt.compare(password, user.password)) {
+    // Store user info in session
     req.session.email = user.email;
     req.session.role = user.role;
 
+    // Redirect to the appropriate dashboard
     if (user.role === 'admin') {
       return res.status(200).json({ message: 'Admin Login Successful', redirect: '/admin-dashboard' });
     } else {
@@ -85,6 +87,11 @@ app.post('/signup', async (req, res) => {
   users.push({ email, password: hashedPassword, role: 'user' });
 
   return res.status(201).json({ message: 'Sign-Up Successful! Please log in.' });
+});
+
+// Catch-all route to handle 404 errors for undefined routes
+app.get('*', (req, res) => {
+  res.status(404).send('Page not found.');
 });
 
 // Start the server
