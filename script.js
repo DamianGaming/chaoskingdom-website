@@ -38,7 +38,7 @@ function setupAdminFeatures() {
     if (toggleAvailabilityBtn) {
         toggleAvailabilityBtn.addEventListener('click', function () {
             const currentStatus = localStorage.getItem('websiteUnavailable');
-            const newStatus = currentStatus === 'true' ? 'false' : 'true';
+            const newStatus = currentStatus === 'false' ? 'false' : 'true';
             localStorage.setItem('websiteUnavailable', newStatus);
             alert(`Website is now ${newStatus === 'true' ? 'unavailable' : 'available'}.`);
             window.location.reload();
