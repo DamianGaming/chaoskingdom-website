@@ -5,24 +5,29 @@ body {
   font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
-  background: linear-gradient(to right, #ffaf7b, #d76d77, #3a1c71);  /* Orange gradient */
+  background: linear-gradient(to right, #ff7e5f, #feb47b);  /* Orange gradient */
   color: #fff;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 header {
   background-color: #000;  /* Black header */
   padding: 20px 0;
+  text-align: center;
 }
 
 nav ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
+  display: flex;
+  justify-content: center;
 }
 
 nav ul li {
-  display: inline;
   margin: 0 15px;
 }
 
@@ -40,22 +45,27 @@ footer {
   position: absolute;
   width: 100%;
   bottom: 0;
+  text-align: center;
 }
 
 h1 {
-  margin-top: 40px;
+  margin-top: 20px;
   font-size: 36px;
   color: #fff;
 }
 
 section {
-  margin: 50px auto;
+  margin: 0 auto;
   width: 100%;
-  max-width: 500px;  /* Center content with max width */
+  max-width: 500px;
+  background-color: rgba(0, 0, 0, 0.7);  /* Dark transparent box */
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 p, h2, ul {
-  text-align: center;
   color: #fff;
 }
 
@@ -92,7 +102,7 @@ input[type="text"], input[type="email"], input[type="password"] {
   padding: 12px;
   border-radius: 25px;  /* Rounded edges */
   border: 2px solid #fff;
-  background-color: #3a1c71;
+  background-color: #222;
   color: white;
   font-size: 16px;
   text-align: center;
@@ -101,7 +111,7 @@ input[type="text"], input[type="email"], input[type="password"] {
 button[type="submit"] {
   padding: 12px 20px;
   border-radius: 25px;  /* Rounded button */
-  background-color: #d76d77;
+  background-color: #ff7e5f;
   color: white;
   font-size: 16px;
   border: none;
@@ -111,11 +121,11 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background-color: #ffaf7b;
+  background-color: #feb47b;
 }
 
 a {
-  color: #ffaf7b;
+  color: #ff7e5f;
   text-decoration: none;
 }
 
