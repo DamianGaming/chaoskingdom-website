@@ -3,26 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <title>Sign Up - ChaosKingdom</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <h1>Sign Up for ChaosKingdom</h1>
-        </header>
-        <main class="content">
-            <p>Join ChaosKingdom today! Build, explore, and battle in a vibrant world full of challenges and opportunities.</p>
-            <form id="signupForm">
-                <input type="text" id="username" placeholder="Username" required>
-                <input type="email" id="email" placeholder="Email" required>
-                <input type="password" id="password" placeholder="Password" required>
-                <button type="submit" class="cta-button">Sign Up</button>
-            </form>
-            <p>Already have an account? <a href="login.html">Log in here</a>.</p>
-        </main>
-    </div>
-    <script src="js/script.js"></script>
+    <header>
+        <div class="header-container">
+            <h1>ChaosKingdom</h1>
+        </div>
+    </header>
+    <main>
+        <section class="signup-section">
+            <div class="signup-box">
+                <h2>Sign Up</h2>
+                <form id="signupForm">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" required>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required>
+                    <button type="submit">Sign Up</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 ChaosKingdom. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
 </body>
 </html>
