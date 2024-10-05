@@ -76,6 +76,10 @@ if (document.getElementById('toggle-availability')) {
 
 // Checking if website is unavailable
 window.addEventListener('DOMContentLoaded', function () {
+    if (localStorage.getItem('websiteUnavailable') === null) {
+        localStorage.setItem('websiteUnavailable', 'false'); // Default to available
+    }
+    
     if (localStorage.getItem('websiteUnavailable') === 'true') {
         document.body.innerHTML = `
             <div style="text-align: center; padding-top: 20%;">
