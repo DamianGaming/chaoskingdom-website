@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt');
 const app = express();
 
 // MongoDB Connection
-mongoose.connect('mongodb://localhost:27017/chaoskingdomDB', {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb+srv://jurdzinskidamian77:i27alkUf0t8PQ8LT@ckmain.rml7c.mongodb.net/?retryWrites=true&w=majority&appName=CKMain', {useNewUrlParser: true, useUnifiedTopology: true});
 
 // User Schema
 const userSchema = new mongoose.Schema({
