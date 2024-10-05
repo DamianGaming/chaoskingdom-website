@@ -1,74 +1,94 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
-const session = require('express-session');
-const bcrypt = require('bcrypt');
+const session = require('express-session');  // For session management
+const bcrypt = require('bcrypt');  // For hashing passwords
 const app = express();
 
-// MongoDB Connection
-mongoose.connect('mongodb+srv://jurdzinskidamian77:i27alkUf0t8PQ8LT@ckmain.rml7c.mongodb.net/?retryWrites=true&w=majority&appName=CKMain', {useNewUrlParser: true, useUnifiedTopology: true});
-
-// User Schema
-const userSchema = new mongoose.Schema({
-    username: String,
-    email: String,
-    password: String,
-    isAdmin: Boolean
-});
-
-const User = mongoose.model('User', userSchema);
-
 // Middleware
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(session({ secret: 'mySecret', resave: false, saveUninitialized: false }));
-app.use(express.static("public"));
 
-// Register route
-app.post('/signup', (req, res) => {
-    const hashedPassword = bcrypt.hashSync(req.body.password, 10);
-    const newUser = new User({
-        username: req.body.username,
-        email: req.body.email,
-        password: hashedPassword,
-        isAdmin: false
-    });
-    newUser.save(err => {
-        if (!err) {
-            res.redirect('/login');
-        } else {
-            res.send('Error signing up.');
-        }
-    });
+// Static file serving for the HTML, CSS, and JS
+app.use(express.static('public'));
+
+// Session middleware for managing user sessions
+app.use(session({
+  secret: 'your-secret-key', // Replace with your own secret
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false } // In production, set to true if using HTTPS
+}));
+
+// Simulate a simple database for storing users (you can replace with a real DB)
+const users = [
+  { email: 'jurdzinskidamian77@gmail.com', password: bcrypt.hashSync('FuckMeBitch12!', 10), role: 'admin' }
+];
+
+// Route: Homepage
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/public/index.html');
 });
 
-// Login route
-app.post('/login', (req, res) => {
-    const email = req.body.email;
-    const password = req.body.password;
-    User.findOne({ email: email }, (err, foundUser) => {
-        if (foundUser) {
-            if (bcrypt.compareSync(password, foundUser.password)) {
-                req.session.user = foundUser;
-                res.redirect('/dashboard');
-            } else {
-                res.send('Incorrect password.');
-            }
-        } else {
-            res.send('No user found.');
-        }
-    });
+// Route: Admin Dashboard
+app.get('/admin-dashboard', (req, res) => {
+  if (req.session.role === 'admin') {
+    res.send('<h1>Welcome Admin to your Dashboard</h1>');
+  } else {
+    res.status(403).send('Forbidden: You are not authorized to access this page.');
+  }
 });
 
-// Admin Dashboard
-app.get('/dashboard', (req, res) => {
-    if (req.session.user && req.session.user.isAdmin) {
-        res.send('Welcome to Admin Dashboard');
+// Route: User Dashboard
+app.get('/user-dashboard', (req, res) => {
+  if (req.session.role === 'user') {
+    res.send('<h1>Welcome User to your Dashboard</h1>');
+  } else {
+    res.status(403).send('Forbidden: You are not authorized to access this page.');
+  }
+});
+
+// Route: Login (POST)
+app.post('/login', async (req, res) => {
+  const { email, password } = req.body;
+
+  // Find user in the users array (replace this with DB query in real app)
+  const user = users.find(u => u.email === email);
+
+  if (user && await bcrypt.compare(password, user.password)) {
+    req.session.email = user.email;
+    req.session.role = user.role;
+
+    if (user.role === 'admin') {
+      return res.status(200).json({ message: 'Admin Login Successful', redirect: '/admin-dashboard' });
     } else {
-        res.send('Unauthorized');
+      return res.status(200).json({ message: 'User Login Successful', redirect: '/user-dashboard' });
     }
+  } else {
+    return res.status(401).json({ message: 'Invalid email or password' });
+  }
 });
 
-// Start server
-app.listen(3000, () => {
-    console.log('Server started on port 3000');
+// Route: Signup (POST)
+app.post('/signup', async (req, res) => {
+  const { username, email, password } = req.body;
+
+  // Check if user already exists
+  const userExists = users.some(user => user.email === email);
+  if (userExists) {
+    return res.status(400).json({ message: 'User already exists' });
+  }
+
+  // Hash the password before saving it
+  const hashedPassword = await bcrypt.hash(password, 10);
+
+  // Save new user (replace this with a DB insert in real app)
+  users.push({ email, password: hashedPassword, role: 'user' });
+
+  return res.status(201).json({ message: 'Sign-Up Successful! Please log in.' });
+});
+
+// Start the server
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
 });
