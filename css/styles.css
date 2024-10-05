@@ -5,18 +5,23 @@ body {
   font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
-  background: linear-gradient(to right, #ff7e5f, #feb47b);  /* Orange gradient */
+  background: linear-gradient(to right, #ff9a9e, #ff6a6a);  /* Brighter orange gradient */
   color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  padding-top: 80px; /* Add space for fixed header */
 }
 
 header {
   background-color: #000;  /* Black header */
   padding: 20px 0;
   text-align: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
 nav ul {
@@ -42,10 +47,10 @@ footer {
   background-color: #000;
   color: white;
   padding: 20px 0;
-  position: absolute;
-  width: 100%;
-  bottom: 0;
   text-align: center;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
 }
 
 h1 {
@@ -101,7 +106,7 @@ input[type="text"], input[type="email"], input[type="password"] {
   width: 100%;
   padding: 12px;
   border-radius: 25px;  /* Rounded edges */
-  border: 2px solid #fff;
+  border: none;  /* Removed border */
   background-color: #222;
   color: white;
   font-size: 16px;
@@ -111,7 +116,7 @@ input[type="text"], input[type="email"], input[type="password"] {
 button[type="submit"] {
   padding: 12px 20px;
   border-radius: 25px;  /* Rounded button */
-  background-color: #ff7e5f;
+  background-color: #ff9a9e;
   color: white;
   font-size: 16px;
   border: none;
@@ -121,11 +126,11 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background-color: #feb47b;
+  background-color: #ff6a6a;
 }
 
 a {
-  color: #ff7e5f;
+  color: #ff9a9e;
   text-decoration: none;
 }
 
