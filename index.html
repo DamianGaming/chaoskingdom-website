@@ -3,31 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChaosKingdom - Home</title>
+    <title>ChaosKingdom Server Status</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <div class="header-container">
-            <h1>ChaosKingdom</h1>
-            <nav>
-                <a href="login.html">Login</a>
-                <a href="signup.html">Sign Up</a>
-            </nav>
-        </div>
-    </header>
-    <main>
-        <section class="welcome-section">
-            <h2>Welcome to ChaosKingdom</h2>
-            <p>Your ultimate Minecraft experience awaits!</p>
-            <div class="info-box">
-                <p>Explore the world of chaos, creativity, and adventure. Whether you're building, fighting, or exploring, ChaosKingdom has something for everyone.</p>
+    <div class="status-page">
+        <h1>ChaosKingdom Server Status</h1>
+
+        <!-- Minecraft Server Status -->
+        <div class="server-status">
+            <h2>Server</h2>
+            <div class="status-item">
+                <span>Minecraft Server:</span>
+                <span id="server-status" class="offline">Offline</span>
             </div>
-        </section>
-    </main>
-    <footer>
-        <p>© 2024 ChaosKingdom. All rights reserved.</p>
-    </footer>
+        </div>
+
+        <!-- Web Status -->
+        <div class="web-status">
+            <h2>Web</h2>
+            <div class="status-item">
+                <span>Main Website:</span>
+                <span id="website-status" class="online">Online</span>
+            </div>
+            <div class="status-item">
+                <span>User Panel:</span>
+                <span id="userpanel-status" class="maintenance">Maintenance</span>
+            </div>
+        </div>
+
+        <!-- Game Mode Status -->
+        <div class="minecraft-status">
+            <h2>Minecraft Game Modes</h2>
+            <div class="status-item">
+                <span>Survival:</span>
+                <span id="survival-status" class="online">Online</span>
+            </div>
+            <div class="status-item">
+                <span>Bedwars:</span>
+                <span id="bedwars-status" class="offline">Offline</span>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 ChaosKingdom. Last updated: <span id="last-updated">2024-10-14 12:00:00</span></p>
+        </footer>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
