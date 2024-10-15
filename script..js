@@ -6,14 +6,14 @@ function updateStatus() {
     const minecraftServerStatus = 'Online';
 
     // Website status: 'Online' or 'Offline'
-    const websiteStatus = 'Online';
+    const websiteStatus = 'Offline';
     
     // User Panel status: 'Online', 'Offline', or 'Maintenance'
-    const userPanelStatus = 'Maintenance';
+    const userPanelStatus = 'Offline';
     
     // Game modes status
     const survivalStatus = 'Online'; // 'Online' or 'Offline'
-    const bedwarsStatus = 'Offline'; // 'Online' or 'Offline'
+    const bedwarsStatus = 'Online'; // 'Online' or 'Offline'
 
     // Update the text in the HTML and the CSS class for color coding
     setStatus('server-status', minecraftServerStatus);
