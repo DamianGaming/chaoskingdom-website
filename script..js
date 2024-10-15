@@ -1,43 +1,46 @@
-// Login Function
-function loginUser(email, password) {
-    // Admin login logic
-    if (email === 'admin@chaoskingdom.com' && password === 'adminpassword') {
-        localStorage.setItem('user', JSON.stringify({ email, role: 'admin', username: 'Admin' }));
-        alert('Welcome Admin!');
-        window.location.href = 'about.html';
-    } else {
-        // Regular user login
-        const user = JSON.parse(localStorage.getItem('user'));
-        if (user && user.email === email && user.password === password) {
-            alert('Welcome ' + user.username);
-            window.location.href = 'about.html';
-        } else {
-            alert('Invalid login credentials');
-        }
+// Function to manually update all statuses
+function updateStatus() {
+    // Manually set each status here
+
+    // Server status: 'Online' or 'Offline'
+    const minecraftServerStatus = 'Online';
+
+    // Website status: 'Online' or 'Offline'
+    const websiteStatus = 'Online';
+    
+    // User Panel status: 'Online', 'Offline', or 'Maintenance'
+    const userPanelStatus = 'Maintenance';
+    
+    // Game modes status
+    const survivalStatus = 'Online'; // 'Online' or 'Offline'
+    const bedwarsStatus = 'Offline'; // 'Online' or 'Offline'
+
+    // Update the text in the HTML and the CSS class for color coding
+    setStatus('server-status', minecraftServerStatus);
+    setStatus('website-status', websiteStatus);
+    setStatus('userpanel-status', userPanelStatus);
+    setStatus('survival-status', survivalStatus);
+    setStatus('bedwars-status', bedwarsStatus);
+
+    // Update the last updated time
+    document.getElementById('last-updated').innerText = new Date().toLocaleString();
+}
+
+// Helper function to set the status in the HTML
+function setStatus(elementId, status) {
+    const element = document.getElementById(elementId);
+    element.innerText = status;
+    element.classList.remove('online', 'offline', 'maintenance');
+
+    // Add the appropriate class for color coding
+    if (status === 'Online') {
+        element.classList.add('online');
+    } else if (status === 'Offline') {
+        element.classList.add('offline');
+    } else if (status === 'Maintenance') {
+        element.classList.add('maintenance');
     }
 }
 
-// Sign Up Function
-function signUpUser(username, email, password) {
-    // Store user data in local storage
-    localStorage.setItem('user', JSON.stringify({ username, email, password, role: 'user' }));
-    alert('Sign-up successful! Redirecting to login page.');
-    window.location.href = 'login.html';
-}
-
-// Login Form Submission
-document.getElementById('loginForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    loginUser(email, password);
-});
-
-// Signup Form Submission
-document.getElementById('signupForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const username = document.getElementById('username').value;
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    signUpUser(username, email, password);
-});
+// Call the updateStatus function to set initial values
+updateStatus();
