@@ -1,77 +1,51 @@
-/* Global Styles */
 body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(to bottom, #FFA500, #FF8C00);
-    margin: 0;
-    padding: 0;
+    font-family: Arial, sans-serif;
+    background: url('background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    text-align: center;
+}
+
+.status-page {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    margin: auto;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 1.8em;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.status-item {
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
-    min-height: 100vh;
+    padding: 10px 0;
+    border-bottom: 1px solid white;
 }
 
-/* Header */
-header {
-    background-color: black;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    position: sticky;
-    top: 0;
-    width: 100%;
+.online {
+    color: #00FF00;
 }
 
-/* Footer */
+.offline {
+    color: #FF0000;
+}
+
+.maintenance {
+    color: #FFA500;
+}
+
 footer {
-    background-color: black;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-}
-
-/* Main Content */
-main {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-/* Info Boxes and Forms */
-.info-box, .login-box, .signup-box {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    max-width: 400px;
-    width: 100%;
-    margin: 20px;
-}
-
-/* Form Inputs and Buttons */
-input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 10px;
-    border: none;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-button {
-    padding: 10px 20px;
-    background-color: black;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-button:hover {
-    background-color: #444;
+    margin-top: 20px;
+    font-size: 0.8em;
 }
