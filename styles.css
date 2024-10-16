@@ -1,51 +1,69 @@
+/* General Page Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     background: url('background.jpg') no-repeat center center fixed;
     background-size: cover;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: white;
-    text-align: center;
 }
 
+/* Centering the status page */
 .status-page {
-    background: rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 500px;
-    margin: auto;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.75);
+    padding: 40px;
+    border-radius: 15px;
+    max-width: 450px;
+    text-align: center;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
 }
 
+/* Heading styles */
 h1 {
     font-size: 2.5em;
     margin-bottom: 20px;
+    font-weight: 600;
+    letter-spacing: 2px;
 }
 
 h2 {
-    font-size: 1.8em;
+    font-size: 1.6em;
     margin-top: 30px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    font-weight: 400;
+    color: #FFD700; /* A nice gold color for section titles */
 }
 
+/* Status item styling */
 .status-item {
     display: flex;
     justify-content: space-between;
-    padding: 10px 0;
-    border-bottom: 1px solid white;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 1.2em;
 }
 
+/* Status colors */
 .online {
-    color: #00FF00;
+    color: #00FF00; /* Bright green for online */
 }
 
 .offline {
-    color: #FF0000;
-}
-
-.maintenance {
-    color: #FFA500;
+    color: #FF0000; /* Bright red for offline/unavailable */
 }
 
 footer {
-    margin-top: 20px;
+    margin-top: 30px;
     font-size: 0.8em;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Smooth hover effect */
+.status-item span:last-child:hover {
+    transform: scale(1.1);
+    transition: all 0.2s ease-in-out;
 }
