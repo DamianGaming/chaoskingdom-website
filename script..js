@@ -1,24 +1,14 @@
 // Function to manually update all statuses
 function updateStatus() {
-    // Manually set each status here
-
-    // Server status: 'Online' or 'Offline'
-    const minecraftServerStatus = 'Online';
-
-    // Website status: 'Online' or 'Offline'
-    const websiteStatus = 'Offline';
-    
-    // User Panel status: 'Online', 'Offline', or 'Maintenance'
-    const userPanelStatus = 'Offline';
-    
-    // Game modes status
+    // Set each status manually here
+    const minecraftServerStatus = 'Online'; // 'Online' or 'Offline'
+    const websiteStatus = 'Unavailable'; // 'Unavailable' or 'Online'
     const survivalStatus = 'Online'; // 'Online' or 'Offline'
     const bedwarsStatus = 'Online'; // 'Online' or 'Offline'
 
     // Update the text in the HTML and the CSS class for color coding
     setStatus('server-status', minecraftServerStatus);
     setStatus('website-status', websiteStatus);
-    setStatus('userpanel-status', userPanelStatus);
     setStatus('survival-status', survivalStatus);
     setStatus('bedwars-status', bedwarsStatus);
 
@@ -30,15 +20,13 @@ function updateStatus() {
 function setStatus(elementId, status) {
     const element = document.getElementById(elementId);
     element.innerText = status;
-    element.classList.remove('online', 'offline', 'maintenance');
+    element.classList.remove('online', 'offline');
 
     // Add the appropriate class for color coding
     if (status === 'Online') {
         element.classList.add('online');
-    } else if (status === 'Offline') {
+    } else if (status === 'Unavailable' || status === 'Offline') {
         element.classList.add('offline');
-    } else if (status === 'Maintenance') {
-        element.classList.add('maintenance');
     }
 }
 
